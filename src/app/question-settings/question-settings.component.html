@@ -4,15 +4,33 @@
   <mat-form-field appearance="outline" class="mat-select-outer">
     <mat-select [(value)]="selected">
       <mat-option value="multipleChoice">
-        <mat-icon>list</mat-icon>
+        <mat-icon>format_list_bulleted</mat-icon>
         <span>Multiple Choice</span>
       </mat-option>
-      <mat-option value="statement">Statement</mat-option>
-      <mat-option value="scale">Scale</mat-option>
-      <mat-option value="select">Select</mat-option>
-      <mat-option value="textEntry">Text Entry</mat-option>
-      <mat-option value="rank">Rank</mat-option>
-      <mat-option value="fileUpload">File Upload</mat-option>
+      <mat-option value="statement">
+        <mat-icon>format_quote</mat-icon>
+        <span>Statement</span>
+      </mat-option>
+      <mat-option value="scale">
+        <mat-icon>star_outline</mat-icon>
+        <span>Scale</span>
+      </mat-option>
+      <mat-option value="select">
+        <mat-icon>unfold_more</mat-icon>
+        <span>Select</span>
+      </mat-option>
+      <mat-option value="textEntry">
+        <mat-icon>notes</mat-icon>
+        <span>Text Entry</span>
+      </mat-option>
+      <mat-option value="rank">
+        <mat-icon>swap_vert</mat-icon>
+        <span>Rank</span>
+      </mat-option>
+      <mat-option value="fileUpload">
+        <mat-icon>attachment</mat-icon>
+        <span>File Upload</span>
+      </mat-option>
     </mat-select>
   </mat-form-field>
 </div>
@@ -31,7 +49,11 @@
 </div>
 <!-- Allow multiple answers -->
 <mat-slide-toggle class="sbc-settings-item">Multiple answers</mat-slide-toggle>
-<mat-slide-toggle class="sbc-settings-item">Insert image</mat-slide-toggle>
+<div class="sbc-settings-item" style="display: flex; align-items: center;">
+  <span>Insert image</span>
+  <button mat-stroked-button (click)="openAddImageDialog()" style="line-height: 28px; min-width: 0; padding: 0 8px; margin: 8px 0; margin-left: auto;">Add</button>
+</div>
+<!-- <mat-slide-toggle class="sbc-settings-item">Insert image</mat-slide-toggle> -->
 <mat-slide-toggle class="sbc-settings-item">Insert video</mat-slide-toggle><!-- Answer order -->
 <div class="sbc-settings-item">
   <mat-slide-toggle>Custom sort order</mat-slide-toggle>
@@ -45,3 +67,19 @@
   </mat-form-field>
 </div>
 <mat-slide-toggle class="sbc-settings-item">Hide image labels</mat-slide-toggle>
+
+
+
+<!-- <ol>
+  <li>
+    <mat-form-field>
+      <input matInput [(ngModel)]="name" placeholder="What's your name?">
+    </mat-form-field>
+  </li>
+  <li>
+    <button mat-raised-button (click)="openDialog()">Pick one</button>
+  </li>
+  <li *ngIf="animal">
+    You chose: <i>{{animal}}</i>
+  </li>
+</ol> -->

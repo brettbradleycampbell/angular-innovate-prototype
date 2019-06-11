@@ -53,6 +53,9 @@ import { ShareComponent } from './share/share.component';
 import { ResultsComponent } from './results/results.component';
 import { ThemesComponent } from './themes/themes.component';
 import { LibraryComponent } from './library/library.component';
+import { DialogImageComponent } from './dialog-image/dialog-image.component';
+import { DialogLogicComponent } from './dialog-logic/dialog-logic.component';
+import { DialogLibraryComponent } from './dialog-library/dialog-library.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +72,9 @@ import { LibraryComponent } from './library/library.component';
     ResultsComponent,
     ThemesComponent,
     LibraryComponent,
+    DialogImageComponent,
+    DialogLogicComponent,
+    DialogLibraryComponent,
   ],
   imports: [
     BrowserModule,
@@ -110,7 +116,13 @@ import { LibraryComponent } from './library/library.component';
     AppRoutingModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    DialogImageComponent,
+    DialogLogicComponent,
+    DialogLibraryComponent,
+  ]
+
 })
 
 export class AppModule { }

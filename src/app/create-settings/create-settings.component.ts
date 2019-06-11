@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateSettingsComponent implements OnInit {
 
+
+  selected='default';
+  selected2='default2';
+  selected3=true;
+
   constructor() { }
 
   ngOnInit() {

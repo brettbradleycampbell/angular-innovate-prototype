@@ -274,7 +274,7 @@
     padding: $global-padding-large $global-padding-large/1.5;
   }
 
-  padding-right: 7px; // to match alignment of question group settings icon.
+  padding-right: 8px; // to match alignment of question group settings icon.
   position: relative;
   // transition: background-color, .2s; // this was causing weird reload side effects / adding/removing top and bottom border.
 
@@ -405,6 +405,7 @@
     }
     border-top: $light-border;
     border-bottom: $light-border;
+    padding-right: 40px;
 
     // border-right: none;
     // &:after { // trying to make the menu connect to the outer, and hide the border in between.
@@ -455,6 +456,7 @@
   }
   &:hover {
     .button-add-question,
+    .sbc-question-icons,
     .button-move-question {
       visibility: visible;
     }

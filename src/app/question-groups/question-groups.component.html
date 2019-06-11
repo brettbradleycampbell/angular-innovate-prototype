@@ -29,10 +29,43 @@
       <button mat-button [matMenuTriggerFor]="addQuestionMenu" class="split-button-right">
         <mat-icon>arrow_drop_down</mat-icon>
       </button>
-      <mat-menu #addQuestionMenu="matMenu">
-        <button mat-menu-item>Page break</button>
-        <button mat-menu-item>Import from Library</button>
-        <button mat-menu-item>Multiple choice</button>
+      <mat-menu #addQuestionMenu="matMenu" yPosition="below">
+        <button mat-menu-item>
+          <span>Page Break</span>
+        </button>
+        <button mat-menu-item (click)="openLibraryDialog()">
+          <span>Import from Library</span>
+        </button>
+        <hr>
+        <button mat-menu-item>
+          <mat-icon>format_list_bulleted</mat-icon>
+          <span>Multiple Choice</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>format_quote</mat-icon>
+          <span>Statement</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>star_outline</mat-icon>
+          <span>Scale</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>unfold_more</mat-icon>
+          <span>Select</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>notes</mat-icon>
+          <span>Text Entry</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>swap_vert</mat-icon>
+          <span>Rank</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>attachment</mat-icon>
+          <span>File Upload</span>
+        </button>
+
       </mat-menu>
     </div>
   </div>
@@ -56,13 +89,11 @@
       <button mat-button class="split-button-left">
         New Group
       </button>
-      <button mat-button [matMenuTriggerFor]="addQuestionMenu" class="split-button-right">
+      <button mat-button [matMenuTriggerFor]="addGroupMenu" class="split-button-right">
         <mat-icon>arrow_drop_down</mat-icon>
       </button>
-      <mat-menu #addQuestionMenu="matMenu">
-        <button mat-menu-item>Page break</button>
+      <mat-menu #addGroupMenu="matMenu">
         <button mat-menu-item>Import from Library</button>
-        <button mat-menu-item>Multiple choice</button>
       </mat-menu>
     </div>
   </div>

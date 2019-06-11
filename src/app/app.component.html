@@ -3,7 +3,7 @@
     <section class="mdc-top-app-bar__section">
       <div class="app-header__item">
         <span>
-          <a href="#"><img src="assets/images/innovate-logo-placeholder-black.png" class="innovate-logo"></a>
+          <a href="#"><img src="https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/innovate-logo-placeholder-black.png?raw=true" class="innovate-logo"></a>
         </span>
       </div>
       <!-- <div class="app-header__item">
@@ -29,7 +29,7 @@
 
       </div>
       <div class="app-header__item">
-        <button mat-stroked-button>
+        <button mat-stroked-button class="icon-text-button icon-left">
           <mat-icon>person</mat-icon>
           <span>Matt Dusig</span>
         </button>
@@ -39,7 +39,7 @@
   <div class="mdc-top-app-bar__row header-row-two">
     <section class="mdc-top-app-bar__section header-nav-links">
 
-      <nav mat-tab-nav-bar disableRipple>
+      <nav mat-tab-nav-bar disableRipple class="custom-tabs">
         <!-- These made the ink-bar work: https://stackoverflow.com/questions/46949520/angular-material-2-mat-ink-bar-not-showing-in-mat-tab-nav-bar -->
         <!-- https://stackblitz.com/edit/angular-po4uyy?file=app%2Ftab-nav-bar-basic-example.html -->
         <a mat-tab-link [routerLink]="['/create/content']"  #rla="routerLinkActive" [active]="rla.isActive" routerLinkActive>Create </a>
@@ -54,7 +54,7 @@
         <span style="color: #a2a3a7; text-decoration: underline;">Saving...</span>
       </div>
       <div class="app-header__item">
-        <button mat-flat-button color="primary" onclick="window.open('/innovate-ui-prototype/survey-preview.html'); return false;">
+        <button mat-flat-button color="primary" onclick="window.open(''); return false;" class="icon-text-button icon-right">
           <span>View</span>
           <mat-icon>open_in_new</mat-icon>
         </button>

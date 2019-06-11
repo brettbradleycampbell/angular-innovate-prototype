@@ -39,8 +39,9 @@
         </button>
         <mat-menu #qMenu="matMenu">
           <button mat-menu-item>Move</button>
-          <button mat-menu-item>Edit Logic</button>
+          <button mat-menu-item (click)="openAddLogicDialog()">Edit Logic</button>
           <button mat-menu-item>Duplicate</button>
+          <hr>
           <button mat-menu-item>Delete</button>
         </mat-menu>
       </div>
@@ -51,9 +52,19 @@
           <mat-icon>arrow_drop_down</mat-icon>
         </button>
         <mat-menu #atlMenu="matMenu">
+          <button mat-menu-item>Anchor</button>
           <button mat-menu-item>Make exclusive</button>
+          <hr>
+          <button mat-menu-item style="padding-left: 8px;">
+            <mat-icon style="margin-right: 4px;">arrow_drop_up</mat-icon>
+            <span>Move up</span>
+          </button>
+          <button mat-menu-item style="padding-left: 8px;">
+            <mat-icon style="margin-right: 4px;">arrow_drop_down</mat-icon>
+            <span>Move down</span>
+          </button>
+          <hr>
           <button mat-menu-item>Remove</button>
-          <button mat-menu-item>Move up/down</button>
         </mat-menu>
 
         <span class="sbc-atl-image-thumbnail" *ngIf="question.questionType == 'multipleChoiceImage' || question.questionType == 'rankImage'" [ngClass]="{'yosemite':answers === 'Yosemite', 'yellowstone':answers === 'Yellowstone', 'niagra-falls':answers === 'Niagra Falls', 'no-image':answers === 'Choice 4'}">
@@ -62,9 +73,9 @@
         </span>
 
         <style>
-          .sbc-atl-image-thumbnail.yosemite {background-image: url(assets/images/yosemite.jpg);}
-          .sbc-atl-image-thumbnail.yellowstone {background-image: url(assets/images/yellowstone.jpg);}
-          .sbc-atl-image-thumbnail.niagra-falls {background-image: url(assets/images/niagra-falls.jpg);}
+          .sbc-atl-image-thumbnail.yosemite {background-image: url(https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/yosemite.jpg?raw=true);}
+          .sbc-atl-image-thumbnail.yellowstone {background-image: url(https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/yellowstone.jpg?raw=true);}
+          .sbc-atl-image-thumbnail.niagra-falls {background-image: url(https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/niagra-falls.jpg?raw=true);}
         </style>
 
         <span class="sbc-atl-text" [ngClass]="{'sbc-atl-text-with-image':question.questionType === 'multipleChoiceImage' || question.questionType === 'rankImage'}">{{answers}}</span>
@@ -137,10 +148,43 @@
     <button mat-button [matMenuTriggerFor]="addQuestionMenu" class="split-button-right">
       <mat-icon>arrow_drop_down</mat-icon>
     </button>
-    <mat-menu #addQuestionMenu="matMenu">
-      <button mat-menu-item>Page break</button>
-      <button mat-menu-item>Import from Library</button>
-      <button mat-menu-item>Multiple choice</button>
+    <mat-menu #addQuestionMenu="matMenu" yPosition="below">
+      <button mat-menu-item>
+        <span>Page Break</span>
+      </button>
+      <button mat-menu-item (click)="openLibraryDialog()">
+        <span>Import from Library</span>
+      </button>
+      <hr>
+      <button mat-menu-item>
+        <mat-icon>format_list_bulleted</mat-icon>
+        <span>Multiple Choice</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>format_quote</mat-icon>
+        <span>Statement</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>star_outline</mat-icon>
+        <span>Scale</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>unfold_more</mat-icon>
+        <span>Select</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>notes</mat-icon>
+        <span>Text Entry</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>swap_vert</mat-icon>
+        <span>Rank</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>attachment</mat-icon>
+        <span>File Upload</span>
+      </button>
+
     </mat-menu>
   </div>
 

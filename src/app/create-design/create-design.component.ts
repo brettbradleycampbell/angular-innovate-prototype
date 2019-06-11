@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateDesignComponent implements OnInit {
 
+  selected2='roboto';
+  selected4='normal';
+  selected5='none';
+
   // Show/hide Customize tab hack
   menuOpen = false;
   constructor() {

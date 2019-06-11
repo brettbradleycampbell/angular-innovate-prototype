@@ -1,0 +1,20 @@
+.icon-text-button {
+  .mat-icon.material-icons {
+    height: auto;
+    width: auto;
+    font-size: 18px;
+  }
+  &.icon-left {
+    padding-left: 12px;
+    .mat-icon.material-icons {
+      margin-right: 8px;
+    }
+  }
+  &.icon-right {
+    padding-right: 12px;
+    .mat-icon.material-icons {
+      margin-left: 8px;
+    }
+  }
+
+}

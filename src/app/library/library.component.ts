@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LibraryComponent implements OnInit {
 
+  selected='all';
+
   constructor() { }
 
   ngOnInit() {

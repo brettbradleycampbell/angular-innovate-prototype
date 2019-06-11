@@ -95,16 +95,31 @@
     // }
   }
 
+
+
+
+}
+
+
+.custom-tabs {
+
+
+  .mat-tab-header {
+    background: $white;
+  }
+
   .mat-tab-nav-bar {
     border-bottom-color: transparent;
   }
-  .mat-tab-link {
+  .mat-tab-link,
+  .mat-tab-label {
     height: $header-row-two-height;
     min-width: 80px;
     opacity: 1;
     font-weight: 400;
   }
-  .mat-tab-link.mat-tab-label-active {
+  .mat-tab-link.mat-tab-label-active,
+  .mat-tab-label-active .mat-tab-label-content {
     color: #3F51B5;
     font-weight: 500;
   }
@@ -112,7 +127,6 @@
     background-color: #3F51B5;
     transition: .25s cubic-bezier(.35,0,.25,1);
   }
-
 
 }
 

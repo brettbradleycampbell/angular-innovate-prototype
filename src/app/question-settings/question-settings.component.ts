@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {VERSION, MatDialog, MatDialogRef} from '@angular/material';
+import { DialogImageComponent } from '../dialog-image/dialog-image.component';
 
 @Component({
   selector: 'app-question-settings',
@@ -7,9 +9,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionSettingsComponent implements OnInit {
 
-  constructor() { }
+  selected='multipleChoice';
+  selected2='age';
+  selected3='random';
+
+  // constructor() { }
 
   ngOnInit() {
   }
+
+  //
+  // Add Image Dialog
+
+  version = VERSION;
+
+  imageNameDialogRef: MatDialogRef<DialogImageComponent>;
+
+  constructor(private dialog: MatDialog) {}
+
+  images = [
+    { name: 'foo.js', content: ''},
+    { name: 'bar.js', content: ''}
+  ];
+
+  openAddImageDialog() {
+    this.imageNameDialogRef = this.dialog.open(DialogImageComponent, {
+      // width: '250px',
+      panelClass: 'dialog-image',
+      // data: {name: this.name, animal: this.animal}
+    });
+  }
+  //
+  //
+
 
 }
