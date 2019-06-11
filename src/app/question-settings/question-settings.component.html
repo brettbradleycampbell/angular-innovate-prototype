@@ -1,0 +1,47 @@
+<!-- Question Type -->
+<div class="sbc-settings-item">
+  <mat-label>Question Type</mat-label>
+  <mat-form-field appearance="outline" class="mat-select-outer">
+    <mat-select [(value)]="selected">
+      <mat-option value="multipleChoice">
+        <mat-icon>list</mat-icon>
+        <span>Multiple Choice</span>
+      </mat-option>
+      <mat-option value="statement">Statement</mat-option>
+      <mat-option value="scale">Scale</mat-option>
+      <mat-option value="select">Select</mat-option>
+      <mat-option value="textEntry">Text Entry</mat-option>
+      <mat-option value="rank">Rank</mat-option>
+      <mat-option value="fileUpload">File Upload</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<mat-slide-toggle class="sbc-settings-item">Required</mat-slide-toggle>
+<div class="sbc-settings-item">
+  <!-- Preset answers -->
+  <mat-slide-toggle>Preset answers</mat-slide-toggle>
+  <mat-form-field appearance="outline" class="mat-select-outer mat-sub-select">
+    <mat-select [(value)]="selected2">
+      <mat-option value="age">Age</mat-option>
+      <mat-option value="usSates">U.S. States</mat-option>
+      <mat-option value="education">Education</mat-option>
+      <mat-option value="gender">Gender</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<!-- Allow multiple answers -->
+<mat-slide-toggle class="sbc-settings-item">Multiple answers</mat-slide-toggle>
+<mat-slide-toggle class="sbc-settings-item">Insert image</mat-slide-toggle>
+<mat-slide-toggle class="sbc-settings-item">Insert video</mat-slide-toggle><!-- Answer order -->
+<div class="sbc-settings-item">
+  <mat-slide-toggle>Custom sort order</mat-slide-toggle>
+    <mat-form-field appearance="outline" class="mat-select-outer mat-sub-select">
+    <mat-select [(value)]="selected3">
+      <mat-option value="random">Random</mat-option>
+      <mat-option value="alphabetical">Alphabetical</mat-option>
+      <mat-option value="low">Lowest to Highest</mat-option>
+      <mat-option value="high">Highest to Lowest</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<mat-slide-toggle class="sbc-settings-item">Hide image labels</mat-slide-toggle>

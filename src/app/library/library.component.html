@@ -1,0 +1,81 @@
+<!-- Dashboard -->
+<style>
+  /deep/ .app-header .header-breadcrumbs .breadcrumb-link {color: #2b2b2b;}
+  /deep/ .header-row-two, /deep/ .breadcrumb-current, /deep/ .pause-play-survey {display: none;}
+</style>
+<div class="dashboard-wrapper sbc-columns-wrapper">
+
+  <div class="sbc-column settings-menu" id="template-list" style="padding: 0; max-width: 320px; position: relative; background: #fff;">
+
+    <div class="settings-menu-top" style="font-size: inherit; align-items: flex-start; padding: 16px; flex-direction: column;">
+      <h3 class="settings-header">Survey library</h3>
+
+      <mat-form-field appearance="outline" class="mat-select-outer">
+        <mat-select [(value)]="selected">
+          <mat-option value="all">All Templates</mat-option>
+          <mat-option value="customer">Customer Service</mat-option>
+          <mat-option value="market">Market Research</mat-option>
+          <mat-option value="demographic">Demographic</mat-option>
+          <mat-option value="academic">Academic</mat-option>
+          <mat-option value="other">Other Category</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="">
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput>
+      </mat-form-field>
+
+    </div>
+
+    <div class="settings-menu-bottom" style="background: #fff; margin-top: 153px;">
+      <mat-selection-list>
+        <mat-list-option >Market Research Survey</mat-list-option>
+        <mat-list-option >Customer Satisfaction Survey</mat-list-option>
+        <mat-list-option >Demographics Questionnaire</mat-list-option>
+        <mat-list-option >Saved Survey 2</mat-list-option>
+        <mat-list-option >Saved Survey 3</mat-list-option>
+        <mat-list-option >Saved Survey 4</mat-list-option>
+        <mat-list-option >Saved Survey 5</mat-list-option>
+        <mat-list-option >Saved Survey</mat-list-option>
+        <mat-list-option >Saved Survey</mat-list-option>
+        <mat-list-option >Saved Survey</mat-list-option>
+        <mat-list-option >Saved Survey</mat-list-option>
+        <mat-list-option >Saved Survey</mat-list-option>
+        <mat-list-option >Saved Survey</mat-list-option>
+        <mat-list-option >Saved Survey</mat-list-option>
+        <mat-list-option >Saved Survey</mat-list-option>
+        <mat-list-option >Saved Survey</mat-list-option>
+        <mat-list-option >Saved Survey</mat-list-option>
+        <mat-list-option >Saved Survey</mat-list-option>
+        <mat-list-option >Saved Survey</mat-list-option>
+      </mat-selection-list>
+    </div>
+
+    <!-- <mat-list role="list">
+      <mat-list-item role="listitem">
+        <mat-radio-button>Market Research Survey</mat-radio-button>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-radio-button>Market Research Survey</mat-radio-button>
+      </mat-list-item>
+    </mat-list> -->
+
+
+
+  </div>
+
+  <div class="sbc-column" id="template-preview" style="background: #f7f6f5; border-left: 1px solid #d9d8d7;">
+    <div style="background: #fff; padding: 16px; text-align: right; border-bottom: 1px solid #d9d8d7;">
+      <button mat-stroked-button color="primary" style="margin-right: 8px;">Start from scratch</button>
+      <button mat-flat-button color="primary">Use this template</button>
+
+    </div>
+
+    <div style="padding: 8px; display: block;">
+      Survey Preview
+    </div>
+  </div>
+
+
+</div>

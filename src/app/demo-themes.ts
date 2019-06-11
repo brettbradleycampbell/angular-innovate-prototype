@@ -1,0 +1,118 @@
+import { Theme } from './theme';
+
+export const THEMES: Theme[] = [
+  {
+    name: 'Purple Light',
+    bgColor: '#f9f3fa',
+    questionColor: '#573594',
+    answerColor: '#673AB7',
+    buttonColor: '#573594',
+  },
+  {
+    name: 'Yellow Light',
+    bgColor: '#fff9dd',
+    questionColor: '#b19e16',
+    answerColor: '#d4bd17',
+    buttonColor: '#b19e16',
+  },
+  {
+    name: 'Blue Light',
+    bgColor: '#e8f2f5',
+    questionColor: '#36558e',
+    answerColor: '#36558e',
+    buttonColor: '#36558e',
+  },
+  {
+    name: 'National Parks',
+    bgColor: '#E9E0D8',
+    questionColor: '#477839',
+    answerColor: '#5d4a20',
+    buttonColor: '#5d4a20',
+  },
+  {
+    name: 'Innovate MR Blue Long Name Long Name Text Theme',
+    bgColor: '#ffffff',
+    questionColor: '#3F51B5',
+    answerColor: '#3F51B5',
+    buttonColor: '#3F51B5',
+  },
+  {
+    name: 'Red light',
+    bgColor: '#f9ebee',
+    questionColor: '#E91E63',
+    answerColor: '#E91E63',
+    buttonColor: '#E91E63',
+  },
+  {
+    name: 'iOS Device',
+    bgColor: '#ffffff',
+    questionColor: '#444444',
+    answerColor: '#777777',
+    buttonColor: '#3399ff',
+  },
+  {
+    name: 'Green Light',
+    bgColor: '#ebfbe9',
+    questionColor: '#009688',
+    answerColor: '#009688',
+    buttonColor: '#009688',
+  },
+  {
+    name: 'Nature',
+    bgColor: '#dfe2c3',
+    questionColor: '#477839',
+    answerColor: '#5d4a20',
+    buttonColor: '#5d4a20',
+  },
+  {
+    name: 'Yellow Lighter',
+    bgColor: '#ffffff',
+    questionColor: '#b19e16',
+    answerColor: '#d4bd17',
+    buttonColor: '#b19e16',
+  },
+  {
+    name: 'Blue Light',
+    bgColor: '#e8f2f5',
+    questionColor: '#36558e',
+    answerColor: '#36558e',
+    buttonColor: '#36558e',
+  },
+  {
+    name: 'National Parks',
+    bgColor: '#E9E0D8',
+    questionColor: '#477839',
+    answerColor: '#5d4a20',
+    buttonColor: '#5d4a20',
+  },
+  {
+    name: 'Purple Light',
+    bgColor: '#f9f3fa',
+    questionColor: '#573594',
+    answerColor: '#673AB7',
+    buttonColor: '#573594',
+  },
+  {
+    name: 'Yellow Light',
+    bgColor: '#fff9dd',
+    questionColor: '#b19e16',
+    answerColor: '#d4bd17',
+    buttonColor: '#b19e16',
+  },
+  {
+    name: 'Blue Light',
+    bgColor: '#e8f2f5',
+    questionColor: '#36558e',
+    answerColor: '#36558e',
+    buttonColor: '#36558e',
+  },
+  {
+    name: 'National Parks',
+    bgColor: '#E9E0D8',
+    questionColor: '#477839',
+    answerColor: '#5d4a20',
+    buttonColor: '#5d4a20',
+  },
+
+
+];

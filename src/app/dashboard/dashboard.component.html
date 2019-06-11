@@ -1,0 +1,61 @@
+<!-- Dashboard -->
+<style>
+  /deep/ .app-header .header-breadcrumbs .breadcrumb-link {color: #2b2b2b;}
+  /deep/ .header-row-two, /deep/ .breadcrumb-current, /deep/ .pause-play-survey {display: none;}
+  /deep/ body {background: #f7f6f5;}
+</style>
+<div class="dashboard-wrapper">
+
+  <div class="dashboard-list-surveys" style="max-width: 980px; margin-left: auto; margin-right: auto; margin-top: 48px;">
+
+
+    <div class="survey-outer" style="margin-bottom: 16px; background: #fff; padding: 0 8px; border: 1px solid #e1e1e1; border-radius: 4px; display: flex; align-items: center;">
+
+      <div style="display: inline-flex; align-items: center;">
+        <div>
+          <button mat-icon-button>
+            <mat-icon>pause_circle_outline</mat-icon>
+          </button>
+          <span style="display: inline-block; font-weight: 500; width: 68px; text-align: center; color: #3f51b5; background: #eeeff9; border-radius: 4px; text-transform: uppercase; font-size: 12px; padding: 8px 0; letter-spacing: 1px;">Active</span>
+
+        </div>
+
+        <a href="create/content" style="color: #2b2b2b; padding: 32px 16px;">Customer Feedback Survey 1</a>
+      </div>
+
+      <div style="display: inline-flex;">
+        <div style="display: flex; flex-direction: column; margin-left: 48px;">
+          <span style="color: #aaa; text-transform: uppercase; font-size: 10px; font-weight: 500;">Starts</span>
+          <span style="font-size: 22px;">210</span>
+        </div>
+        <div style="display: flex; flex-direction: column; margin-left: 48px;">
+          <span style="color: #aaa; text-transform: uppercase; font-size: 10px; font-weight: 500;">Completes</span>
+          <span style="font-size: 22px;">54</span>
+        </div>
+
+      </div>
+
+
+      <div style="display: inline-flex;" style="margin-left: auto;">
+        <button mat-button class="">Edit</button>
+        <button mat-button class="">Share</button>
+        <button mat-button class="">View Results</button>
+        <button mat-icon-button [matMenuTriggerFor]="appMenu">
+          <mat-icon>more_horiz</mat-icon>
+        </button>
+        <mat-menu #appMenu="matMenu">
+          <button mat-menu-item>Duplicate</button>
+          <button mat-menu-item>View Reports</button>
+          <hr>
+          <button mat-menu-item>Delete</button>
+        </mat-menu>
+      </div>
+
+
+
+
+    </div>
+
+
+  </div>
+</div>

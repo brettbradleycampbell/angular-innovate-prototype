@@ -1,0 +1,61 @@
+<style>
+    #customize {display: none;}
+    #themes.hide {display: none;}
+    #customize.show {display: block;}
+</style>
+
+<div class="settings-menu-top">
+  <div style="display: flex; flex-direction: column;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;">
+    <span style="
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+    color: #777;
+    margin-bottom: 2px;">Theme</span>
+    <span *ngIf="selectedTheme; else elseBlock" style="overflow: hidden; text-overflow: ellipsis;">{{selectedTheme.name}}</span>
+    <ng-template #elseBlock>Innovate MR 1</ng-template>
+  </div>
+  <div style="display: flex; margin-left: auto;">
+    <button mat-stroked-button>Customize</button>
+  </div>
+</div>
+
+<div class="settings-menu-bottom">
+  <div class="" style="margin: 2%; margin-bottom: 196px;">
+    <div class="theme-outer" *ngFor="let theme of themes" (click)="onSelect(theme)" [class.selected]="theme === selectedTheme">
+
+      <div class="theme-snapshot" [style.background-color]="theme.bgColor">
+        <h3 [style.color]="theme.questionColor" style="margin: 0; margin-bottom: 8px;">Question text</h3>
+        <div style="display: inline-flex; align-items: center;">
+          <mat-icon [style.background-color]="theme.buttonColor" style="margin-right: 8px; color: #fff; border-radius: 2px; width: auto; height: auto; font-size: 14px;">check</mat-icon>
+          <p [style.color]="theme.answerColor" style="margin: 0;">Answer text</p>
+        </div>
+      </div>
+
+      <div class="theme-footer" style="display: flex; align-items: center;">
+        <span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{theme.name}}</span>
+        <button mat-icon-button [matMenuTriggerFor]="qgMenu" style="margin-left: auto;">
+          <mat-icon>more_horiz</mat-icon>
+        </button>
+        <mat-menu #qgMenu="matMenu">
+          <button mat-menu-item>Customize</button>
+          <button mat-menu-item>Duplicate</button>
+          <hr>
+          <button mat-menu-item disabled>Delete</button>
+        </mat-menu>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- <div id="themes" [class.hide]="menuOpen"> -->
+
+<!-- </div> -->

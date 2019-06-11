@@ -1,0 +1,149 @@
+<!-- Question -->
+<div class="sbc-question-outer"
+*ngFor="let question of questions; let first = first; let last = last"
+(click)="onSelect(question)"
+[class.selected]="question === selectedQuestion"
+[ngClass]="{ first: first, last: last, 'page-break':question.questionType === 'pageBreak'}">
+  <div class="sbc-question-inner" *ngIf="question.questionType !== 'pageBreak'">
+    <div class="sbc-question-header">
+      <div class="sbc-question-title">
+        <span class="sbc-question-number">
+          <span class="material-icons question-number-icon" *ngIf="question.questionType == 'multipleChoice' || question.questionType == 'multipleChoiceImage'">
+            format_list_bulleted
+          </span>
+          <span class="material-icons question-number-icon" *ngIf="question.questionType == 'scale'">
+            star_outline
+          </span>
+          <span class="material-icons question-number-icon" *ngIf="question.questionType == 'statement'">
+            format_quote
+          </span>
+          <span class="material-icons question-number-icon" *ngIf="question.questionType == 'rank' || question.questionType == 'rankImage'">
+            swap_vert
+          </span>
+          <span class="material-icons question-number-icon" *ngIf="question.questionType == 'select'">
+            unfold_more
+          </span>
+          <span class="material-icons question-number-icon" *ngIf="question.questionType == 'textEntry'">
+            notes
+          </span>
+          <span class="material-icons question-number-icon" *ngIf="question.questionType == 'fileUpload'">
+            attachment
+          </span>
+          <span>{{question.id}}</span>
+        </span>
+        {{question.questionText}}
+      </div>
+      <div class="sbc-question-icons">
+        <button mat-icon-button [matMenuTriggerFor]="qMenu">
+          <mat-icon>more_horiz</mat-icon>
+        </button>
+        <mat-menu #qMenu="matMenu">
+          <button mat-menu-item>Move</button>
+          <button mat-menu-item>Edit Logic</button>
+          <button mat-menu-item>Duplicate</button>
+          <button mat-menu-item>Delete</button>
+        </mat-menu>
+      </div>
+    </div>
+    <div class="sbc-answer-text-editor" *ngIf="question.questionType == 'multipleChoice' || question.questionType == 'multipleChoiceImage' || question.questionType == 'select' || question.questionType == 'rank' || question.questionType == 'rankImage'">
+      <div class="sbc-answer-text-line" *ngFor="let answers of question.answers">
+        <button mat-button [matMenuTriggerFor]="atlMenu" class="atl-dropdown-button">
+          <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+        <mat-menu #atlMenu="matMenu">
+          <button mat-menu-item>Make exclusive</button>
+          <button mat-menu-item>Remove</button>
+          <button mat-menu-item>Move up/down</button>
+        </mat-menu>
+
+        <span class="sbc-atl-image-thumbnail" *ngIf="question.questionType == 'multipleChoiceImage' || question.questionType == 'rankImage'" [ngClass]="{'yosemite':answers === 'Yosemite', 'yellowstone':answers === 'Yellowstone', 'niagra-falls':answers === 'Niagra Falls', 'no-image':answers === 'Choice 4'}">
+          <span class="material-icons thumbnail-change" *ngIf="answers !== 'Choice 4'">close</span>
+          <span class="material-icons thumbnail-add" *ngIf="answers == 'Choice 4'">add</span>
+        </span>
+
+        <style>
+          .sbc-atl-image-thumbnail.yosemite {background-image: url(assets/images/yosemite.jpg);}
+          .sbc-atl-image-thumbnail.yellowstone {background-image: url(assets/images/yellowstone.jpg);}
+          .sbc-atl-image-thumbnail.niagra-falls {background-image: url(assets/images/niagra-falls.jpg);}
+        </style>
+
+        <span class="sbc-atl-text" [ngClass]="{'sbc-atl-text-with-image':question.questionType === 'multipleChoiceImage' || question.questionType === 'rankImage'}">{{answers}}</span>
+        <!-- <span class="atl-icons">
+          <span class="material-icons">chat_bubble</span>
+          <span class="material-icons">lock</span>
+        </span> -->
+      </div>
+    </div>
+
+    <div class="sbc-answer-text-editor" *ngIf="question.questionType == 'scale'">
+      <div class="answer-element-type" *ngIf="question.answerElementType == 'hearts'">
+        <mat-icon>favorite_outline</mat-icon>
+        <mat-icon>favorite_outline</mat-icon>
+        <mat-icon>favorite_outline</mat-icon>
+        <mat-icon>favorite_outline</mat-icon>
+        <mat-icon>favorite_outline</mat-icon>
+        <mat-icon>favorite_outline</mat-icon>
+        <mat-icon>favorite_outline</mat-icon>
+        <mat-icon>favorite_outline</mat-icon>
+        <mat-icon>favorite_outline</mat-icon>
+        <mat-icon>favorite_outline</mat-icon>
+      </div>
+      <div class="answer-element-type" *ngIf="question.answerElementType == 'stars'">
+        <mat-icon>star_outline</mat-icon>
+        <mat-icon>star_outline</mat-icon>
+        <mat-icon>star_outline</mat-icon>
+        <mat-icon>star_outline</mat-icon>
+        <mat-icon>star_outline</mat-icon>
+      </div>
+      <div class="answer-element-type" *ngIf="question.answerElementType == 'npmScale'">
+        [ 0 - 10 ]
+      </div>
+    </div>
+
+    <div class="sbc-answer-text-editor" *ngIf="question.questionType == 'textEntry' || question.questionType == 'fileUpload'">
+      <div class="answer-element-type" *ngIf="question.answerElementType == 'email'">
+        [ Email ]
+      </div>
+      <div class="answer-element-type" *ngIf="question.answerElementType == 'textarea'">
+        [ Textarea ]
+      </div>
+      <div class="answer-element-type" *ngIf="question.answerElementType == 'fileUpload'">
+        [ File upload ]
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <div *ngIf="question.questionType == 'pageBreak'">
+    <hr class="page-break-hr">
+    <span class="material-icons page-break-remove">remove_circle</span>
+  </div>
+
+  <div class="vertical-split-button-outer button-move-question">
+    <button mat-button class="move-question-up">
+      <mat-icon>arrow_upward</mat-icon>
+    </button>
+    <button mat-button class="move-question-down">
+      <mat-icon>arrow_downward</mat-icon>
+    </button>
+  </div>
+
+  <div class="split-button-outer button-add-question">
+    <button mat-button class="split-button-left">
+      <mat-icon>add</mat-icon>
+    </button>
+    <button mat-button [matMenuTriggerFor]="addQuestionMenu" class="split-button-right">
+      <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+    <mat-menu #addQuestionMenu="matMenu">
+      <button mat-menu-item>Page break</button>
+      <button mat-menu-item>Import from Library</button>
+      <button mat-menu-item>Multiple choice</button>
+    </mat-menu>
+  </div>
+
+  <div class="connect-question-to-menu" *ngIf="question.questionType !== 'pageBreak'"></div>
+
+</div>

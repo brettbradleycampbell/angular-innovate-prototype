@@ -1,0 +1,121 @@
+.mdc-top-app-bar__row {
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+}
+.mdc-top-app-bar__section {
+  display: inline-flex;
+  flex: 1 1 auto;
+  align-items: center;
+  min-width: 0;
+  padding: 8px 12px;
+  z-index: 1;
+}
+.mdc-top-app-bar__section--align-end {
+  justify-content: flex-end;
+  order: 1;
+}
+.innovate-logo {
+  width: 107px;
+  margin-top: 4px;
+}
+
+.mat-form-field-appearance-outline.header-search {
+
+  margin-right: 12px;
+
+  .mat-form-field-outline {top: 0;}
+  .mat-form-field-wrapper {padding: 0; margin: 0;}
+  input.mat-input-element {line-height: 1.35em;}
+  .mat-form-field-flex {margin-top: 0;}
+  .mat-form-field-infix {border: 0;padding: 10px 0;}
+}
+
+
+.app-header {
+  // @include mdc-top-app-bar-fill-color($white);
+  // @include mdc-top-app-bar-ink-color($body-text-color);
+
+  // box-shadow: 0 0 4px rgba(0,0,0,.12);
+  font-size: 0.875rem;
+  position: fixed;
+  width: 100%;
+  z-index: 9;
+  top: 0;
+
+  .mdc-top-app-bar__row {
+    // padding: 0 10px;
+    border-bottom: $light-border;
+    // font-size: .875rem;
+
+    &.header-row-one {
+      height: $header-row-one-height; // 48px is default for dense header
+      background: $bg-color-header-row-one;
+      border-bottom: $header-row-one-border;
+    }
+    &.header-row-two {
+      height: $header-row-two-height;
+      background: $background-color-header-row-two;
+      padding-left: 0;
+    }
+  }
+  // .app-header__item {
+  //   span, a {
+  //     vertical-align: middle;
+  //   }
+  //   a {
+  //     // @include mdc-top-app-bar-ink-color($body-text-color);
+  //   }
+  // }
+  .header-breadcrumbs {
+    margin-left: 6px;
+    position: relative;
+    // top: -4px;
+
+    .breadcrumb-link,
+    .breadcrumb-slash {
+      color: $text-on-header-top;
+      padding-left: 4px;
+      padding-right: 4px;
+
+    }
+    .breadcrumb-link {
+      &:hover {
+        color: $breadcrumb-color-hover;
+      }
+      &.breadcrumb-current {
+        color: $breadcrumb-current-color;
+      }
+    }
+
+    // .pause-play-survey {
+    //   font-size: 18px;
+    //   color: $text-on-header-top;
+    // }
+  }
+
+  .mat-tab-nav-bar {
+    border-bottom-color: transparent;
+  }
+  .mat-tab-link {
+    height: $header-row-two-height;
+    min-width: 80px;
+    opacity: 1;
+    font-weight: 400;
+  }
+  .mat-tab-link.mat-tab-label-active {
+    color: #3F51B5;
+    font-weight: 500;
+  }
+  .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: #3F51B5;
+    transition: .25s cubic-bezier(.35,0,.25,1);
+  }
+
+
+}
+
+.header-nav-links {
+  padding-left: 0;
+}

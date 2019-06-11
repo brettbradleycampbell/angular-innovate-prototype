@@ -1,0 +1,70 @@
+<!-- Question group -->
+<div class="question-group-outer sbc-question-group" *ngFor="let questionGroup of questionGroups">
+  <!-- Group Header-->
+  <div class="sbc-question-group-header">
+    <div class="sbc-question-group-title">
+      {{questionGroup.title}}
+    </div>
+    <div class="sbc-question-group-icons">
+      <button mat-icon-button [matMenuTriggerFor]="qgMenu">
+        <mat-icon>more_horiz</mat-icon>
+      </button>
+      <mat-menu #qgMenu="matMenu">
+        <button mat-menu-item>Edit Logic</button>
+        <button mat-menu-item>Collapse</button>
+        <button mat-menu-item>Duplicate</button>
+        <hr>
+        <button mat-menu-item>Delete</button>
+      </mat-menu>
+    </div>
+  </div>
+  <!-- Question -->
+  <app-questions></app-questions>
+  <!-- Group Footer-->
+  <div class="sbc-question-group-footer">
+    <div class="split-button-outer button-split-text">
+      <button mat-button class="split-button-left">
+        New Question
+      </button>
+      <button mat-button [matMenuTriggerFor]="addQuestionMenu" class="split-button-right">
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+      <mat-menu #addQuestionMenu="matMenu">
+        <button mat-menu-item>Page break</button>
+        <button mat-menu-item>Import from Library</button>
+        <button mat-menu-item>Multiple choice</button>
+      </mat-menu>
+    </div>
+  </div>
+  <!-- New Question/Group Buttons-->
+  <!-- <div class="split-button-outer">
+    <button mat-button class="split-button-left">
+      New Question
+    </button>
+    <button mat-button [matMenuTriggerFor]="addQuestionMenu" class="split-button-right">
+      <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+    <mat-menu #addQuestionMenu="matMenu">
+      <button mat-menu-item>Page break</button>
+      <button mat-menu-item>Import from Library</button>
+      <button mat-menu-item>Multiple choice</button>
+    </mat-menu>
+  </div> -->
+
+  <div class="new-group-button-container">
+    <div class="split-button-outer button-split-text">
+      <button mat-button class="split-button-left">
+        New Group
+      </button>
+      <button mat-button [matMenuTriggerFor]="addQuestionMenu" class="split-button-right">
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+      <mat-menu #addQuestionMenu="matMenu">
+        <button mat-menu-item>Page break</button>
+        <button mat-menu-item>Import from Library</button>
+        <button mat-menu-item>Multiple choice</button>
+      </mat-menu>
+    </div>
+  </div>
+
+</div>

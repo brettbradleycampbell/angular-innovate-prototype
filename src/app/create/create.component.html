@@ -1,0 +1,24 @@
+<!-- Layout for 'Create' pages -->
+
+<!-- Sidebar -->
+<aside class="sidebar">
+  <mat-list role="list">
+    <mat-list-item role="listitem">
+      <button mat-button class="sidebar-button" routerLink="/create/content" routerLinkActive="active">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <button mat-button class="sidebar-button" routerLink="/create/design" routerLinkActive="active">
+        <mat-icon>color_lens</mat-icon>
+      </button>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <button mat-button class="sidebar-button" routerLink="/create/settings" routerLinkActive="active">
+        <mat-icon>settings</mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
+</aside>
+
+<router-outlet></router-outlet>

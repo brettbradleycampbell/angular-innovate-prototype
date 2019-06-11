@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-innovate-prototype';
+  title = 'Innovate MR Survey Builder Prototype';
 }

@@ -1,0 +1,30 @@
+// Figure out what you need for a theme, so you can use a theme here instead of hacks and overriding the Pink.css theme or whatever.
+
+.mat-menu-item {
+  height: 36px;
+  line-height: 36px;
+}
+
+.mat-fab.mat-primary, .mat-flat-button.mat-primary, .mat-mini-fab.mat-primary, .mat-raised-button.mat-primary {
+  background-color: #3F51B5;
+}
+
+// Settings Form Field adjustments:
+
+.mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+
+.mat-slide-toggle-bar {
+  background-color: rgba(0,0,0,.24);
+}
+
+// How do we theme the components with mat-primary color?
+.mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) {
+  background: rgba(63, 81, 181, .12);
+}
+.mat-option.mat-active {
+  background: rgba(63, 81, 181, .04);
+}
+
+.mat-select-panel {max-height: 400px!important;}

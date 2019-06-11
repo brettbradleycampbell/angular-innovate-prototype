@@ -1,20 +1,67 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<header id="header-desktop" class="mdc-top-app-bar mdc-top-app-bar--dense mdc-top-app-bar--fixed app-header">
+  <div class="mdc-top-app-bar__row header-row-one">
+    <section class="mdc-top-app-bar__section">
+      <div class="app-header__item">
+        <span>
+          <a href="#"><img src="assets/images/innovate-logo-placeholder-black.png" class="innovate-logo"></a>
+        </span>
+      </div>
+      <!-- <div class="app-header__item">
+        <span class="material-icons">home</span>
+      </div> -->
+      <div class="app-header__item header-breadcrumbs">
+        <span class="breadcrumb-slash">/</span>
+        <a href="/dashboard" class="breadcrumb-link">Surveys</a>
+        <span class="breadcrumb-slash breadcrumb-current">/</span>
+        <a class="breadcrumb-link breadcrumb-current">Customer Feedback Survey 1</a>
+        <button mat-icon-button class="pause-play-survey">
+          <mat-icon>pause_circle_outline</mat-icon>
+        </button>
+        <!-- <span class="material-icons pause-play-survey">pause_circle_outline</span> -->
+      </div>
+    </section>
+    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+      <div class="app-header__item">
+        <mat-form-field appearance="outline" class="header-search">
+          <mat-icon matPrefix>search</mat-icon>
+          <input matInput>
+        </mat-form-field>
 
+      </div>
+      <div class="app-header__item">
+        <button mat-stroked-button>
+          <mat-icon>person</mat-icon>
+          <span>Matt Dusig</span>
+        </button>
+      </div>
+    </section>
+  </div>
+  <div class="mdc-top-app-bar__row header-row-two">
+    <section class="mdc-top-app-bar__section header-nav-links">
+
+      <nav mat-tab-nav-bar disableRipple>
+        <!-- These made the ink-bar work: https://stackoverflow.com/questions/46949520/angular-material-2-mat-ink-bar-not-showing-in-mat-tab-nav-bar -->
+        <!-- https://stackblitz.com/edit/angular-po4uyy?file=app%2Ftab-nav-bar-basic-example.html -->
+        <a mat-tab-link [routerLink]="['/create/content']"  #rla="routerLinkActive" [active]="rla.isActive" routerLinkActive>Create </a>
+        <a mat-tab-link [routerLink]="['/share']"  #rla2="routerLinkActive" [active]="rla2.isActive" routerLinkActive> Share </a>
+        <a mat-tab-link [routerLink]="['/results']"  #rla3="routerLinkActive" [active]="rla3.isActive" routerLinkActive> Results </a>
+      </nav>
+
+    </section>
+
+    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+      <div class="app-header__item" style="margin-right: 48px;">
+        <span style="color: #a2a3a7; text-decoration: underline;">Saving...</span>
+      </div>
+      <div class="app-header__item">
+        <button mat-flat-button color="primary" onclick="window.open('/innovate-ui-prototype/survey-preview.html'); return false;">
+          <span>View</span>
+          <mat-icon>open_in_new</mat-icon>
+        </button>
+      </div>
+    </section>
+  </div>
+
+</header>
+
+<router-outlet></router-outlet>

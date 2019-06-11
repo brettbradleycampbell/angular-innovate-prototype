@@ -1,0 +1,165 @@
+// Material Theme Variables
+$mdc-theme-primary: #3f51b5; // Finalish blue: #57adce; // Green: #7bb33a; // Innovate Blue alt: 5ab9e6;
+$mdc-theme-secondary: #3f51b5; // Innovate Blue: #548ade; // #395064; // #3386ff  // #568cdb // Google blue: #536dfe; // Innovate Blue alternative: #4294f9;
+$mdc-theme-on-primary: #ffffff;
+$mdc-theme-on-secondary: #ffffff;
+$light-blue: #eceefb;
+
+// New Colors
+$white: #fff;
+$black: #2b2b2b;
+$light-gray: #f7f6f5;
+$light-border: 1px solid #d9d8d7;
+
+$body-text-color: $black;
+
+$bg-color-content: $light-gray;
+$bg-color-settings-menu: $white;
+$bg-color-question: $light-gray;
+$bg-color-question-selected: $bg-color-settings-menu;
+$bg-color-question-hover: $white; // #f2f1f0; // $white;
+$bg-color-question-group: $light-gray;
+$bg-color-question-group-header: transparent;
+$bg-color-question-number-selected: #dee3fb; // #8BC34A;
+$bg-color-header-row-one: $white;
+$header-row-one-border: $light-border;
+
+
+// Margins and Paddings
+$question-group-margin: 32px; // 28px;
+
+// Layout widths
+$header-row-one-height: 56px; // 36px // 48px is default for dense header
+$header-row-two-height: 56px; // 56px
+$header-height: $header-row-one-height + $header-row-two-height;
+$settings-menu-width: 240px;
+$settings-menu-width-wider: 360px;
+$survey-preview-width: 400px;
+
+//New Presets
+$question-settings-menu-left-right: right;
+$question-group-full-width: false;
+$button-move-question-left-right: left;
+
+@if $question-settings-menu-left-right == right {
+  $button-move-question-left-right: left;
+} @else {
+  $button-move-question-left-right: right;
+}
+
+////////////////////
+
+////////////////////
+
+////////////////////
+
+////////////////////
+
+
+// Colors
+// $white: #ffffff;
+// $black: #2b2b2b;
+// $body-text-color: $black;
+$dark-blue: #282e33;
+$dark-bg: #1e2830; // #414144; // #343846; // #32384a; // #34414e; // #465461; // #394148;
+$gray-bg: #f2f1f0; // #f4f4f4; // #f0f0f0; // #f2f1f0;
+$gray-bg-lighter: #f9f8f7; // #faf9f8;
+$gray-button-bg: darken($gray-bg, 6%); // #e2e2e2; // #e2e0de;
+// $light-border: 1px solid #e1e1e1; // #e1e1e1; // #d4d4d4; // #d9d8d7;
+$light-border-low: 1px solid $gray-bg;
+$hr-border: 1px solid darken($gray-bg, 7%);
+$perks-bar-outer: $white;
+$perks-bar-inner: #568cdb;
+$background-color-header-row-one: $dark-bg; // #384f63
+$background-color-header-row-two: $white;
+$background-color-settings-menu: $white;
+$background-color-question-group: $white;
+$background-color-question-hover: $white;
+$background-color-survey-builder-container: $gray-bg;
+$background-color-sidebar: $white;
+$header-search-bar-background-color: rgba(0,0,0,.24);
+$question-number-background-color: #eaeae9;
+$question-number-text-color: $body-text-color;
+$question-number-background-color-selected: $mdc-theme-primary;
+$question-number-text-color-selected: $mdc-theme-primary;
+$text-on-header-top: #9da4ab;
+$breadcrumb-current-color: $body-text-color;
+$breadcrumb-color-hover: $body-text-color;
+
+// Breakpoints
+$breakpoint-small: 480px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 1024px;
+
+
+// Paddings, Margins, etc.
+$global-padding: 4px;
+$global-padding-large: 24px;
+$global-margin: 4px;
+$global-margin-large: 24px;
+$global-border-radius: 4px;
+
+// $question-group-margin: 28px;
+
+// Presets
+$style: default;
+$question-settings-sidebar: right;
+$group-contained: true;
+$low-borders: false;
+$boxed-sbc: true;
+$sbc-selected-attached: true;
+$dark-top-header: true;
+
+
+@if $boxed-sbc == false {
+  $background-color-question-group: $white;
+  $low-borders: false;
+}
+
+@if $low-borders == true {
+  $light-border: none; // #d4d4d4;
+}
+
+@if $dark-top-header == false {
+  $background-color-header-row-one: $white; // #384f63
+  $breadcrumb-current-color: $body-text-color;
+  $text-on-header-top: #8a8989;
+  $header-row-one-border: $light-border;
+  $header-search-bar-background-color: $gray-bg;
+  $breadcrumb-color-hover: $body-text-color;
+}
+
+/////////////////
+// Media Queries
+/////////////////
+
+@mixin breakpoint-small {
+  @media (max-width: #{$breakpoint-small}) {
+    @content;
+  }
+}
+@mixin breakpoint-medium {
+  @media (max-width: #{$breakpoint-medium}) {
+    @content;
+  }
+}
+@mixin breakpoint-large {
+  @media (max-width: #{$breakpoint-large}) {
+    @content;
+  }
+}
+@mixin breakpoint-medium-up {
+  @media (min-width: #{$breakpoint-small + 1}) {
+    @content;
+  }
+}
+@mixin breakpoint-medium-only {
+  @media (min-width: #{$breakpoint-small + 1}) and (max-width: #{$breakpoint-medium}) {
+    @content;
+  }
+}
+@mixin breakpoint-large-up {
+  @media (min-width: #{$breakpoint-medium + 1}) {
+    @content;
+  }
+}

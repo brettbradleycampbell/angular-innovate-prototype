@@ -1,0 +1,69 @@
+<!-- Create - Settings -->
+<div class="create-wrapper sbc-columns-wrapper">
+  <div class="sbc-column settings-menu settings-wider" id="sbc-settings">
+
+    <div class="sbc-settings-item">
+      <mat-label>Survey title</mat-label>
+      <mat-form-field appearance="outline" class="mat-select-outer">
+        <input matInput placeholder="" value="Customer Feedback Survey 1">
+      </mat-form-field>
+    </div>
+    <div class="sbc-settings-item">
+      <mat-label>Meta description</mat-label>
+      <mat-form-field appearance="outline" class="mat-select-outer">
+        <textarea matInput matTextareaAutosize matAutosizeMinRows=4 placeholder="Textarea"></textarea>
+      </mat-form-field>
+    </div>
+    <mat-slide-toggle class="sbc-settings-item">
+      <span>Prevent indexing</span>
+      <mat-icon matTooltip="info about this one">help</mat-icon>
+    </mat-slide-toggle>
+    <div class="sbc-settings-item">
+      <mat-label>Custom Survey URL</mat-label>
+      <mat-form-field appearance="outline" class="mat-select-outer">
+        <input matInput placeholder="" value="">
+      </mat-form-field>
+    </div>
+    <div class="sbc-settings-item inline-select">
+      <mat-label>Survey completion</mat-label>
+      <mat-form-field appearance="outline" class="mat-select-outer">
+        <mat-select [(value)]="selected">
+          <mat-option value="default">Default message</mat-option>
+          <mat-option value="custom">Custom message</mat-option>
+          <mat-option value="redirect">URL Redirect</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="sbc-settings-item inline-select">
+      <mat-label>Survey termination</mat-label>
+      <mat-form-field appearance="outline" class="mat-select-outer">
+        <mat-select [(value)]="selected2">
+          <mat-option value="default2">Default message</mat-option>
+          <mat-option value="custom2">Custom message</mat-option>
+          <mat-option value="redirect2">URL Redirect</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <mat-slide-toggle class="sbc-settings-item">Terminate duplicate respondents based on cookies</mat-slide-toggle>
+    <mat-slide-toggle class="sbc-settings-item">Terminate duplicate respondents based on digital fingerprint</mat-slide-toggle>
+    <div class="sbc-settings-item">
+      <mat-slide-toggle>Only allow respondents from selected countries</mat-slide-toggle>
+      <mat-form-field appearance="outline" class="mat-select-outer">
+        <mat-select [(value)]="selected3" multiple>
+          <mat-option [value]="us">United States</mat-option>
+          <mat-option [value]="mexico">Mexico</mat-option>
+          <mat-option [value]="canada">Canada</mat-option>
+          <mat-option [value]="france">France</mat-option>
+          <mat-option [value]="ghana">Ghana</mat-option>
+          <mat-option [value]="japan">Japan</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <mat-slide-toggle class="sbc-settings-item">Set as default settings</mat-slide-toggle>
+  </div>
+
+  <div class="sbc-column" id="sbc-preview">
+    <span style="padding: 8px; display: block;">Survey preview</span>
+  </div>
+</div>
