@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {VERSION, MatDialog, MatDialogRef} from '@angular/material';
+import { Component, OnInit, Inject } from '@angular/core';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { DialogImageComponent } from '../dialog-image/dialog-image.component';
 
 @Component({
@@ -21,7 +21,7 @@ export class QuestionSettingsComponent implements OnInit {
   //
   // Add Image Dialog
 
-  version = VERSION;
+  // version = VERSION;
 
   imageNameDialogRef: MatDialogRef<DialogImageComponent>;
 

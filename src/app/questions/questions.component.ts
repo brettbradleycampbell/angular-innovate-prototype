@@ -1,11 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Question } from '../question';
 import { QUESTIONS } from '../demo-questions'; // demo-questions-2 for Starting screen.
 // Logic Dialog
-import {VERSION, MatDialog, MatDialogRef} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { DialogLogicComponent } from '../dialog-logic/dialog-logic.component';
 // Question Library Dialog
 import { DialogLibraryComponent } from '../dialog-library/dialog-library.component';
+
+// DIALOGS NOT WORKING TEST
+
+// DIALOGS NOT WORKING TEST
 
 
 @Component({
@@ -30,7 +34,7 @@ export class QuestionsComponent implements OnInit {
   //
   // Add Image Dialog
 
-  version = VERSION;
+  // version = VERSION;
 
   logicNameDialogRef: MatDialogRef<DialogLogicComponent>;
   libraryNameDialogRef: MatDialogRef<DialogLibraryComponent>;
