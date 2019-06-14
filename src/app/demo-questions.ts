@@ -9,13 +9,6 @@ export const QUESTIONS: Question[] = [
     answers: ['Choice 1', 'Choice 2', 'Choice 3'],
   },
   {
-    id: 9,
-    questionText: 'Choose a picture.',
-    questionGroup: 3,
-    questionType: 'multipleChoiceImage',
-    answers: ['Yosemite', 'Yellowstone', 'Niagra Falls', 'Choice 4'],
-  },
-  {
     questionType: 'pageBreak',
   },
   {
@@ -30,30 +23,39 @@ export const QUESTIONS: Question[] = [
   },
   {
     id: 3,
-    questionText: 'Please rate your experience.',
+    questionText: 'How likely are you to recommend our business to a friend or colleague?',
     questionGroup: 2,
-    questionType: 'scale',
-    answerElementType: 'npmScale',
+    questionType: 'npm',
+  },
+  {
+    questionType: 'pageBreak',
   },
   {
     id: 4,
     questionText: 'Please rate your experience.',
     questionGroup: 2,
     questionType: 'scale',
-    answerElementType: 'hearts',
+    answerElementType: 'stars',
   },
   {
     id: 5,
     questionText: 'Please rate your experience.',
     questionGroup: 2,
     questionType: 'scale',
-    answerElementType: 'stars',
+    answerElementType: 'hearts',
+  },
+  {
+    id: 6,
+    questionText: 'Please rate your experience.',
+    questionGroup: 2,
+    questionType: 'scale',
+    answerElementType: 'numbers',
   },
   {
     questionType: 'pageBreak',
   },
   {
-    id: 6,
+    id: 7,
     questionText: 'Thank you for taking this survey. ',
     questionGroup: 2,
     questionType: 'statement',
@@ -62,14 +64,14 @@ export const QUESTIONS: Question[] = [
     questionType: 'pageBreak',
   },
   {
-    id: 7,
+    id: 8,
     questionText: 'Please rank the following. ',
     questionGroup: 3,
     questionType: 'rank',
     answers: ['Apple', 'Google', 'Microsoft'],
   },
   {
-    id: 8,
+    id: 9,
     questionText: 'Please rank these images.',
     questionGroup: 3,
     questionType: 'rankImage',
@@ -80,13 +82,20 @@ export const QUESTIONS: Question[] = [
   },
   {
     id: 10,
+    questionText: 'Choose a picture.',
+    questionGroup: 3,
+    questionType: 'multipleChoiceImage',
+    answers: ['Yosemite', 'Yellowstone', 'Niagra Falls', 'Choice 4'],
+  },
+  {
+    id: 11,
     questionText: 'Please enter your email.',
     questionGroup: 3,
     questionType: 'textEntry',
     answerElementType: 'email',
   },
   {
-    id: 11,
+    id: 12,
     questionText: 'Please leave feedback',
     questionGroup: 3,
     questionType: 'textEntry',
@@ -96,11 +105,10 @@ export const QUESTIONS: Question[] = [
     questionType: 'pageBreak',
   },
   {
-    id: 12,
+    id: 13,
     questionText: 'Upload your file here.',
     questionGroup: 3,
     questionType: 'fileUpload',
     answerElementType: 'fileUpload',
   },
-
 ];

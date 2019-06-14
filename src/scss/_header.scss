@@ -38,7 +38,7 @@
   // @include mdc-top-app-bar-ink-color($body-text-color);
 
   // box-shadow: 0 0 4px rgba(0,0,0,.12);
-  font-size: 0.875rem;
+  font-size: $font-size-smaller;
   position: fixed;
   width: 100%;
   z-index: 9;
@@ -108,7 +108,7 @@
     background: $white;
   }
 
-  .mat-tab-nav-bar {
+  &.mat-tab-nav-bar {
     border-bottom-color: transparent;
   }
   .mat-tab-link,

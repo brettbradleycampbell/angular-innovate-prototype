@@ -20,7 +20,7 @@ export class DialogLogicComponent implements OnInit {
   dselected2 = ['1', '2'];
   dselected3 = 'yes';
   displayhide = 'display';
-  displayhide2 = 'and';
+  andor = 'and';
   dselected5 = '1';
   dselected6 = ['a', 'b'];
   dselected7 = 'yes';

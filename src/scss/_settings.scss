@@ -1,80 +1,249 @@
 .settings-menu {
+  background: $bg-color-settings-menu;
+  padding: $settings-menu-padding;
+  padding-bottom: 340px;
+  font-size: $font-size-smaller;
   max-width: $settings-menu-width;
+
+  //
+  //
+  // padding: 24px 12px 240px 12px;
+
   &.settings-wider {
     max-width: $settings-menu-width-wider;
     position: relative;
     padding-bottom: 240px;
   }
-  background: $bg-color-settings-menu;
-  padding: 24px;
-  font-size: 0.875rem;
 
+  // Change height of inputs
   .mat-form-field-appearance-outline {
     .mat-form-field-outline {top: 0;}
     .mat-form-field-wrapper {padding: 0; margin: 0;}
-    input.mat-input-element {line-height: 1.35em;}
+    // input.mat-input-element {line-height: 1.35em;} // This was making the Text Input elements and Select elements different heights.
     .mat-form-field-flex {margin-top: 0;}
     .mat-form-field-infix {border: 0;padding: 10px 0;}
     .mat-select-arrow-wrapper {transform: none;}
   }
 
   .mat-form-field {
-    width: 100%;
+    max-width: 100%;
   }
 
+  // Change BG Color of inputs
+  .mat-form-field-appearance-outline .mat-form-field-outline-end,
+  .mat-form-field-appearance-outline .mat-form-field-outline-start {
+    background-color: $gray-bg;
+  }
+
+  // Change order of toggles
   .mat-slide-toggle {
     display: flex;
     height: auto;
-    padding: 9px 0;
+
+    .mat-slide-toggle-bar {
+      order: 2;
+      margin-left: auto;
+    }
+
+    .mat-slide-toggle-content {
+      order: 1;
+      white-space: normal;
+    }
+
   }
 
-  .mat-slide-toggle-bar {
-    order: 2;
-    margin-left: auto;
-  }
-  .mat-slide-toggle-content {
-    order: 1;
-    white-space: normal;
-  }
-  .mat-select-outer {margin: 6px 0 12px;}
-  .mat-sub-select {margin-top: 0;}
 }
 
-.sbc-settings-item {
+.settings-group {
+  margin-bottom: 48px;
+}
 
-  border-bottom: 1px solid #e9e8e7;
+// Individual Settings Items
+.settings-menu-item-outer {
 
-  &.inline-select {
+  .mat-form-field {
+    width: 100%;
+  }
+  // &:hover {
+  //   background: $light-gray;
+  // }
+
+  //
+  //
+  // padding-left: 12px;
+  // padding-right: 12px;
+  // border-radius: 4px;
+
+  // Add border to elements
+  &.settings-select {
+    padding-bottom: 12px; // $settings-menu-item-padding;
+  }
+  &.settings-border-bottom {
+    border-bottom: $light-border;
+  }
+  &.settings-inline-button {
     display: flex;
     align-items: center;
 
-    .mat-select-outer {
-      max-width: 160px;
+    button {
+      line-height: 28px;
+      min-width: 0;
+      padding: 0 8px;
+      margin: 8px 0;
       margin-left: auto;
-      margin-top: 12px;
+      font-weight: 400;
+      // margin-bottom: 4px;
     }
+  }
+  &.settings-inline-input {
+    display: flex;
+    align-items: center;
 
-    &.small-select {
-      .mat-select-outer {
-        max-width: 90px;
+    .mat-form-field {
+      min-width: 0;
+      width: 68px;
+      margin: 8px 0;
+      margin-left: auto;
+    }
+  }
+  &.settings-design-inline-select,
+  &.settings-design-inline-input {
+    padding-bottom: 8px;
+    padding-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: $light-border;
+
+    .mat-form-field {
+      max-width: 164px;
+      &.input-size-medium {
+        max-width: 124px;
+      }
+      &.input-size-small {
+        max-width: 64px;
       }
     }
   }
 
-  mat-label {
-    display: inline-flex;
-    &:first-child {
-      padding-top: 12px;
+  &.expanded-border-bottom,
+  .expanded-border-bottom {
+    padding-bottom: 12px; // $settings-menu-item-padding;
+    border-bottom: $light-border;
+  }
+  .answer-range {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+
+    .mat-form-field {
+      width: 43%;
+    }
+  }
+
+  .expand-expand {
+    margin-top: 8px;
+  }
+
+  .full-flex-label {
+    padding-top: 12px;
+    display: flex;
+    padding-bottom: 6px;
+  }
+
+  .mat-slide-toggle-content {
+    line-height: 1.15;
+  }
+
+  // Toggles
+  .mat-slide-toggle-label {
+    border-bottom: $light-border;
+    padding: $settings-menu-item-padding 0;
+
+  }
+
+  // Open Toggles
+  &.toggle-menu-open,
+  .toggle-menu-open {
+    .mat-slide-toggle-label {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 6px;
+
+      &:hover {
+        background: inherit;
+      }
 
     }
   }
-  &:first-child,
-  &.inline-select {
-    mat-label:first-child {
-      padding-top: 0;
-    }
+
+  //
+  &.inline-button-menu-open {
+    border-bottom: none;
+  }
+  &.inline-select-menu-open {
+    border-bottom: none;
+  }
+
+  .input-list-outer .mat-form-field {margin-bottom: 12px;}
+  .input-list-outer.expanded-border-bottom .mat-form-field:last-child {margin-bottom: 0;}
+
+
+
+
+  // .mat-select-outer {margin: 6px 0 12px;}
+  // .mat-sub-select {margin-top: 0;}
+
+  // border-bottom: $light-border;
+  // border-color: purple;
+
+  // &.inline-select {
+  //   display: flex;
+  //   align-items: center;
+  //
+  //   .mat-select-outer {
+  //     max-width: 160px;
+  //     margin-left: auto;
+  //     margin-top: 12px;
+  //   }
+  //
+  //   &.small-select {
+  //     .mat-select-outer {
+  //       max-width: 90px;
+  //     }
+  //   }
+  // }
+
+  // mat-label {
+  //   display: inline-flex;
+  //   &:first-child {
+  //     padding-top: 12px;
+  //
+  //   }
+  // }
+  // &:first-child,
+  // &.inline-select {
+  //   mat-label:first-child {
+  //     padding-top: 0;
+  //   }
+  // }
+}
+
+.help-tooltip {
+  height: auto;
+  width: auto;
+  font-size: 14px;
+  margin-left: 6px;
+  position: relative;
+  top: 4px;
+  opacity: 0.6;
+  color: #444444;
+
+  &:hover {
+    opacity: 1;
   }
 }
+
 
 .settings-header {
   font-size: 10px;
@@ -84,7 +253,10 @@
   color: #777;
 }
 
-// Design / Themes
+//////////////////
+// Design  >  Themes
+//////////////////
+
 .theme-outer {
   // border: $light-border;
   border-radius: 4px;
@@ -116,7 +288,65 @@
     box-shadow: 0 0 0px 4px #3f51b5;
   }
 
+  .theme-snapshot {
+    padding: 16px 12px ;
+    // margin: 4px;
+    border-radius: 4px 4px 0 0;
+    box-shadow: 0 0 0 1px inset rgba(0,0,0,.14);
+    width: 100%;
+  }
+  .theme-footer {
+    padding: 4px 4px 4px 12px;
+    // border-bottom: 1px solid #e1e1e1;
+    border-radius: 0 0 4px 4px;
+    width: 100%;
+    border: 1px solid transparent;
+    border-top: none;
+  }
+
 }
+
+.color-picker-select-outer {
+  margin-left: auto;
+  // margin-top: 12px;
+  // margin-bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  box-shadow: 0 0 0 1px inset rgba(0,0,0,.14);
+  overflow: hidden;
+  border-radius: 4px;
+
+  .color-picker-select-swatch {
+    width: 35px;
+    height: 35px;
+    border-radius: 4px 0 0 4px;
+    box-shadow: 0 0 0 1px inset rgba(0,0,0,.14);
+  }
+}
+
+//////////////////
+// Design  >  Customize
+//////////////////
+
+.go-back-link {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  top: 0;
+  left: -8px;
+  opacity: 0.4;
+  font-size: 14px;
+  position: relative;
+  .link-icon {
+    font-size: 18px;
+    width: auto;
+    height: auto;
+  }
+}
+
+//////////////////
+// Fixed Top w/ Scrollable Bottom Content
+//////////////////
 
 .settings-menu-top {
   display: flex;
@@ -156,39 +386,5 @@
     padding: 24px;
     background: $white;
     padding-bottom: 240px;
-  }
-}
-
-.theme-snapshot {
-  padding: 16px 12px ;
-  // margin: 4px;
-  border-radius: 4px 4px 0 0;
-  box-shadow: 0 0 0 1px inset rgba(0,0,0,.14);
-  width: 100%;
-}
-.theme-footer {
-  padding: 4px 4px 4px 12px;
-  // border-bottom: 1px solid #e1e1e1;
-  border-radius: 0 0 4px 4px;
-  width: 100%;
-  border: 1px solid transparent;
-  border-top: none;
-}
-
-.color-picker-select-outer {
-  margin-left: auto;
-  margin-top: 12px;
-  margin-bottom: 12px;
-  display: inline-flex;
-  align-items: center;
-  box-shadow: 0 0 0 1px inset rgba(0,0,0,.14);
-  overflow: hidden;
-  border-radius: 4px;
-
-  .color-picker-select-swatch {
-    width: 35px;
-    height: 35px;
-    border-radius: 4px 0 0 4px;
-    box-shadow: 0 0 0 1px inset rgba(0,0,0,.14);
   }
 }

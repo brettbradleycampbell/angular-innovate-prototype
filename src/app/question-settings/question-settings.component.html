@@ -1,64 +1,172 @@
-<!-- Question Type -->
-<div class="sbc-settings-item">
-  <mat-label>Question Type</mat-label>
-  <mat-form-field appearance="outline" class="mat-select-outer">
-    <mat-select [(value)]="selected">
-      <mat-option value="multipleChoice">
-        <mat-icon>format_list_bulleted</mat-icon>
-        <span>Multiple Choice</span>
+<!-- CHOOSE QUESTION TYPE -->
+<div class="settings-menu-item-outer settings-border-bottom settings-select">
+  <mat-label class="full-flex-label">Question Type</mat-label>
+  <mat-form-field appearance="outline" class="">
+    <mat-select [(ngModel)]="qType">
+      <!-- Need to remove icon text from Select value -->
+      <mat-select-trigger>
+        {{qType}}<sup *ngIf="qType === 'NPS'">®</sup>
+      </mat-select-trigger>
+      <mat-option [value]="questionType.type" *ngFor="let questionType of questionTypes">
+        <mat-icon>{{questionType.icon}}</mat-icon>
+        <span>{{questionType.type}}</span>
+        <sup *ngIf="questionType.type === 'NPS'">®</sup>
       </mat-option>
-      <mat-option value="statement">
-        <mat-icon>format_quote</mat-icon>
-        <span>Statement</span>
-      </mat-option>
-      <mat-option value="scale">
-        <mat-icon>star_outline</mat-icon>
-        <span>Scale</span>
-      </mat-option>
-      <mat-option value="select">
-        <mat-icon>unfold_more</mat-icon>
-        <span>Select</span>
-      </mat-option>
-      <mat-option value="textEntry">
-        <mat-icon>notes</mat-icon>
-        <span>Text Entry</span>
-      </mat-option>
-      <mat-option value="rank">
-        <mat-icon>swap_vert</mat-icon>
-        <span>Rank</span>
-      </mat-option>
-      <mat-option value="fileUpload">
-        <mat-icon>attachment</mat-icon>
-        <span>File Upload</span>
-      </mat-option>
+
     </mat-select>
   </mat-form-field>
 </div>
-<mat-slide-toggle class="sbc-settings-item">Required</mat-slide-toggle>
-<div class="sbc-settings-item">
-  <!-- Preset answers -->
-  <mat-slide-toggle>Preset answers</mat-slide-toggle>
-  <mat-form-field appearance="outline" class="mat-select-outer mat-sub-select">
-    <mat-select [(value)]="selected2">
-      <mat-option value="age">Age</mat-option>
-      <mat-option value="usSates">U.S. States</mat-option>
-      <mat-option value="education">Education</mat-option>
-      <mat-option value="gender">Gender</mat-option>
+
+<!-- REQUIRED -->
+<mat-slide-toggle class="settings-menu-item-outer" *ngIf="qType !== 'Statement'">Required</mat-slide-toggle>
+
+<!-- PRESET ANSWERS -->
+<div class="settings-menu-item-outer" *ngIf="qType !== 'Statement' && qType !== 'Scale' && qType !== 'Text Entry' && qType !== 'File Upload' && qType !== 'NPS'">
+  <mat-slide-toggle [(ngModel)]="presetAnswersToggle" [ngClass]="{'toggle-menu-open': presetAnswersToggle}">Preset answers</mat-slide-toggle>
+  <div *ngIf="presetAnswersToggle">
+  <mat-form-field appearance="outline" class="expanded-border-bottom">
+    <mat-select [(value)]="presetAnswers">
+      <mat-optgroup label="Demographic">
+        <mat-option value="age">Age</mat-option>
+        <mat-option value="gender">Gender</mat-option>
+        <mat-option value="education">Education</mat-option>
+        <mat-option value="employment">Employment</mat-option>
+        <mat-option value="marital">Marital Status</mat-option>
+      </mat-optgroup>
+      <mat-optgroup label="Geographic">
+        <mat-option value="states">U.S. States</mat-option>
+        <mat-option value="countries">Countries</mat-option>
+        <mat-option value="timezone">Time Zones</mat-option>
+      </mat-optgroup>
+      <mat-optgroup label="Time">
+        <mat-option value="days">Days of the week</mat-option>
+        <mat-option value="months">Months</mat-option>
+        <mat-option value="years">Birth year</mat-option>
+      </mat-optgroup>
+      <mat-optgroup label="Opinion">
+        <mat-option value="yes">Yes - No</mat-option>
+        <mat-option value="good">Good - Bad</mat-option>
+        <mat-option value="satisfied">Satisfied - Unsatisfied</mat-option>
+        <mat-option value="agree">Agree - Disagree</mat-option>
+        <mat-option value="important">Important - Not Impoprtant</mat-option>
+        <mat-option value="important">Always - Never</mat-option>
+      </mat-optgroup>
+    </mat-select>
+  </mat-form-field>
+  </div>
+
+</div>
+
+<!-- PRESET ANSWERS - NUMBER (How many) -->
+<div class="settings-menu-item-outer settings-border-bottom settings-inline-input" *ngIf="qType !== 'Statement' && qType !== 'Scale' && qType !== 'Text Entry' && qType !== 'File Upload' && qType !== 'NPS' && presetAnswersToggle">
+  <span>Answer choices</span>
+  <mat-form-field appearance="outline" class="">
+    <input matInput placeholder="0" value="3" type="number" min="0">
+  </mat-form-field>
+</div>
+
+<!-- SCALE ANSWER OPTIONS (Instead of Preset Answers)-->
+<div class="settings-menu-item-outer settings-border-bottom settings-select" *ngIf="qType === 'Scale'">
+  <mat-label class="full-flex-label">Answer type</mat-label>
+  <div>
+    <mat-form-field appearance="outline" class="" style="">
+      <mat-select [(value)]="scaleAnswerType">
+        <mat-option value="stars">Stars</mat-option>
+        <mat-option value="hearts">Hearts</mat-option>
+        <mat-option value="numbers">Numbers</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+
+<!-- SCALE ANSWER OPTON - NUMBER -->
+<div class="settings-menu-item-outer settings-border-bottom settings-inline-input" *ngIf="qType === 'Scale'">
+  <span>Scale points</span>
+  <mat-form-field appearance="outline" class="">
+    <input matInput placeholder="0" value="" type="number" max="20" min="0">
+  </mat-form-field>
+</div>
+
+<!-- TEXT ENTRY ANSWER OPTIONS (Instead of Preset Answers)-->
+<div class="settings-menu-item-outer settings-border-bottom settings-select" *ngIf="qType === 'Text Entry'">
+  <mat-label class="full-flex-label">Text Field Type</mat-label>
+  <mat-form-field appearance="outline" class="" style="">
+    <mat-select [(value)]="textFieldType">
+      <mat-option value="text">Single line</mat-option>
+      <mat-option value="textarea">Multiline</mat-option>
+      <mat-option value="email">Email</mat-option>
+      <mat-option value="number">Number</mat-option>
     </mat-select>
   </mat-form-field>
 </div>
-<!-- Allow multiple answers -->
-<mat-slide-toggle class="sbc-settings-item">Multiple answers</mat-slide-toggle>
-<div class="sbc-settings-item" style="display: flex; align-items: center;">
-  <span>Insert image</span>
-  <button mat-stroked-button (click)="openAddImageDialog()" style="line-height: 28px; min-width: 0; padding: 0 8px; margin: 8px 0; margin-left: auto;">Add</button>
+
+<!-- TEXT ENTRY - MAX CHARACTERS -->
+<div class="settings-menu-item-outer settings-border-bottom settings-inline-input" *ngIf="qType === 'Text Entry'">
+  <span>Character limit</span>
+  <mat-form-field appearance="outline" class="">
+    <input matInput placeholder="0" min="0" value="" type="number">
+  </mat-form-field>
 </div>
-<!-- <mat-slide-toggle class="sbc-settings-item">Insert image</mat-slide-toggle> -->
-<mat-slide-toggle class="sbc-settings-item">Insert video</mat-slide-toggle><!-- Answer order -->
-<div class="sbc-settings-item">
-  <mat-slide-toggle>Custom sort order</mat-slide-toggle>
-    <mat-form-field appearance="outline" class="mat-select-outer mat-sub-select">
-    <mat-select [(value)]="selected3">
+
+<!-- MULTIPLE ANSWERS -->
+<div class="settings-menu-item-outer" *ngIf="qType !== 'Statement' && qType !== 'Scale' && qType !== 'Text Entry' && qType !== 'Rank' && qType !== 'NPS' && qType !== 'File Upload'">
+  <mat-slide-toggle [(ngModel)]="multipleAnswersToggle" [ngClass]="{'toggle-menu-open': multipleAnswersToggle}">Multiple selections</mat-slide-toggle>
+  <mat-form-field *ngIf="multipleAnswersToggle" appearance="outline" [ngClass]="{'expanded-border-bottom': answerLimit === 'unlimited'}" >
+    <mat-select [(value)]="answerLimit">
+      <mat-option value="unlimited">Unlimited</mat-option>
+      <mat-option value="range">Range</mat-option>
+      <mat-option value="exact">Exact number</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div *ngIf="answerLimit === 'range' && multipleAnswersToggle" class="answer-range expanded-border-bottom expand-expand">
+    <mat-form-field appearance="outline" class="">
+      <input matInput placeholder="0" min="0" value="" type="number">
+    </mat-form-field>
+    <span>to</span>
+    <mat-form-field appearance="outline" class="">
+      <input matInput placeholder="999" min="0" value="" type="number">
+    </mat-form-field>
+  </div>
+  <div *ngIf="answerLimit === 'exact' && multipleAnswersToggle" class="expanded-border-bottom expand-expand">
+    <mat-form-field appearance="outline" class="">
+      <input matInput placeholder="2" min="0" value="" type="number">
+    </mat-form-field>
+  </div>
+</div>
+
+<!-- ADD IMAGE -->
+<div class="settings-menu-item-outer settings-border-bottom settings-inline-button">
+  <span>Image</span>
+  <button mat-stroked-button (click)="openAddImageDialog()">
+    <span>Add</span>
+  </button>
+</div>
+
+<!-- ADD VIDEO -->
+<div class="settings-menu-item-outer settings-border-bottom settings-inline-button" [ngClass]="{'inline-button-menu-open': videoURL === true}">
+  <span>Video URL</span>
+  <mat-icon class="help-tooltip" matTooltip="YouTube or Vimeo link" matTooltipPosition="above">help</mat-icon>
+  <button (click)="clickEvent()" mat-stroked-button>
+    <span>
+      {{ videoURL == true ? 'Remove' : 'Add' }}
+    </span>
+  </button>
+  <div>
+  </div>
+
+</div>
+
+<div *ngIf="videoURL === true" class="settings-menu-item-outer expanded-border-bottom">
+  <mat-form-field appearance="outline" class="">
+    <input matInput placeholder="https://" value="">
+  </mat-form-field>
+</div>
+
+<!-- SORT ORDER -->
+<div class="settings-menu-item-outer" *ngIf="qType !== 'Statement' && qType !== 'Scale' && qType !== 'Text Entry' && qType !== 'Rank' && qType !== 'File Upload' && qType !== 'NPS'">
+  <mat-slide-toggle [(ngModel)]="sortOrderToggle" [ngClass]="{'toggle-menu-open': sortOrderToggle}">Custom sort order</mat-slide-toggle>
+    <mat-form-field *ngIf="sortOrderToggle" appearance="outline" class="expanded-border-bottom">
+    <mat-select [(value)]="sortOrder">
       <mat-option value="random">Random</mat-option>
       <mat-option value="alphabetical">Alphabetical</mat-option>
       <mat-option value="low">Lowest to Highest</mat-option>
@@ -66,20 +174,63 @@
     </mat-select>
   </mat-form-field>
 </div>
-<mat-slide-toggle class="sbc-settings-item">Hide image labels</mat-slide-toggle>
 
+<!-- ANSWER IMAGES -->
+<mat-slide-toggle class="settings-menu-item-outer" [(ngModel)]="answerImagesToggle" *ngIf="qType !== 'Statement' && qType !== 'Scale' && qType !== 'Text Entry' && qType !== 'File Upload' && qType !== 'NPS'">Answer images</mat-slide-toggle>
 
+<!-- ANSWER IMAGES - LABELS -->
+<mat-slide-toggle class="settings-menu-item-outer" [(ngModel)]="answerImageLabelsToggle" *ngIf="qType !== 'Statement' && qType !== 'Scale' && qType !== 'Text Entry' && qType !== 'File Upload'  && qType !== 'NPS' && answerImagesToggle">Answer image labels</mat-slide-toggle>
 
-<!-- <ol>
-  <li>
-    <mat-form-field>
-      <input matInput [(ngModel)]="name" placeholder="What's your name?">
+<!-- Why would we want a "None" option? They need some kind of label for reporting at least?
+<div class="settings-menu-item-outer" *ngIf="qType !== 'Statement' && qType !== 'Scale' && qType !== 'Text Entry' && qType !== 'File Upload' && answerImagesToggle">
+  <mat-label>Answer image labels</mat-label>
+  <mat-form-field appearance="outline" class="">
+    <mat-select [(value)]="answerImageLabels">
+      <mat-option value="public">Public</mat-option>
+      <mat-option value="reporting">Reporting only</mat-option>
+      <mat-option value="none">None</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div> -->
+
+<!-- SCALE - LABELS -->
+<!-- <mat-slide-toggle [(ngModel)]="scaleLabelsToggle" class="settings-menu-item-outer" *ngIf="qType === 'Scale'">Scale labels</mat-slide-toggle>
+
+<div *ngIf="scaleLabelsToggle" class="settings-menu-item-outer" style="display: flex; align-items: center;">
+  <mat-form-field appearance="outline" class="">
+    <input matInput placeholder="Left" value="">
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="">
+    <input matInput placeholder="Right" value="">
+  </mat-form-field>
+</div> -->
+
+<div class="settings-menu-item-outer" *ngIf="qType === 'Scale'" [ngClass]="{'toggle-menu-open': scaleLabelsToggle}">
+  <mat-slide-toggle [(ngModel)]="scaleLabelsToggle">Scale labels</mat-slide-toggle>
+  <div *ngIf="scaleLabelsToggle" class="input-list-outer expanded-border-bottom">
+    <mat-form-field appearance="outline" class="">
+      <input matInput placeholder="Left" value="" type="text">
     </mat-form-field>
-  </li>
-  <li>
-    <button mat-raised-button (click)="openDialog()">Pick one</button>
-  </li>
-  <li *ngIf="animal">
-    You chose: <i>{{animal}}</i>
-  </li>
-</ol> -->
+    <mat-form-field appearance="outline" class="">
+      <input matInput placeholder="Center" value="" type="text">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="">
+      <input matInput placeholder="Right" value="" type="text">
+    </mat-form-field>
+  </div>
+</div>
+
+<!-- Maybe NPS should be its own question type.. it has a bunch of differences, and is supposed to have specific wording in the Question itself -- It would be annoying to have it change the question text that you just entered. But otherwise how do we show the right wording.
+-- Yeah, it should be its own question type.
+-->
+<div class="settings-menu-item-outer settings-border-bottom" *ngIf="qType === 'NPS'">
+  <mat-label class="full-flex-label">Scale labels</mat-label>
+  <div class="input-list-outer">
+    <mat-form-field appearance="outline" class="" style="">
+      <input matInput placeholder="Not at all likely" value="Not at all likely" type="text">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="" style="">
+      <input matInput placeholder="Extremely likely" value="Extremely likely" type="text">
+    </mat-form-field>
+  </div>
+</div>

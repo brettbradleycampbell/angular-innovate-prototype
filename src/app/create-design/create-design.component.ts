@@ -7,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateDesignComponent implements OnInit {
 
-  selected2='roboto';
-  selected4='normal';
-  selected5='none';
-
+  fontFamily='roboto';
+  fontSize='normal';
+  transitions='none';
+  backButtonToggle: boolean = true;
+  footerTextToggle: boolean = true;
   // Show/hide Customize tab hack
   menuOpen = false;
   constructor() {

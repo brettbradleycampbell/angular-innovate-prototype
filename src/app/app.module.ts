@@ -5,6 +5,9 @@ import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
 
+import {ReactiveFormsModule} from '@angular/forms';
+
+
 //Angular Material Components
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCheckboxModule} from '@angular/material';
@@ -56,6 +59,7 @@ import { LibraryComponent } from './library/library.component';
 import { DialogImageComponent } from './dialog-image/dialog-image.component';
 import { DialogLogicComponent } from './dialog-logic/dialog-logic.component';
 import { DialogLibraryComponent } from './dialog-library/dialog-library.component';
+import { QuestionTypeComponent } from './question-type/question-type.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +79,7 @@ import { DialogLibraryComponent } from './dialog-library/dialog-library.componen
     DialogImageComponent,
     DialogLogicComponent,
     DialogLibraryComponent,
+    QuestionTypeComponent,
   ],
   imports: [
     BrowserModule,
@@ -114,6 +119,9 @@ import { DialogLibraryComponent } from './dialog-library/dialog-library.componen
     MatRippleModule,
     //
     AppRoutingModule,
+    //
+    ReactiveFormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],

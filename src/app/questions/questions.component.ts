@@ -1,11 +1,20 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Question } from '../question';
 import { QUESTIONS } from '../demo-questions'; // demo-questions-2 for Starting screen.
+//
+// import { QuestionType } from '../question-type';
+// import { QUESTIONTYPES } from '../question-types';
 // Logic Dialog
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { DialogLogicComponent } from '../dialog-logic/dialog-logic.component';
 // Question Library Dialog
 import { DialogLibraryComponent } from '../dialog-library/dialog-library.component';
+
+// QUESTION TYPES
+import { QuestionType } from '../question-type';
+import { QUESTIONTYPES } from '../question-types'; // demo-questions-2 for Starting screen.
+import { QuestionTypeComponent } from '../question-type/question-type.component';
+
 
 // DIALOGS NOT WORKING TEST
 
@@ -25,6 +34,7 @@ export class QuestionsComponent implements OnInit {
   }
 
   questions = QUESTIONS;
+  questionTypes = QUESTIONTYPES;
 
   // constructor() { }
 

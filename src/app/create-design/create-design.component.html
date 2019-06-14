@@ -18,12 +18,8 @@
     <div id="customize" [class.show]="menuOpen">
 
       <div class="settings-menu-top customize">
-        <a (click)="onClick($event)" style="display: inline-flex; align-items: center; cursor: pointer; top: 0;
-      left: -8px;
-      opacity: 0.4;
-      font-size: 14px;
-      position: relative;">
-          <mat-icon style="font-size: 18px; width: auto; height: auto;">chevron_left</mat-icon>
+        <a (click)="onClick($event)" class="go-back-link">
+          <mat-icon class="link-icon">chevron_left</mat-icon>
           <span>Themes</span>
         </a>
         <div class="" style="width: 100%; display: flex; align-items: center; margin-top: 4px;">
@@ -47,98 +43,111 @@
       </div>
 
       <div class="settings-menu-bottom customize">
-        <h3 class="settings-header">General</h3>
-        <div class="sbc-settings-item inline-select">
-          <mat-label>Font family</mat-label>
-          <mat-form-field appearance="outline" class="mat-select-outer">
-            <mat-select [(value)]="selected2">
-              <mat-option value="lora" style="font-family: 'Lora'">Lora</mat-option>
-              <mat-option value="roboto" style="font-family: 'Roboto'">Roboto</mat-option>
-              <mat-option value="robotomono" style="font-family: 'Roboto Mono'">Roboto Mono</mat-option>
-              <mat-option value="playfair" style="font-family: 'Playfair Display'">Playfair Display</mat-option>
-              <mat-option value="garamond" style="font-family: 'EB Garamond'">EB Garamond</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-        <div class="sbc-settings-item inline-select">
-          <mat-label>Font size</mat-label>
-          <mat-form-field appearance="outline" class="mat-select-outer">
-            <mat-select [(value)]="selected4">
-              <mat-option value="small">Small</mat-option>
-              <mat-option value="normal">Normal</mat-option>
-              <mat-option value="large">Large</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-        <div class="sbc-settings-item inline-select small-select">
-          <mat-label>Text color</mat-label>
-          <div class="color-picker-select-outer">
-            <div class="color-picker-select-swatch" style="background: #222222;">
-            </div>
-            <mat-icon>arrow_drop_down</mat-icon>
+        <div class="settings-group">
+          <h3 class="settings-header">General</h3>
+          <div class="settings-menu-item-outer settings-design-inline-select">
+            <mat-label>Font family</mat-label>
+            <mat-form-field appearance="outline">
+              <mat-select [(value)]="fontFamily">
+                <mat-option value="lora" style="font-family: 'Lora'">Lora</mat-option>
+                <mat-option value="roboto" style="font-family: 'Roboto'">Roboto</mat-option>
+                <mat-option value="robotomono" style="font-family: 'Roboto Mono'">Roboto Mono</mat-option>
+                <mat-option value="playfair" style="font-family: 'Playfair Display'">Playfair Display</mat-option>
+                <mat-option value="garamond" style="font-family: 'EB Garamond'">EB Garamond</mat-option>
+              </mat-select>
+            </mat-form-field>
           </div>
-        </div>
-        <div class="sbc-settings-item inline-select small-select">
-          <mat-label>Button color</mat-label>
-          <div class="color-picker-select-outer">
-            <div class="color-picker-select-swatch" style="background: salmon;">
-            </div>
-            <mat-icon>arrow_drop_down</mat-icon>
+          <div class="settings-menu-item-outer settings-design-inline-select">
+            <mat-label>Font size</mat-label>
+            <mat-form-field appearance="outline" class="input-size-medium">
+              <mat-select [(value)]="fontSize">
+                <mat-option value="small">Small</mat-option>
+                <mat-option value="normal">Normal</mat-option>
+                <mat-option value="large">Large</mat-option>
+                <mat-option value="xl">XL</mat-option>
+              </mat-select>
+            </mat-form-field>
           </div>
-        </div>
-        <div class="sbc-settings-item inline-select small-select">
-          <mat-label>Button text color</mat-label>
-          <div class="color-picker-select-outer">
-            <div class="color-picker-select-swatch" style="background: #ffffff;">
+          <div class="settings-menu-item-outer settings-design-inline-select">
+            <mat-label>Text color</mat-label>
+            <div class="color-picker-select-outer">
+              <div class="color-picker-select-swatch" style="background: #222222;">
+              </div>
+              <mat-icon>arrow_drop_down</mat-icon>
             </div>
-            <mat-icon>arrow_drop_down</mat-icon>
           </div>
-        </div>
-        <mat-slide-toggle class="sbc-settings-item">Background image</mat-slide-toggle>
-        <mat-slide-toggle class="sbc-settings-item">Logo</mat-slide-toggle>
-
-        <br><br><br>
-        <h3 class="settings-header">Navigation</h3>
-        <div class="sbc-settings-item inline-select small-select">
-          <mat-label>Next button text</mat-label>
-          <mat-form-field appearance="outline" class="mat-select-outer">
-            <input matInput placeholder="" value="Next">
-          </mat-form-field>
-        </div>
-        <mat-slide-toggle class="sbc-settings-item">Back button</mat-slide-toggle>
-        <div class="sbc-settings-item inline-select small-select">
-          <mat-label>Back button text</mat-label>
-          <mat-form-field appearance="outline" class="mat-select-outer">
-            <input matInput placeholder="" value="Back">
-          </mat-form-field>
-        </div>
-        <mat-slide-toggle class="sbc-settings-item">Progress bar</mat-slide-toggle>
-        <div class="sbc-settings-item inline-select">
-          <mat-label>Transitions</mat-label>
-          <mat-form-field appearance="outline" class="mat-select-outer">
-            <mat-select [(value)]="selected5">
-              <mat-option value="none">None</mat-option>
-              <mat-option value="slide">Slide</mat-option>
-              <mat-option value="fade">Fade</mat-option>
-            </mat-select>
-          </mat-form-field>
+          <div class="settings-menu-item-outer settings-design-inline-select">
+            <mat-label>Button color</mat-label>
+            <div class="color-picker-select-outer">
+              <div class="color-picker-select-swatch" style="background: salmon;">
+              </div>
+              <mat-icon>arrow_drop_down</mat-icon>
+            </div>
+          </div>
+          <div class="settings-menu-item-outer settings-design-inline-select">
+            <mat-label>Button text color</mat-label>
+            <div class="color-picker-select-outer">
+              <div class="color-picker-select-swatch" style="background: #ffffff;">
+              </div>
+              <mat-icon>arrow_drop_down</mat-icon>
+            </div>
+          </div>
+          <mat-slide-toggle class="settings-menu-item-outer">Background image</mat-slide-toggle>
+          <mat-slide-toggle class="settings-menu-item-outer">Logo</mat-slide-toggle>
         </div>
 
-
-        <br><br><br>
-        <h3 class="settings-header">Advanced</h3>
-        <mat-slide-toggle class="sbc-settings-item">Footer text</mat-slide-toggle>
-        <div class="sbc-settings-item">
-          <mat-label>Custom CSS</mat-label>
-          <mat-form-field appearance="outline" class="mat-select-outer">
-            <textarea matInput rows="8" placeholder="/* Add custom styles */"></textarea>
-          </mat-form-field>
+        <div class="settings-group">
+          <h3 class="settings-header">Navigation</h3>
+          <div class="settings-menu-item-outer settings-design-inline-input">
+            <mat-label>Next button text</mat-label>
+            <mat-form-field appearance="outline" class="input-size-medium">
+              <input matInput placeholder="" value="Next">
+            </mat-form-field>
+          </div>
+          <mat-slide-toggle class="settings-menu-item-outer" [(ngModel)]="backButtonToggle">Back button</mat-slide-toggle>
+          <div class="settings-menu-item-outer settings-design-inline-input" *ngIf="backButtonToggle">
+            <mat-label>Back button text</mat-label>
+            <mat-form-field appearance="outline" class="input-size-medium">
+              <input matInput placeholder="" value="Back">
+            </mat-form-field>
+          </div>
+          <mat-slide-toggle class="settings-menu-item-outer">Progress bar</mat-slide-toggle>
+          <div class="settings-menu-item-outer settings-design-inline-select">
+            <mat-label>Transitions</mat-label>
+            <mat-form-field appearance="outline" class="input-size-medium">
+              <mat-select [(value)]="transitions">
+                <mat-option value="none">None</mat-option>
+                <mat-option value="fade">Fade</mat-option>
+                <mat-option value="slide">Slide</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
         </div>
-        <div class="sbc-settings-item">
-          <mat-label>External stylesheet</mat-label>
-          <mat-form-field appearance="outline" class="mat-select-outer">
-            <input matInput placeholder="https://" value="">
-          </mat-form-field>
+
+        <div class="settings-group">
+          <h3 class="settings-header">Advanced</h3>
+
+          <div class="settings-menu-item-outer" [ngClass]="{'toggle-menu-open': footerTextToggle}">
+            <mat-slide-toggle [(ngModel)]="footerTextToggle">Footer text</mat-slide-toggle>
+            <div *ngIf="footerTextToggle" class="input-list-outer expanded-border-bottom">
+              <mat-form-field appearance="outline" class="" >
+                <textarea matInput rows="6" placeholder="© Innovate MR 2019"></textarea>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="settings-menu-item-outer settings-select settings-border-bottom">
+            <mat-label class="full-flex-label">Custom CSS</mat-label>
+            <mat-form-field appearance="outline" class="">
+              <textarea matInput rows="10" placeholder=""></textarea>
+            </mat-form-field>
+          </div>
+          <div class="settings-menu-item-outer settings-select settings-border-bottom">
+            <mat-label class="full-flex-label">External stylesheet</mat-label>
+            <mat-form-field appearance="outline" class="">
+              <input matInput placeholder="https://" value="">
+            </mat-form-field>
+          </div>
         </div>
 
       </div>

@@ -1,6 +1,18 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { DialogImageComponent } from '../dialog-image/dialog-image.component';
+//
+//
+//
+import {FormControl} from '@angular/forms';
+//
+//
+//
+import { QuestionType } from '../question-type';
+import { QUESTIONTYPES } from '../question-types'; // demo-questions-2 for Starting screen.
+import { QuestionTypeComponent } from '../question-type/question-type.component';
+
+
 
 @Component({
   selector: 'app-question-settings',
@@ -9,38 +21,42 @@ import { DialogImageComponent } from '../dialog-image/dialog-image.component';
 })
 export class QuestionSettingsComponent implements OnInit {
 
-  selected='multipleChoice';
-  selected2='age';
+  qType='Multiple Choice';
+  //
   selected3='random';
-
   // constructor() { }
 
   ngOnInit() {
   }
 
-  //
-  // Add Image Dialog
-
+  // ADD IMAGE DIALOG
   // version = VERSION;
-
   imageNameDialogRef: MatDialogRef<DialogImageComponent>;
-
   constructor(private dialog: MatDialog) {}
-
-  images = [
-    { name: 'foo.js', content: ''},
-    { name: 'bar.js', content: ''}
-  ];
-
   openAddImageDialog() {
     this.imageNameDialogRef = this.dialog.open(DialogImageComponent, {
-      // width: '250px',
       panelClass: 'dialog-image',
-      // data: {name: this.name, animal: this.animal}
     });
   }
   //
-  //
+  // questionType = new FormControl();
+  questionTypes = QUESTIONTYPES;
 
+  // TOGGLE SETTINGS
+  presetAnswersToggle: boolean = true;
+  presetAnswers='age';
+  scaleAnswerType='stars'
+  multipleAnswersToggle: boolean = true;
+  answerLimit = 'unlimited';
+  sortOrderToggle: boolean = true;
+  sortOrder = 'random';
+  videoURL: boolean = true;
+  clickEvent(){this.videoURL = !this.videoURL;}
+  answerImagesToggle: boolean = true;
+  answerImageLabelsToggle: boolean = true;
+  // answerImageLabels = 'public';
+  scaleLabelsToggle: boolean = true;
+  textFieldType = 'text';
+  //
 
 }

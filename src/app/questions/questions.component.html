@@ -9,25 +9,28 @@
       <div class="sbc-question-title">
         <span class="sbc-question-number">
           <span class="material-icons question-number-icon" *ngIf="question.questionType == 'multipleChoice' || question.questionType == 'multipleChoiceImage'">
-            format_list_bulleted
+            list_alt
           </span>
           <span class="material-icons question-number-icon" *ngIf="question.questionType == 'scale'">
             star_outline
           </span>
           <span class="material-icons question-number-icon" *ngIf="question.questionType == 'statement'">
-            format_quote
+            notes
           </span>
           <span class="material-icons question-number-icon" *ngIf="question.questionType == 'rank' || question.questionType == 'rankImage'">
             swap_vert
           </span>
           <span class="material-icons question-number-icon" *ngIf="question.questionType == 'select'">
-            unfold_more
+            expand_more
           </span>
           <span class="material-icons question-number-icon" *ngIf="question.questionType == 'textEntry'">
-            notes
+            chat_bubble_outline
           </span>
           <span class="material-icons question-number-icon" *ngIf="question.questionType == 'fileUpload'">
             attachment
+          </span>
+          <span class="material-icons question-number-icon" *ngIf="question.questionType == 'npm'">
+            trending_up
           </span>
           <span>{{question.id}}</span>
         </span>
@@ -37,13 +40,29 @@
         <button mat-icon-button [matMenuTriggerFor]="qMenu">
           <mat-icon>more_horiz</mat-icon>
         </button>
-        <mat-menu #qMenu="matMenu">
+        <!-- <mat-menu #qMenu="matMenu">
           <button mat-menu-item>Move</button>
           <button mat-menu-item (click)="openAddLogicDialog()">Edit Logic</button>
           <button mat-menu-item>Duplicate</button>
           <hr>
           <button mat-menu-item>Delete</button>
+        </mat-menu> -->
+
+        <mat-menu #qMenu="matMenu">
+          <button mat-menu-item [matMenuTriggerFor]="reports">Move</button>
+          <button mat-menu-item (click)="openAddLogicDialog()">Edit Logic</button>
+          <button mat-menu-item>Duplicate</button>
+          <hr>
+          <button mat-menu-item>Delete</button>
         </mat-menu>
+        <mat-menu #reports="matMenu">
+          <button mat-menu-item *ngFor="let question of questions">
+            <span *ngIf="question.questionType !== 'pageBreak'">{{question.id}} - {{question.questionText}}</span>
+            <span *ngIf="question.questionType === 'pageBreak'"><hr style="border-bottom: 1px dashed #d2d1d0;"></span>
+          </button>
+        </mat-menu>
+
+
       </div>
     </div>
     <div class="sbc-answer-text-editor" *ngIf="question.questionType == 'multipleChoice' || question.questionType == 'multipleChoiceImage' || question.questionType == 'select' || question.questionType == 'rank' || question.questionType == 'rankImage'">
@@ -106,7 +125,13 @@
         <mat-icon>star_outline</mat-icon>
         <mat-icon>star_outline</mat-icon>
       </div>
-      <div class="answer-element-type" *ngIf="question.answerElementType == 'npmScale'">
+      <div class="answer-element-type" *ngIf="question.answerElementType == 'numbers'">
+        [ 1 - 5 ]
+      </div>
+    </div>
+
+    <div class="sbc-answer-text-editor" *ngIf="question.questionType == 'npm'">
+      <div class="answer-element-type">
         [ 0 - 10 ]
       </div>
     </div>
@@ -148,6 +173,7 @@
     <button mat-button [matMenuTriggerFor]="addQuestionMenu" class="split-button-right">
       <mat-icon>arrow_drop_down</mat-icon>
     </button>
+
     <mat-menu #addQuestionMenu="matMenu" yPosition="below">
       <button mat-menu-item>
         <span>Page Break</span>
@@ -156,36 +182,13 @@
         <span>Import from Library</span>
       </button>
       <hr>
-      <button mat-menu-item>
-        <mat-icon>format_list_bulleted</mat-icon>
-        <span>Multiple Choice</span>
+      <button mat-menu-item *ngFor="let questionType of questionTypes">
+        <mat-icon>{{questionType.icon}}</mat-icon>
+        <span>{{questionType.type}}</span>
+        <sup *ngIf="questionType.type === 'nps'">®</sup>
       </button>
-      <button mat-menu-item>
-        <mat-icon>format_quote</mat-icon>
-        <span>Statement</span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon>star_outline</mat-icon>
-        <span>Scale</span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon>unfold_more</mat-icon>
-        <span>Select</span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon>notes</mat-icon>
-        <span>Text Entry</span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon>swap_vert</mat-icon>
-        <span>Rank</span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon>attachment</mat-icon>
-        <span>File Upload</span>
-      </button>
-
     </mat-menu>
+
   </div>
 
   <div class="connect-question-to-menu" *ngIf="question.questionType !== 'pageBreak'"></div>
