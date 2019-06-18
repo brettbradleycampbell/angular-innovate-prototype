@@ -7,9 +7,7 @@ export const QUESTIONS: Question[] = [
     questionGroup: 1,
     questionType: 'multipleChoice',
     answers: ['Choice 1', 'Choice 2', 'Choice 3'],
-  },
-  {
-    questionType: 'pageBreak',
+    skipLogic: true,
   },
   {
     id: 2,
@@ -17,6 +15,7 @@ export const QUESTIONS: Question[] = [
     questionGroup: 1,
     questionType: 'select',
     answers: ['UT', 'CA', 'AZ', 'Long answer text and answer text and answer text and answer text and answer text and answer text and answer text and answer text and'],
+    displayLogic: true,
   },
   {
     questionType: 'pageBreak',
@@ -26,6 +25,7 @@ export const QUESTIONS: Question[] = [
     questionText: 'How likely are you to recommend our business to a friend or colleague?',
     questionGroup: 2,
     questionType: 'npm',
+    skipLogicDestination: true,
   },
   {
     questionType: 'pageBreak',

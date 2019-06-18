@@ -388,3 +388,22 @@
     padding-bottom: 240px;
   }
 }
+
+.image-setting-flex-row {
+  display: flex;
+  flex-direction: row;
+  .image-thumbnail {
+    width: 34%;
+    display: flex;
+    background-image: url(https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/yosemite.jpg?raw=true);
+    background-size: cover;
+    height: 74px;
+    border-radius: 4px;
+  }
+  .image-settings {
+    display: flex;
+    flex-direction: column;
+    width: 66%;
+    padding: 0 12px;
+  }
+}

@@ -5,8 +5,34 @@
 [class.selected]="question === selectedQuestion"
 [ngClass]="{ first: first, last: last, 'page-break':question.questionType === 'pageBreak'}">
   <div class="sbc-question-inner" *ngIf="question.questionType !== 'pageBreak'">
+
+
+
+    <div *ngIf="question.displayLogic === true" class="logic-summary-bubble-outer logic-display-outer">
+      <!-- <div class="logic-bubble-row">
+        <span class="logic-hide">Hide if</span>
+        <span>1 - What is your age?</span>
+        <span>18 - 24</span>
+        <span>is selected</span>
+      </div> -->
+      <div class="logic-bubble-row">
+        <span class="logic-display">Display only if</span>
+        <span>1 - What is your age?</span>
+        <span>65+</span>
+        <span>is selected</span>
+      </div>
+      <div class="logic-bubble-row">
+        <span class="">and</span>
+        <span>2 - What state do you live in?</span>
+        <span>California</span>
+        <span>is not selected</span>
+      </div>
+    </div>
+
     <div class="sbc-question-header">
       <div class="sbc-question-title">
+        <mat-icon *ngIf="question.skipLogicDestination === true" style="background: #ddd1f1; color: #673AB7;">subdirectory_arrow_right</mat-icon>
+        <mat-icon *ngIf="question.skipLogicDestination === true" style="background: #badcb4; color: #466f3e;">subdirectory_arrow_right</mat-icon>
         <span class="sbc-question-number">
           <span class="material-icons question-number-icon" *ngIf="question.questionType == 'multipleChoice' || question.questionType == 'multipleChoiceImage'">
             list_alt
@@ -49,9 +75,9 @@
         </mat-menu> -->
 
         <mat-menu #qMenu="matMenu">
-          <button mat-menu-item [matMenuTriggerFor]="reports">Move</button>
-          <button mat-menu-item (click)="openAddLogicDialog()">Edit Logic</button>
           <button mat-menu-item>Duplicate</button>
+          <button mat-menu-item (click)="openAddLogicDialog()">Edit Logic</button>
+          <button mat-menu-item [matMenuTriggerFor]="reports">Move</button>
           <hr>
           <button mat-menu-item>Delete</button>
         </mat-menu>
@@ -71,19 +97,31 @@
           <mat-icon>arrow_drop_down</mat-icon>
         </button>
         <mat-menu #atlMenu="matMenu">
-          <button mat-menu-item>Anchor</button>
-          <button mat-menu-item>Make exclusive</button>
+          <button mat-menu-item style="padding-left: 8px;">
+            <mat-icon style="margin-right: 8px; height: auto; width: auto; font-size: 20px; margin-top: -4px;">check</mat-icon>
+            <span>Allow text entry</span>
+          </button>
+          <button mat-menu-item style="padding-left: 28px;">
+            <mat-icon style="margin-right: 8px; height: auto; width: auto; font-size: 20px;"></mat-icon>
+            <span>Anchor</span>
+          </button>
+          <button mat-menu-item  style="padding-left: 8px;">
+            <mat-icon style="margin-right: 8px; height: auto; width: auto; font-size: 20px; margin-top: -4px;">check</mat-icon>
+            <span>Make exclusive</span>
+          </button>
           <hr>
           <button mat-menu-item style="padding-left: 8px;">
-            <mat-icon style="margin-right: 4px;">arrow_drop_up</mat-icon>
+            <mat-icon style="margin-right: 8px; height: auto; width: auto; font-size: 20px; margin-top: -4px;">arrow_drop_up</mat-icon>
             <span>Move up</span>
           </button>
           <button mat-menu-item style="padding-left: 8px;">
-            <mat-icon style="margin-right: 4px;">arrow_drop_down</mat-icon>
+            <mat-icon style="margin-right: 8px; height: auto; width: auto; font-size: 20px; margin-top: -4px;">arrow_drop_down</mat-icon>
             <span>Move down</span>
           </button>
           <hr>
-          <button mat-menu-item>Remove</button>
+          <button mat-menu-item>
+            <span>Delete</span>
+          </button>
         </mat-menu>
 
         <span class="sbc-atl-image-thumbnail" *ngIf="question.questionType == 'multipleChoiceImage' || question.questionType == 'rankImage'" [ngClass]="{'yosemite':answers === 'Yosemite', 'yellowstone':answers === 'Yellowstone', 'niagra-falls':answers === 'Niagra Falls', 'no-image':answers === 'Choice 4'}">
@@ -192,5 +230,71 @@
   </div>
 
   <div class="connect-question-to-menu" *ngIf="question.questionType !== 'pageBreak'"></div>
+
+  <div *ngIf="question.skipLogic === true" class="logic-summary-bubble-outer logic-skip-outer">
+    <div class="logic-bubble-row purple">
+      <span class="logic-if purple">If</span>
+      <span class="logic-answer-choice logic-highlighted">Choice 1</span>
+      <span class="logic-selected">is selected</span>
+      <span class="logic-skip-to">skip to</span>
+      <span class="logic-skip-destination-question logic-highlighted">3 - How likely are you to recommend our business to a friend or colleague?</span>
+    </div>
+    <div class="logic-bubble-row orange">
+      <span class="logic-if lime">If</span>
+      <span class="logic-any-all-prefix">any of</span>
+      <span class="logic-answer-choice logic-multiple logic-highlighted">Choice 1, Choice 2, Choice 3</span>
+      <span class="logic-not-selected">are not selected</span>
+      <span class="logic-skip-to">skip to</span>
+      <span class="logic-skip-destination-question logic-highlighted">Termination</span>
+    </div>
+    <div class="logic-bubble-row red">
+      <span class="logic-if gold">If</span>
+      <span class="logic-any-all-prefix">all of</span>
+      <span class="logic-answer-choice logic-multiple logic-highlighted">Choice1, Choice 2, Choice 3</span>
+      <span class="logic-selected">are selected</span>
+      <span class="logic-skip-to">skip to</span>
+      <span class="logic-skip-destination-question logic-highlighted">Completion</span>
+    </div>
+    <div class="logic-bubble-row green">
+      <span class="logic-if gold">If</span>
+      <span class="logic-any-all-prefix">either</span>
+      <span class="logic-answer-choice logic-multiple logic-highlighted">Choice 2, Choice 3</span>
+      <span class="logic-selected">is selected</span>
+      <span class="logic-skip-to">skip to</span>
+      <span class="logic-skip-destination-question logic-highlighted">3 - How likely are you to recommend our business to a friend or colleague?</span>
+    </div>
+    <div class="logic-bubble-row lime">
+      <span class="logic-if gold">If</span>
+      <span class="logic-any-all-prefix">both</span>
+      <span class="logic-answer-choice logic-multiple logic-highlighted">Choice 2, Choice 3</span>
+      <span class="logic-selected">are selected</span>
+      <span class="logic-skip-to">skip to</span>
+      <span class="logic-skip-destination-question logic-highlighted">Completion</span>
+      <!-- <mat-icon style="height: auto; width: auto; font-size: 18px;">remove_circle</mat-icon>
+      <span class="logic-skip-to" style="text-decoration: underline; cursor: pointer; font-family: 'Roboto'; margin-left: 8px; margin-right: 8px;">Edit</span> -->
+    </div>
+    <!-- <div class="logic-bubble-row">
+      <span class="logic-answer-choice">Choice 2</span>
+      <span class="logic-skip-to">or</span>
+      <span class="logic-answer-choice">Choice 4</span>
+      <span class="logic-selected">selected</span>
+      <span class="logic-skip-to">skip to</span>
+      <span style="background-color: #eac5cf; color: #b52d2d;">Termination</span>
+    </div>
+    <div class="logic-bubble-row">
+      <span class="logic-answer-choice">Choice 1</span>
+      <span class="logic-skip-to">and</span>
+      <span class="logic-answer-choice">Choice 3</span>
+      <span class="logic-skip-to">and</span>
+      <span class="logic-answer-choice">Choice 4</span>
+      <span class="logic-selected">selected</span>
+      <span class="logic-skip-to">skip to</span>
+      <span style="background-color: #eac5cf; color: #b52d2d;">Termination</span>
+    </div> -->
+
+  </div>
+
+
+
 
 </div>

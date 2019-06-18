@@ -79,6 +79,178 @@
 
 }
 
+$logic-bubble-color: gray; //blue //gray
+
+.logic-summary-bubble-outer {
+  padding: 16px 12px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  // margin: 24px 0px 8px 0px;
+  margin-right: 0px;
+  // opacity: 0.7;
+  border: 1px dotted transparent;
+  // background: rgba(0,0,0,.02);
+  border-left: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-left: -16px;
+  padding-left: 16px;
+
+  &.logic-skip-outer {
+    margin-top: 24px;
+    margin-bottom: 8px;
+    // border-top: $light-border;
+
+  }
+  &.logic-display-outer {
+    margin-top: 0;
+    margin-bottom: 24px;
+    // border-bottom: $light-border;
+  }
+
+  .logic-bubble-row {
+    display: flex;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &.purple span.logic-highlighted {
+      background: #ddd1f1; //#c5cbea; //#3f51b5;
+      color: #673AB7; //#2c3b8c; // #fff;
+    }
+    &.orange span.logic-highlighted {
+      background: #efca5d;
+      color: #544413;
+    }
+    &.lime span.logic-highlighted {
+      background: #d4e245;
+      color: #454a15;
+    }
+    &.red span.logic-highlighted {
+      background-color: #eac5cf;
+      color: #521616;
+    }
+    &.green span.logic-highlighted {
+      background-color: #badcb4;
+      color: #466f3e;
+    }
+
+  }
+
+  span {
+    padding: 6px 6px; //8px 8px;
+    border-radius: 3px;
+    margin: 0 8px 4px 0;
+    margin-right: 4px;
+    font-family: "Roboto Mono";
+    white-space: nowrap;
+    line-height: 1em;
+    display: inline;
+
+    @if $logic-bubble-color == blue {
+      background: #e0e4f5; //#c5cdea;
+      color: $body-text-color; //#2c3b8c; //#3f51b5;
+    }
+    @if $logic-bubble-color == gray {
+      background: #e3e2e1; //#c5cdea;
+      color: $body-text-color; //#3f51b5;
+    }
+
+    &.logic-selected {
+      // background: #fff; //#e0e4f5; //#c5cdea;
+      // color: #3f51b5;
+    }
+    &.logic-not-selected {
+      // background: #eac5cf; // da4040;
+      // color: #b52d2d; // fff;
+      // background: #fff; // #e0e4f5; //#c5cdea;
+      // color: #3f51b5;
+    }
+    &.logic-answer-choice {
+      @if $logic-bubble-color == blue {
+        background: #c5cbea; // #b4bedc; // #3f51b5; // #673ab7; // #e0e4f5; //#dee3fb;
+        color: #2c3b8c;// #3f51b5; // #fff;
+      }
+      @if $logic-bubble-color == gray {
+        background: #dadad9;
+        color: $body-text-color;
+      }
+      &.logic-multiple {
+        // border-top-left-radius: 0;
+        // border-bottom-left-radius: 0;
+        white-space: normal;
+      }
+      // background: #3f51b5;
+      // color: #fff;
+    }
+    &.logic-skip-destination-question {
+      background: #ddd1f1; //#c5cbea; //#3f51b5;
+      color: #673AB7; //#2c3b8c; // #fff;
+      max-width: 264px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    &.logic-skip-to,
+    &.logic-if {
+      background: transparent;
+      padding-left: 2px;
+      padding-right: 2px;
+    }
+    &.logic-hide,
+    &.logic-display {
+      // background: #3e3638;
+      // color: #fff;
+    }
+    // &.logic-display {
+    //   background: #4caf50;
+    //   color: #fff;
+    // }
+    // &.logic-if {
+    //   background: #ddd1f1;
+    //   color: #673AB7;
+    //
+    //   &.gold {
+    //     background: #efca5d;
+    //     color: #544413;
+    //   }
+    //   &.lime {
+    //     background: #d4e245;
+    //     color: #454a15;
+    //   }
+    // }
+
+    &.logic-any-all-prefix {
+      // border-top-right-radius: 0;
+      // border-bottom-right-radius: 0;
+      // margin-right: 0;
+    }
+
+  }
+
+}
+
+.sbc-question-outer.selected {
+
+  .logic-summary-bubble-outer.logic-skip-outer,
+  .logic-summary-bubble-outer.logic-display-outer,   {
+    // opacity: 1;
+    border-color: rgba(0,0,0,.14);
+
+    @if $logic-bubble-color == blue {
+      background: #f5f7fb; //#f1f3f9; //#eaecf5; // #f2f4fb;
+      color: $body-text-color; //#2c3b8c; // #3f51b5;
+    }
+    @if $logic-bubble-color == gray {
+      background: $light-gray; //#eaecf5; // #f2f4fb;
+      color: $body-text-color;
+    }
+  }
+
+}
+
 
 //
 //

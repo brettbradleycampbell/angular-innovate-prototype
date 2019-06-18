@@ -92,8 +92,54 @@
               <mat-icon>arrow_drop_down</mat-icon>
             </div>
           </div>
-          <mat-slide-toggle class="settings-menu-item-outer">Background image</mat-slide-toggle>
-          <mat-slide-toggle class="settings-menu-item-outer">Logo</mat-slide-toggle>
+          <div class="settings-menu-item-outer settings-design-inline-select">
+            <mat-label>Background color</mat-label>
+            <div class="color-picker-select-outer">
+              <div class="color-picker-select-swatch" style="background: #ffffff;">
+              </div>
+              <mat-icon>arrow_drop_down</mat-icon>
+            </div>
+          </div>
+
+          <!-- ADD BACKGROUND IMAGE -->
+          <div class="settings-menu-item-outer settings-border-bottom settings-inline-button" [ngClass]="{'inline-button-menu-open': backgroundImage === true}">
+            <span>Background Image</span>
+            <button (click)="addBackgroundImage()" mat-stroked-button>
+              <span>
+                {{ backgroundImage == true ? 'Remove' : 'Add' }}
+              </span>
+            </button>
+            <div>
+            </div>
+          </div>
+          <div *ngIf="backgroundImage === true" class="image-setting-flex-row settings-menu-item-outer expanded-border-bottom">
+            <div class="image-thumbnail"></div>
+            <div class="image-settings">
+              <div class="">(change image)</div>
+              <div class="">Position (full-width, center, top-left, repeat)</div>
+              <div class="">Overlay (color, opacity)</div>
+            </div>
+          </div>
+
+          <!-- ADD LOGO -->
+          <div class="settings-menu-item-outer settings-border-bottom settings-inline-button" [ngClass]="{'inline-button-menu-open': logoImage === true}">
+            <span>Logo</span>
+            <button (click)="addLogoImage()" mat-stroked-button>
+              <span>
+                {{ logoImage == true ? 'Remove' : 'Add' }}
+              </span>
+            </button>
+            <div>
+            </div>
+          </div>
+          <div *ngIf="logoImage === true" class="image-setting-flex-row settings-menu-item-outer expanded-border-bottom">
+            <div class="image-thumbnail"></div>
+            <div class="image-settings">
+              <div class="">(change image)</div>
+              <div class="">Position (top, bottom)</div>
+              <div class="">Max-width</div>
+            </div>
+          </div>
         </div>
 
         <div class="settings-group">

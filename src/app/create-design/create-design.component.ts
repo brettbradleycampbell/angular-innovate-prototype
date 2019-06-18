@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+//
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { DialogImageComponent } from '../dialog-image/dialog-image.component';
 
 @Component({
   selector: 'app-create-design',
@@ -14,8 +17,27 @@ export class CreateDesignComponent implements OnInit {
   footerTextToggle: boolean = true;
   // Show/hide Customize tab hack
   menuOpen = false;
-  constructor() {
+  logoImage: boolean = true;
+  backgroundImage: boolean = true;
+  addLogoImage(){
+    this.logoImage = !this.logoImage;
   }
+  addBackgroundImage() {
+    this.backgroundImage = !this.backgroundImage;
+  }
+
+  // constructor() {
+  // }
+
+  imageNameDialogRef: MatDialogRef<DialogImageComponent>;
+  constructor(private dialog: MatDialog) {}
+  openAddImageDialog() {
+    this.imageNameDialogRef = this.dialog.open(DialogImageComponent, {
+      panelClass: 'dialog-image',
+    });
+  }
+
+
   onClick($event) {
     this.menuOpen = !this.menuOpen;
   }

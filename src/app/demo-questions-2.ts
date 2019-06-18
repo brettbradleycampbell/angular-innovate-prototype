@@ -7,6 +7,7 @@ export const QUESTIONS: Question[] = [
     questionGroup: 1,
     questionType: 'multipleChoice',
     answers: ['Choice 1', 'Choice 2', 'Choice 3'],
+    skipLogic: true,
   }
 
 ];
