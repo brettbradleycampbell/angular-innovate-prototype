@@ -93,7 +93,15 @@ hr {
 #sbc-preview {
   background: golden;
   box-shadow: 1px 0px 0 0px inset rgba(0,0,0,.12);
-  max-width: 28%;
+  max-width: 34%;
   //
   // display: none;
 }
+
+// Toggle
+
+#sbc-preview.hide-preview-window {display: none;}
+#sbc-content.hide-logic-summaries .group-display-logic-summary-outer,
+#sbc-content.hide-logic-summaries .logic-summary-bubble-outer,
+#sbc-content.hide-logic-summaries .skip-logic-destination-container
+ {display: none;}

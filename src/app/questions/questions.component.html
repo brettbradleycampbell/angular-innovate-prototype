@@ -7,16 +7,27 @@
   <div class="sbc-question-inner" *ngIf="question.questionType !== 'pageBreak'">
 
 
-
-    <div *ngIf="question.displayLogic === true" class="logic-summary-bubble-outer logic-display-outer">
-      <!-- <div class="logic-bubble-row">
-        <span class="logic-hide">Hide if</span>
+    <div class="skip-logic-destination-container" *ngIf="question.skipLogicDestination === true">
+      <mat-icon class="skip-logic-destination-icon">subdirectory_arrow_right</mat-icon>
+      <mat-icon class="skip-logic-destination-icon orange">subdirectory_arrow_right</mat-icon>
+    </div>
+    <div class="skip-logic-destination-container" *ngIf="question.skipLogicDestination2 === true">
+      <mat-icon class="skip-logic-destination-icon blue">subdirectory_arrow_right</mat-icon>
+      <mat-icon class="skip-logic-destination-icon lime">subdirectory_arrow_right</mat-icon>
+    </div>
+    <div *ngIf="question.displayLogicHide === true" class="logic-summary-bubble-outer logic-display-outer">
+      <div class="logic-bubble-row">
+        <span class="logic-hide">Hide</span>
+        <span class="logic-skip-to">if</span>
         <span>1 - What is your age?</span>
         <span>18 - 24</span>
         <span>is selected</span>
-      </div> -->
+      </div>
+    </div>
+    <div *ngIf="question.displayLogic === true" class="logic-summary-bubble-outer logic-display-outer">
       <div class="logic-bubble-row">
-        <span class="logic-display">Display only if</span>
+        <span class="logic-display">Display</span>
+        <span class="logic-skip-to">only if</span>
         <span>1 - What is your age?</span>
         <span>65+</span>
         <span>is selected</span>
@@ -31,8 +42,6 @@
 
     <div class="sbc-question-header">
       <div class="sbc-question-title">
-        <mat-icon *ngIf="question.skipLogicDestination === true" style="background: #ddd1f1; color: #673AB7;">subdirectory_arrow_right</mat-icon>
-        <mat-icon *ngIf="question.skipLogicDestination === true" style="background: #badcb4; color: #466f3e;">subdirectory_arrow_right</mat-icon>
         <span class="sbc-question-number">
           <span class="material-icons question-number-icon" *ngIf="question.questionType == 'multipleChoice' || question.questionType == 'multipleChoiceImage'">
             list_alt
@@ -98,24 +107,24 @@
         </button>
         <mat-menu #atlMenu="matMenu">
           <button mat-menu-item style="padding-left: 8px;">
-            <mat-icon style="margin-right: 8px; height: auto; width: auto; font-size: 20px; margin-top: -4px;">check</mat-icon>
+            <mat-icon style="margin-right: 8px; height: 20px; width: 20px; font-size: 20px; margin-top: -4px;">check</mat-icon>
             <span>Allow text entry</span>
           </button>
-          <button mat-menu-item style="padding-left: 28px;">
-            <mat-icon style="margin-right: 8px; height: auto; width: auto; font-size: 20px;"></mat-icon>
+          <button mat-menu-item style="padding-left: 8px;">
+            <mat-icon style="margin-right: 8px; height: 20px; width: 20px; font-size: 20px;"></mat-icon>
             <span>Anchor</span>
           </button>
           <button mat-menu-item  style="padding-left: 8px;">
-            <mat-icon style="margin-right: 8px; height: auto; width: auto; font-size: 20px; margin-top: -4px;">check</mat-icon>
+            <mat-icon style="margin-right: 8px; height: 20px; width: 20px; font-size: 20px; margin-top: -4px;">check</mat-icon>
             <span>Make exclusive</span>
           </button>
           <hr>
           <button mat-menu-item style="padding-left: 8px;">
-            <mat-icon style="margin-right: 8px; height: auto; width: auto; font-size: 20px; margin-top: -4px;">arrow_drop_up</mat-icon>
+            <mat-icon style="margin-right: 8px; height: 20px; width: 20px; font-size: 20px; margin-top: -4px;">arrow_drop_up</mat-icon>
             <span>Move up</span>
           </button>
           <button mat-menu-item style="padding-left: 8px;">
-            <mat-icon style="margin-right: 8px; height: auto; width: auto; font-size: 20px; margin-top: -4px;">arrow_drop_down</mat-icon>
+            <mat-icon style="margin-right: 8px; height: 20px; width: 20px; font-size: 20px; margin-top: -4px;">arrow_drop_down</mat-icon>
             <span>Move down</span>
           </button>
           <hr>
@@ -245,31 +254,71 @@
       <span class="logic-answer-choice logic-multiple logic-highlighted">Choice 1, Choice 2, Choice 3</span>
       <span class="logic-not-selected">are not selected</span>
       <span class="logic-skip-to">skip to</span>
-      <span class="logic-skip-destination-question logic-highlighted">Termination</span>
+      <span class="logic-skip-destination-question logic-highlighted">3 - How likely are you to recommend our business to a friend or colleague?</span>
     </div>
-    <div class="logic-bubble-row red">
+    <div class="logic-bubble-row teal">
+      <span class="logic-if gold">If</span>
+      <span class="logic-any-all-prefix">all of</span>
+      <span class="logic-answer-choice logic-multiple logic-highlighted">Choice1, Choice 2, Choice 3</span>
+      <span class="logic-selected">are selected</span>
+      <span class="logic-skip-to">skip to</span>
+      <span class="logic-skip-destination-question logic-highlighted" style="padding-left: 24px; position: relative;">
+        <mat-icon style="font-size: 14px;
+    height: auto;
+    width: auto;
+    position: absolute;
+    left: 5px;
+    top: 5px;">block</mat-icon>
+        Termination
+      </span>
+    </div>
+    <div class="logic-bubble-row blue">
+      <span class="logic-if lime">If</span>
+      <span class="logic-any-all-prefix">any of</span>
+      <span class="logic-answer-choice logic-multiple logic-highlighted">Choice 1, Choice 2, Choice 3</span>
+      <span class="logic-not-selected">are not selected</span>
+      <span class="logic-skip-to">skip to</span>
+      <span class="logic-skip-destination-question logic-highlighted">5 - Please rate your experience.</span>
+    </div>
+    <!-- <div class="logic-bubble-row green">
       <span class="logic-if gold">If</span>
       <span class="logic-any-all-prefix">all of</span>
       <span class="logic-answer-choice logic-multiple logic-highlighted">Choice1, Choice 2, Choice 3</span>
       <span class="logic-selected">are selected</span>
       <span class="logic-skip-to">skip to</span>
       <span class="logic-skip-destination-question logic-highlighted">Completion</span>
+    </div> -->
+    <div class="logic-bubble-row red">
+      <span class="logic-if gold">If</span>
+      <span class="logic-any-all-prefix">all of</span>
+      <span class="logic-answer-choice logic-multiple logic-highlighted">Choice1, Choice 2, Choice 3</span>
+      <span class="logic-selected">are selected</span>
+      <span class="logic-skip-to">skip to</span>
+      <span class="logic-skip-destination-question logic-highlighted" style="padding-left: 24px; position: relative;">
+        <mat-icon style="font-size: 14px;
+    height: auto;
+    width: auto;
+    position: absolute;
+    left: 5px;
+    top: 5px;">done</mat-icon>
+        Completion
+      </span>
     </div>
-    <div class="logic-bubble-row green">
+    <!-- <div class="logic-bubble-row green">
       <span class="logic-if gold">If</span>
       <span class="logic-any-all-prefix">either</span>
       <span class="logic-answer-choice logic-multiple logic-highlighted">Choice 2, Choice 3</span>
       <span class="logic-selected">is selected</span>
       <span class="logic-skip-to">skip to</span>
       <span class="logic-skip-destination-question logic-highlighted">3 - How likely are you to recommend our business to a friend or colleague?</span>
-    </div>
+    </div> -->
     <div class="logic-bubble-row lime">
       <span class="logic-if gold">If</span>
       <span class="logic-any-all-prefix">both</span>
       <span class="logic-answer-choice logic-multiple logic-highlighted">Choice 2, Choice 3</span>
       <span class="logic-selected">are selected</span>
       <span class="logic-skip-to">skip to</span>
-      <span class="logic-skip-destination-question logic-highlighted">Completion</span>
+      <span class="logic-skip-destination-question logic-highlighted">5 - Please rate your experience.</span>
       <!-- <mat-icon style="height: auto; width: auto; font-size: 18px;">remove_circle</mat-icon>
       <span class="logic-skip-to" style="text-decoration: underline; cursor: pointer; font-family: 'Roboto'; margin-left: 8px; margin-right: 8px;">Edit</span> -->
     </div>

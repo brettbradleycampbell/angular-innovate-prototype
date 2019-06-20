@@ -103,7 +103,8 @@
 
           <!-- ADD BACKGROUND IMAGE -->
           <div class="settings-menu-item-outer settings-border-bottom settings-inline-button" [ngClass]="{'inline-button-menu-open': backgroundImage === true}">
-            <span>Background Image</span>
+            <span>Background image</span>
+            <!-- <span *ngIf="backgroundImage === true" (click)="openAddImageDialog()" class="image-thumbnail-inline"></span> -->
             <button (click)="addBackgroundImage()" mat-stroked-button>
               <span>
                 {{ backgroundImage == true ? 'Remove' : 'Add' }}
@@ -112,14 +113,73 @@
             <div>
             </div>
           </div>
-          <div *ngIf="backgroundImage === true" class="image-setting-flex-row settings-menu-item-outer expanded-border-bottom">
-            <div class="image-thumbnail"></div>
+          <div *ngIf="backgroundImage === true" class="image-setting-flex-row settings-menu-item-outer expanded-border-bottom" style="padding-bottom: 0;">
+            <div (click)="openAddImageDialog()" class="image-thumbnail"></div>
             <div class="image-settings">
-              <div class="">(change image)</div>
-              <div class="">Position (full-width, center, top-left, repeat)</div>
-              <div class="">Overlay (color, opacity)</div>
+              <div style="    display: flex;
+    align-items: center;
+    border-top: 1px solid #d9d8d7;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    justify-content: space-between;">
+                <div class="">Position</div>
+                <mat-form-field appearance="outline" class="input-size-medium">
+                  <mat-select [(value)]="backgroundImagePosition">
+                    <mat-option value="cover">Full-width</mat-option>
+                    <mat-option value="center">Centered</mat-option>
+                    <mat-option value="left">Left</mat-option>
+                    <mat-option value="right">Right</mat-option>
+                    <mat-option value="repeat">Repeating</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div style="    display: flex;
+    align-items: center;
+    border-top: 1px solid #d9d8d7;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    justify-content: space-between;">
+                <div class="">Overlay color</div>
+                <div class="color-picker-select-outer">
+                  <div class="color-picker-select-swatch" style="background: #222222;">
+                  </div>
+                  <mat-icon>arrow_drop_down</mat-icon>
+                </div>
+              </div>
+              <div style="border-top: 1px solid #d9d8d7;
+    padding-top: 8px;
+    padding-bottom: 0px;">
+                <div class="" style="position: relative; top: 8px;">Overlay opacity</div>
+                <mat-slider min="0" max="100" step="1" value="0" thumbLabel style="width: 100%;"></mat-slider>
+              </div>
             </div>
           </div>
+          <!-- Background Image position -->
+          <!-- <div class="settings-menu-item-outer settings-design-inline-select" *ngIf="backgroundImage === true">
+            <mat-label>Background image position</mat-label>
+            <mat-form-field appearance="outline" class="input-size-medium">
+              <mat-select [(value)]="backgroundImagePosition">
+                <mat-option value="cover">Full-width</mat-option>
+                <mat-option value="center">Centered</mat-option>
+                <mat-option value="left">Left</mat-option>
+                <mat-option value="right">Right</mat-option>
+                <mat-option value="repeat">Repeating</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="settings-menu-item-outer settings-design-inline-select" *ngIf="backgroundImage === true">
+            <mat-label>Background overlay color</mat-label>
+            <div class="color-picker-select-outer">
+              <div class="color-picker-select-swatch" style="background: #222222;">
+              </div>
+              <mat-icon>arrow_drop_down</mat-icon>
+            </div>
+          </div>
+          <div class="settings-menu-item-outer settings-design-inline-select" *ngIf="backgroundImage === true">
+            <mat-label>Background overlay opacity</mat-label>
+            <mat-slider min="0" max="100" step="1" value="0" thumbLabel></mat-slider>
+          </div> -->
 
           <!-- ADD LOGO -->
           <div class="settings-menu-item-outer settings-border-bottom settings-inline-button" [ngClass]="{'inline-button-menu-open': logoImage === true}">
@@ -132,12 +192,34 @@
             <div>
             </div>
           </div>
-          <div *ngIf="logoImage === true" class="image-setting-flex-row settings-menu-item-outer expanded-border-bottom">
-            <div class="image-thumbnail"></div>
+          <div *ngIf="logoImage === true" class="image-setting-flex-row settings-menu-item-outer expanded-border-bottom" style="padding-bottom: 0;">
+            <div (click)="openAddImageDialog()" class="image-thumbnail image-logo-checkered-background"><div class="image-logo"></div></div>
             <div class="image-settings">
-              <div class="">(change image)</div>
-              <div class="">Position (top, bottom)</div>
-              <div class="">Max-width</div>
+              <div style="    display: flex;
+    align-items: center;
+    border-top: 1px solid #d9d8d7;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    justify-content: space-between;">
+                <div class="">Position</div>
+                <mat-form-field appearance="outline" class="input-size-medium">
+                  <mat-select [(value)]="logoImagePosition">
+                    <mat-option value="top">Top</mat-option>
+                    <mat-option value="bottom">Bottom</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div style="    display: flex;
+    align-items: center;
+    border-top: 1px solid #d9d8d7;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    justify-content: space-between;">
+                <div class="">Width</div>
+                <mat-form-field appearance="outline" class="input-size-small">
+                  <input matInput placeholder="0" value="240" type="number" min="0">
+                </mat-form-field>
+              </div>
             </div>
           </div>
         </div>

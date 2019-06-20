@@ -8,5 +8,7 @@ export class Question {
   answerElementType?: string;
   skipLogic?: boolean;
   skipLogicDestination?: boolean;
+  skipLogicDestination2?: boolean;
   displayLogic?: boolean;
+  displayLogicHide?: boolean;
 }

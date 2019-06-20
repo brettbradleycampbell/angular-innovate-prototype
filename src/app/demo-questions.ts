@@ -15,7 +15,6 @@ export const QUESTIONS: Question[] = [
     questionGroup: 1,
     questionType: 'select',
     answers: ['UT', 'CA', 'AZ', 'Long answer text and answer text and answer text and answer text and answer text and answer text and answer text and answer text and'],
-    displayLogic: true,
   },
   {
     questionType: 'pageBreak',
@@ -25,6 +24,7 @@ export const QUESTIONS: Question[] = [
     questionText: 'How likely are you to recommend our business to a friend or colleague?',
     questionGroup: 2,
     questionType: 'npm',
+    displayLogic: true,
     skipLogicDestination: true,
   },
   {
@@ -36,6 +36,7 @@ export const QUESTIONS: Question[] = [
     questionGroup: 2,
     questionType: 'scale',
     answerElementType: 'stars',
+    displayLogicHide: true,
   },
   {
     id: 5,
@@ -43,6 +44,7 @@ export const QUESTIONS: Question[] = [
     questionGroup: 2,
     questionType: 'scale',
     answerElementType: 'hearts',
+    skipLogicDestination2: true,
   },
   {
     id: 6,
@@ -69,6 +71,7 @@ export const QUESTIONS: Question[] = [
     questionGroup: 3,
     questionType: 'rank',
     answers: ['Apple', 'Google', 'Microsoft'],
+    skipLogic: true,
   },
   {
     id: 9,
@@ -86,6 +89,7 @@ export const QUESTIONS: Question[] = [
     questionGroup: 3,
     questionType: 'multipleChoiceImage',
     answers: ['Yosemite', 'Yellowstone', 'Niagra Falls', 'Choice 4'],
+    displayLogic: true,
   },
   {
     id: 11,

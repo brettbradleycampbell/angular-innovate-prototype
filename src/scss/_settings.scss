@@ -229,6 +229,13 @@
   // }
 }
 
+.mat-form-field.input-size-medium {
+  max-width: 124px;
+}
+.mat-form-field.input-size-small {
+  max-width: 64px;
+}
+
 .help-tooltip {
   height: auto;
   width: auto;
@@ -393,17 +400,51 @@
   display: flex;
   flex-direction: row;
   .image-thumbnail {
-    width: 34%;
+    width: 30%;
     display: flex;
     background-image: url(https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/yosemite.jpg?raw=true);
     background-size: cover;
-    height: 74px;
+    height: 64px;
     border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    &.image-logo-checkered-background {
+      background-image:
+        linear-gradient(45deg, #e2e1e0 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #e2e1e0 75%),
+        linear-gradient(45deg, transparent 75%, #e2e1e0 75%),
+        linear-gradient(45deg, #e2e1e0 25%, #fff 25%);
+
+      background-size:10px 10px;
+
+      background-position:0 0, 0 0, -5px -5px, 5px 5px;
+    }
+    .image-logo {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-image: url(https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/innovate-logo.png?raw=true);
+      background-size: 90%;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
   }
   .image-settings {
     display: flex;
     flex-direction: column;
     width: 66%;
-    padding: 0 12px;
+    margin-left: auto;
   }
+}
+
+.image-thumbnail-inline {
+  height: 31px;
+  width: 48px;
+  margin-left: 8px;
+  border-radius: 4px;
+  background-image: url(https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/yosemite.jpg?raw=true);
+  background-size: cover;
+  cursor: pointer;
 }

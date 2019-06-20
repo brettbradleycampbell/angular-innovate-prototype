@@ -1,12 +1,25 @@
 <!-- Create - Content -->
 <div class="create-wrapper sbc-columns-wrapper">
-  <div class="sbc-column" id="sbc-content">
+  <div class="sbc-column" id="sbc-content" [ngClass]="{'hide-logic-summaries': hideLogic === true}">
     <app-question-groups></app-question-groups>
   </div>
   <div class="sbc-column settings-menu" id="sbc-settings">
     <app-question-settings></app-question-settings>
   </div>
-  <div class="sbc-column" id="sbc-preview">
-    <span style="padding: 8px; display: block;">Survey preview</span>
+  <div class="sbc-column" id="sbc-preview" [ngClass]="{'hide-preview-window': hidePreview === true}">
+    <span style="padding: 16px; display: block; font-size: 18px; "><em>Survey preview</em></span>
   </div>
 </div>
+<button mat-icon-button [matMenuTriggerFor]="viewToggleMenu" style="position: absolute; top: 116px; right: 4px;">
+  <mat-icon>more_horiz</mat-icon>
+</button>
+<mat-menu #viewToggleMenu="matMenu">
+  <button mat-menu-item [(ngModel)]="hidePreview" (click)="togglePreviewButton()" name="fieldName" ngDefaultControl style="padding-left: 8px;">
+    <mat-icon style="margin-right: 8px; height: 20px; width: 20px; font-size: 20px; margin-top: -4px;">{{ hidePreview == true ? '' : 'check' }}</mat-icon>
+    <span>Show preview</span>
+  </button>
+  <button mat-menu-item [(ngModel)]="hideLogic" (click)="toggleLogicButton()" name="fieldName" ngDefaultControl style="padding-left: 8px;">
+    <mat-icon style="margin-right: 8px; height: 20px; width: 20px; font-size: 20px; margin-top: -4px;">{{ hideLogic == true ? '' : 'check' }}</mat-icon>
+    <span>Show logic</span>
+  </button>
+</mat-menu>

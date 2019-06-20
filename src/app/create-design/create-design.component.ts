@@ -18,7 +18,9 @@ export class CreateDesignComponent implements OnInit {
   // Show/hide Customize tab hack
   menuOpen = false;
   logoImage: boolean = true;
+  logoImagePosition = 'top';
   backgroundImage: boolean = true;
+  backgroundImagePosition = 'cover';
   addLogoImage(){
     this.logoImage = !this.logoImage;
   }

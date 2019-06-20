@@ -67,4 +67,17 @@
   max-width: none;
   display: flex;
   background: transparent;
+  align-items: center;
+  position: relative;
+  padding-left: 12px;
+}
+
+.logic-drag-indicator {
+  position: absolute;
+  top: 14px;
+  left: -12px;
+  cursor: grab;
+  .mat-icon {
+    font-size: 14px;
+  }
 }
