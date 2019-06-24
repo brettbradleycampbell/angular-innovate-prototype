@@ -13,17 +13,42 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class DialogLogicComponent implements OnInit {
 
 
-  selected = '1';
-  selected2 = 'yes';
-  selected3 = '3';
-  dselected = '1';
-  dselected2 = ['1', '2'];
-  dselected3 = 'yes';
+  skipAnswers = 'a';
+  skipOperators = '1';
+  skipDestinations = '1';
+  textEntryOperators = '1';
+  textEntryDestinations = '1';
+  scaleOperators = '1';
+  scaleDestinations = '1';
+  rankAnswerChoices = '1';
+  rankOperators = '1';
+  rankDestinations = '1';
+  //
   displayhide = 'display';
-  andor = 'and';
-  dselected5 = '1';
-  dselected6 = ['a', 'b'];
-  dselected7 = 'yes';
+  displayQuestionsList = '1';
+  displayAnswersList = '1';
+  displayOperators = '1';
+  andor1 = 'and';
+  displayQuestionsList2 = '1';
+  displayAnswersList2 = '1';
+  displayOperators2 = '1';
+
+  // selected = '1';
+  // selected2 = 'yes';
+  // selected3 = '3';
+  // dselected = '1';
+  // dselected2 = ['1', '2'];
+  // dselected3 = 'yes';
+  // displayhide = 'display';
+  // andor = 'and';
+  // dselected5 = '1';
+  // dselected6 = ['a', 'b'];
+  // dselected7 = 'yes';
+  // textEntryOperators = '1';
+  // scaleOperators = '1';
+  // rankAnswerChoices = '1';
+  // rankOperators = '1';
+  // rankDestination = '1';
 
   constructor(
     // // DIALOGS NOT WORKING TEST

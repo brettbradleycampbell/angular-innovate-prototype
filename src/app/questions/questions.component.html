@@ -8,7 +8,7 @@
 
 
     <div class="skip-logic-destination-container" *ngIf="question.skipLogicDestination === true">
-      <mat-icon class="skip-logic-destination-icon">subdirectory_arrow_right</mat-icon>
+      <mat-icon class="skip-logic-destination-icon" matTooltip="1 - Enter your question text here." matTooltipPosition="above" matTooltipShowDelay="250">subdirectory_arrow_right</mat-icon>
       <mat-icon class="skip-logic-destination-icon orange">subdirectory_arrow_right</mat-icon>
     </div>
     <div class="skip-logic-destination-container" *ngIf="question.skipLogicDestination2 === true">
@@ -243,23 +243,23 @@
   <div *ngIf="question.skipLogic === true" class="logic-summary-bubble-outer logic-skip-outer">
     <div class="logic-bubble-row purple">
       <span class="logic-if purple">If</span>
-      <span class="logic-answer-choice logic-highlighted">Choice 1</span>
+      <span class="logic-answer-choice">Choice 1</span>
       <span class="logic-selected">is selected</span>
       <span class="logic-skip-to">skip to</span>
       <span class="logic-skip-destination-question logic-highlighted">3 - How likely are you to recommend our business to a friend or colleague?</span>
     </div>
-    <div class="logic-bubble-row orange">
+    <div class="logic-bubble-row purple">
       <span class="logic-if lime">If</span>
       <span class="logic-any-all-prefix">any of</span>
-      <span class="logic-answer-choice logic-multiple logic-highlighted">Choice 1, Choice 2, Choice 3</span>
+      <span class="logic-answer-choice logic-multiple">Choice 1, Choice 2, Choice 3</span>
       <span class="logic-not-selected">are not selected</span>
       <span class="logic-skip-to">skip to</span>
       <span class="logic-skip-destination-question logic-highlighted">3 - How likely are you to recommend our business to a friend or colleague?</span>
     </div>
-    <div class="logic-bubble-row teal">
+    <div class="logic-bubble-row red">
       <span class="logic-if gold">If</span>
       <span class="logic-any-all-prefix">all of</span>
-      <span class="logic-answer-choice logic-multiple logic-highlighted">Choice1, Choice 2, Choice 3</span>
+      <span class="logic-answer-choice logic-multiple">Choice1, Choice 2, Choice 3</span>
       <span class="logic-selected">are selected</span>
       <span class="logic-skip-to">skip to</span>
       <span class="logic-skip-destination-question logic-highlighted" style="padding-left: 24px; position: relative;">
@@ -275,7 +275,7 @@
     <div class="logic-bubble-row blue">
       <span class="logic-if lime">If</span>
       <span class="logic-any-all-prefix">any of</span>
-      <span class="logic-answer-choice logic-multiple logic-highlighted">Choice 1, Choice 2, Choice 3</span>
+      <span class="logic-answer-choice logic-multiple">Choice 1, Choice 2, Choice 3</span>
       <span class="logic-not-selected">are not selected</span>
       <span class="logic-skip-to">skip to</span>
       <span class="logic-skip-destination-question logic-highlighted">5 - Please rate your experience.</span>
@@ -288,10 +288,10 @@
       <span class="logic-skip-to">skip to</span>
       <span class="logic-skip-destination-question logic-highlighted">Completion</span>
     </div> -->
-    <div class="logic-bubble-row red">
+    <div class="logic-bubble-row teal">
       <span class="logic-if gold">If</span>
       <span class="logic-any-all-prefix">all of</span>
-      <span class="logic-answer-choice logic-multiple logic-highlighted">Choice1, Choice 2, Choice 3</span>
+      <span class="logic-answer-choice logic-multiple">Choice1, Choice 2, Choice 3</span>
       <span class="logic-selected">are selected</span>
       <span class="logic-skip-to">skip to</span>
       <span class="logic-skip-destination-question logic-highlighted" style="padding-left: 24px; position: relative;">
@@ -312,10 +312,10 @@
       <span class="logic-skip-to">skip to</span>
       <span class="logic-skip-destination-question logic-highlighted">3 - How likely are you to recommend our business to a friend or colleague?</span>
     </div> -->
-    <div class="logic-bubble-row lime">
+    <div class="logic-bubble-row blue">
       <span class="logic-if gold">If</span>
       <span class="logic-any-all-prefix">both</span>
-      <span class="logic-answer-choice logic-multiple logic-highlighted">Choice 2, Choice 3</span>
+      <span class="logic-answer-choice logic-multiple">Choice 2, Choice 3</span>
       <span class="logic-selected">are selected</span>
       <span class="logic-skip-to">skip to</span>
       <span class="logic-skip-destination-question logic-highlighted">5 - Please rate your experience.</span>

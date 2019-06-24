@@ -4,6 +4,8 @@
   // width: 100%;
   // max-width: 100%!important;
   // background: #fff;
+  width: 70%; // MOBILE STYLES - NEED MEDIA QUERY / Queries
+  font-size: 0.875rem;
 
   .mat-dialog-container {
     // width: auto;
@@ -15,18 +17,24 @@
   }
 
   .mat-dialog-content {
-    background: #f7f6f5;
+    background: $light-gray;
     border: 1px solid #d9d8d7;
     border-right: none;
     border-left: none;
   }
 
-  img {
-    max-width: 18%;
-    margin: 1%;
-    border-radius: 4px;
-  }
+}
 
+.image-url-input {
+  margin-left: 8px;
+}
+
+.image-web-search-bar {
+  width: 100%;
+  margin-bottom: 24px;
+  .mat-form-field-wrapper {
+    width: 100%;
+  }
 }
 
 // Logic
@@ -80,4 +88,202 @@
   .mat-icon {
     font-size: 14px;
   }
+}
+
+// .cdk-overlay-dark-backdrop {
+//   background: rgba(247, 246, 245, .95);
+// }
+.mat-dialog-container {
+  // border: $light-border;
+  // box-shadow: 0px 4px 20px -10px rgba(29,28,27,.75);
+  .image-dialog-inner {
+    position: relative;
+    // width: 75%; // MOBILE STYLES - NEED MEDIA QUERY
+  }
+}
+
+.image-grid-library {
+  // width: 700px;
+  .mat-grid-tile {
+    background-size: cover;
+    border-radius: 4px;
+  }
+}
+
+.image-grid-web-search {
+  column-count: 4;
+  font-size: 0; // to remove extra inline-block space/gap.
+  column-gap: 24px;
+
+  .image-grid-item {
+    display: inline-block;
+    border-radius: 4px;
+    margin-top: 4px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: relative;
+    img {
+      max-width: 100%;
+    }
+  }
+
+  // &.image-library {
+    // background: blue;
+    // display: flex;
+    // flex-wrap: wrap;
+
+    // .image-grid-item {
+    //   // background: red;
+    //   // padding: 4px;
+    //   // //
+    //   // width: 20%;
+    //   // // flex-grow: 1;
+    //   // padding-top: 20%;
+    //   // min-width: 200px;
+    //   // position: relative;
+    //   // background-size: cover;
+    //
+    //   &.bg-beach {background-image: url(/assets/images/beach.jpg)}
+    //   &.bg-books {background-image: url(/assets/images/books.jpg)}
+    //   &.bg-couch {background-image: url(/assets/images/couch.jpg)}
+    //   &.bg-tub {background-image: url(/assets/images/tub.jpg)}
+    //   &.bg-yosemite {background-image: url(https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/yosemite.jpg?raw=true)}
+    //   &.bg-yellowstone {background-image: url(https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/yellowstone.jpg?raw=true)}
+    //   &.bg-niagra-falls {background-image: url(https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/niagra-falls.jpg?raw=true)}
+    // }
+  // }
+
+
+}
+
+.image-settings-overlay {
+
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+  padding: 29px 8px 4px 8px;
+  color: $white;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  //
+  background: rgba(0,0,0,0);
+  background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.64) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,0)), color-stop(100%, rgba(0,0,0,0.64)));
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.64) 100%);
+  background: -o-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.64) 100%);
+  background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.64) 100%);
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.64) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 );
+  opacity: 0;
+
+}
+
+.image-grid-library .mat-grid-tile,
+.image-grid-item {
+
+  cursor: pointer;
+
+  &:hover,
+  &.selected {
+
+    .image-settings-overlay {
+      opacity: 1;
+    }
+  }
+
+  &.selected {
+    box-shadow: 0 0 0px 4px #3f51b5;
+  }
+
+}
+
+.mat-dialog-title {
+  margin-bottom: 20px;
+  h3 {
+    font-weight: 400;
+    font-size: 18px;
+    margin-bottom: 0;
+  }
+}
+
+.dialog-image .mat-dialog-content {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  margin-top: 85px;
+  border-top: none;
+  // position: relative;
+  min-height: calc(80vh - 90px); // min-height hack so Library and Web Search are same height. Must be a better solution.
+
+}
+
+.image-dialog-subheader {
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  // width: 100%;
+  top: 53px;
+  left: -24px;
+  right: -24px;
+  // background: $light-gray;
+  padding: 12px 24px;
+  border-top: $light-border;
+  border-bottom: $light-border;
+
+
+  // .image-dialog-subheader-inner {
+  //   border-bottom: 1px solid #d9d8d7;
+  //   width: 100%;
+  //   display: flex;
+  //   padding-bottom: 12px;
+  // }
+}
+
+.image-dialog-tab-buttons {
+  display: flex;
+  width: 100%;
+  // margin-bottom: 12px;
+
+  button {
+    margin-right: 8px;
+    // background: #f2f1f0;
+
+    &.active-dialog-tab {
+      background: #e5e9ff;
+      color: #3f51b5;
+    }
+  }
+}
+
+.fade-hide-gradient-bg {
+  position: absolute;
+  width: 100%;
+  height: 24px;
+  left: 0;
+  right: 0;
+  top: 24px;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f7f6f5+0,f7f6f5+100&1+0,0+100 */
+  background: -moz-linear-gradient(top, rgba(247,246,245,1) 0%, rgba(247,246,245,0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(247,246,245,1) 0%,rgba(247,246,245,0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(247,246,245,1) 0%,rgba(247,246,245,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f6f5', endColorstr='#00f7f6f5',GradientType=0 ); /* IE6-9 */
+}
+
+.upload-image-input {
+  border: 1px dashed #d9d8d7;
+  background: $white;
+  font-size: 14px;
+  text-align: center;
+  line-height: 1.4em;
+  .upload-text {
+    padding: 0 24px;
+  }
+  // if putting in the top right:
+  // Yeah, I think it's better here. So move it, position: absolute was a quick hack.
+  // Or actually, maybe the.. Library/Web Search should be fixed/ absolute too, so when you scroll they stay there.
+  // padding: 14px 24px;
+  // position: absolute;
+  // top: 71px;
+  // right: 0;
 }

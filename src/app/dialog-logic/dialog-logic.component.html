@@ -5,16 +5,17 @@
 <mat-dialog-content>
   <mat-tab-group animationDuration="0ms" dynamicHeight class="custom-tabs" disableRipple>
     <mat-tab label="Skip Logic">
+      <!-- Skip Logic - Multiple Choice -->
       <div class="logic-conditions-row settings-menu">
 
-        <div class="logic-drag-indicator">
+        <div class="logic-drag-indicator" matTooltip="Multiple choice, Dropdown list" matTooltipPosition="above">
           <mat-icon>drag_indicator</mat-icon>
         </div>
 
         <div class="logic-condition">
           <span class="logic-pre">If</span>
           <mat-form-field appearance="outline" class="mat-select-outer">
-            <mat-select [(value)]="selected" multiple>
+            <mat-select [(value)]="skipAnswers" multiple>
               <div class="any-all-radio">
                 <mat-radio-button>Any</mat-radio-button>
                 <mat-radio-button>All</mat-radio-button>
@@ -31,7 +32,7 @@
         <div class="logic-condition">
           <span class="logic-pre">is</span>
           <mat-form-field appearance="outline" class="mat-select-outer">
-            <mat-select [(value)]="selected2">
+            <mat-select [(value)]="skipOperators">
               <mat-option value="yes">
                 <span>Selected</span>
               </mat-option>
@@ -44,7 +45,222 @@
         <div class="logic-condition">
           <span class="logic-pre">skip to</span>
           <mat-form-field appearance="outline" class="mat-select-outer">
-            <mat-select [(value)]="selected3">
+            <mat-select [(value)]="skipDestinations">
+              <mat-option value="2">
+                <span>2 - What state do you live in? </span>
+              </mat-option>
+              <mat-option value="3">
+                <span>3 - Please rate your experience.</span>
+              </mat-option>
+              <mat-option value="4">
+                <span>4 - Please rate your stay.</span>
+              </mat-option>
+              <hr>
+              <mat-option value="completion">
+                <span>Survey completion</span>
+              </mat-option>
+              <mat-option value="termination">
+                <span>Survey termination</span>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <button mat-icon-button>
+            <mat-icon>remove_circle</mat-icon>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Skip Logic - Text Entry -->
+      <div class="logic-conditions-row settings-menu">
+
+        <div class="logic-drag-indicator" matTooltip="Text Entry" matTooltipPosition="above">
+          <mat-icon>drag_indicator</mat-icon>
+        </div>
+
+        <div class="logic-condition">
+          <span class="logic-pre">If answer</span>
+          <mat-form-field appearance="outline" class="mat-select-outer">
+            <mat-select [(value)]="textEntryOperators">
+              <mat-option [value]="1">Contains</mat-option>
+              <mat-option [value]="2">Does not contain</mat-option>
+              <mat-option [value]="3">Matches exactly</mat-option>
+              <mat-option [value]="4">Does not match exactly</mat-option>
+              <hr>
+              <mat-option [value]="5">Is greater than</mat-option>
+              <mat-option [value]="6">Is greater than or equal to</mat-option>
+              <mat-option [value]="7">Is less than</mat-option>
+              <mat-option [value]="8">Is less than or equal to</mat-option>
+              <mat-option [value]="9">Is equal to</mat-option>
+              <mat-option [value]="10">Is not equal to</mat-option>
+              <mat-option [value]="11">Is between</mat-option>
+              <mat-option [value]="12">Is not between</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="logic-condition">
+          <mat-form-field appearance="outline" class="mat-select-outer" [ngClass]="{'input-size-small': textEntryOperators == '11' || textEntryOperators == '12'}">
+            <input matInput placeholder="" value="">
+          </mat-form-field>
+          <span *ngIf="textEntryOperators == '11' || textEntryOperators == '12'" class="logic-pre" style="margin-left: 8px;">and</span>
+          <mat-form-field *ngIf="textEntryOperators == '11' || textEntryOperators == '12'" appearance="outline" class="mat-select-outer input-size-small">
+            <input matInput placeholder="" value="">
+          </mat-form-field>
+        </div>
+        <div class="logic-condition">
+          <span class="logic-pre">skip to</span>
+          <mat-form-field appearance="outline" class="mat-select-outer">
+            <mat-select [(value)]="textEntryDestinations">
+              <mat-option value="2">
+                <span>2 - What state do you live in? </span>
+              </mat-option>
+              <mat-option value="3">
+                <span>3 - Please rate your experience.</span>
+              </mat-option>
+              <mat-option value="4">
+                <span>4 - Please rate your stay.</span>
+              </mat-option>
+              <hr>
+              <mat-option value="completion">
+                <span>Survey completion</span>
+              </mat-option>
+              <mat-option value="termination">
+                <span>Survey termination</span>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <button mat-icon-button>
+            <mat-icon>remove_circle</mat-icon>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Skip Logic - Scale + NPS -->
+      <div class="logic-conditions-row settings-menu">
+
+        <div class="logic-drag-indicator" matTooltip="Scale, NPS" matTooltipPosition="above">
+          <mat-icon>drag_indicator</mat-icon>
+        </div>
+
+        <div class="logic-condition">
+          <span class="logic-pre">If answer</span>
+          <mat-form-field appearance="outline" class="mat-select-outer">
+            <mat-select [(value)]="scaleOperators">
+              <mat-option [value]="5">Is greater than</mat-option>
+              <mat-option [value]="6">Is greater than or equal to</mat-option>
+              <mat-option [value]="7">Is less than</mat-option>
+              <mat-option [value]="8">Is less than or equal to</mat-option>
+              <mat-option [value]="9">Is equal to</mat-option>
+              <mat-option [value]="10">Is not equal to</mat-option>
+              <mat-option [value]="11">Is between</mat-option>
+              <mat-option [value]="12">Is not between</mat-option>
+              <hr>
+              <mat-option [value]="13" matTooltip="NPS only" matTooltipPosition="above">Is detractor (0 - 6)</mat-option>
+              <mat-option [value]="14" matTooltip="NPS only">Is passive (7 - 8)</mat-option>
+              <mat-option [value]="15" matTooltip="NPS only">Is promoter (9 - 10)</mat-option>
+
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="logic-condition" *ngIf="scaleOperators != '13' && scaleOperators != '14' && scaleOperators != '15'">
+          <mat-form-field appearance="outline" class="mat-select-outer input-size-small">
+            <input matInput placeholder="" value="" type="number" min="0">
+          </mat-form-field>
+          <span *ngIf="scaleOperators == '11' || scaleOperators == '12'" class="logic-pre" style="margin-left: 8px;">and</span>
+          <mat-form-field *ngIf="scaleOperators == '11' || scaleOperators == '12'" appearance="outline" class="mat-select-outer input-size-small">
+            <input matInput placeholder="" value="" type="number" min="0">
+          </mat-form-field>
+        </div>
+        <div class="logic-condition">
+          <span class="logic-pre">skip to</span>
+          <mat-form-field appearance="outline" class="mat-select-outer">
+            <mat-select [(value)]="scaleDestinations">
+              <mat-option value="2">
+                <span>2 - What state do you live in? </span>
+              </mat-option>
+              <mat-option value="3">
+                <span>3 - Please rate your experience.</span>
+              </mat-option>
+              <mat-option value="4">
+                <span>4 - Please rate your stay.</span>
+              </mat-option>
+              <hr>
+              <mat-option value="completion">
+                <span>Survey completion</span>
+              </mat-option>
+              <mat-option value="termination">
+                <span>Survey termination</span>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <button mat-icon-button>
+            <mat-icon>remove_circle</mat-icon>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Skip Logic - Rank -->
+      <div class="logic-conditions-row settings-menu">
+
+        <div class="logic-drag-indicator" matTooltip="Rank" matTooltipPosition="above">
+          <mat-icon>drag_indicator</mat-icon>
+        </div>
+
+        <div class="logic-condition">
+          <span class="logic-pre">If</span>
+          <mat-form-field appearance="outline" class="mat-select-outer">
+            <mat-select [(value)]="rankAnswerChoices" multiple>
+              <div class="any-all-radio">
+                <mat-radio-button>Any</mat-radio-button>
+                <mat-radio-button>All</mat-radio-button>
+              </div>
+              <hr>
+              <mat-option [value]="1">Choice 1</mat-option>
+              <mat-option [value]="2">Choice 2</mat-option>
+              <mat-option [value]="3">Choice 3</mat-option>
+              <mat-option [value]="4">Choice 4</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="logic-condition">
+          <mat-form-field appearance="outline" class="mat-select-outer">
+            <mat-select [(value)]="rankOperators">
+              <mat-option [value]="5">Is greater than</mat-option>
+              <mat-option [value]="6">Is greater than or equal to</mat-option>
+              <mat-option [value]="7">Is less than</mat-option>
+              <mat-option [value]="8">Is less than or equal to</mat-option>
+              <mat-option [value]="9">Is equal to</mat-option>
+              <mat-option [value]="10">Is not equal to</mat-option>
+              <mat-option [value]="11">Is between</mat-option>
+              <mat-option [value]="12">Is not between</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="logic-condition">
+          <mat-form-field appearance="outline" class="mat-select-outer input-size-small">
+            <input matInput placeholder="" value="" type="number" min="0">
+          </mat-form-field>
+          <span *ngIf="rankOperators == '11' || rankOperators == '12'" class="logic-pre" style="margin-left: 8px;">and</span>
+          <mat-form-field *ngIf="rankOperators == '11' || rankOperators == '12'" appearance="outline" class="mat-select-outer input-size-small">
+            <input matInput placeholder="" value="" type="number" min="0">
+          </mat-form-field>
+        </div>
+        <div class="logic-condition">
+          <span class="logic-pre">skip to</span>
+          <mat-form-field appearance="outline" class="mat-select-outer">
+            <mat-select [(value)]="rankDestinations">
               <mat-option value="2">
                 <span>2 - What state do you live in? </span>
               </mat-option>
@@ -78,6 +294,8 @@
       </button>
 
     </mat-tab>
+
+    <!-- Display Logic -->
     <mat-tab label="Display Logic">
 
       <div class="logic-conditions-row settings-menu">
@@ -95,13 +313,14 @@
           <span class="logic-post">only if</span>
         </div>
       </div>
+
       <div class="logic-conditions-row settings-menu">
-        <div class="logic-drag-indicator">
+        <div class="logic-drag-indicator" matTooltip="Multiple choice, Dropdown list" matTooltipPosition="above">
           <mat-icon>drag_indicator</mat-icon>
         </div>
         <div class="logic-condition">
           <mat-form-field appearance="outline" class="mat-select-outer">
-            <mat-select [(value)]="dselected">
+            <mat-select [(value)]="displayQuestionsList">
               <mat-option value="1">
                 <span>1 - Enter your question text</span>
               </mat-option>
@@ -116,7 +335,7 @@
         </div>
         <div class="logic-condition">
           <mat-form-field appearance="outline" class="mat-select-outer">
-            <mat-select [(value)]="dselected2" multiple>
+            <mat-select [(value)]="displayAnswersList" multiple>
               <div class="any-all-radio">
                 <mat-radio-button>Any</mat-radio-button>
                 <mat-radio-button>All</mat-radio-button>
@@ -132,7 +351,7 @@
         <div class="logic-condition">
           <span class="logic-pre">is</span>
           <mat-form-field appearance="outline" class="mat-select-outer">
-            <mat-select [(value)]="dselected3">
+            <mat-select [(value)]="displayOperators">
               <mat-option value="yes">
                 <span>Selected</span>
               </mat-option>
@@ -155,7 +374,7 @@
         </div>
         <div class="logic-condition">
           <mat-form-field appearance="outline" class="mat-select-outer" style="max-width: 89px;">
-            <mat-select [(value)]="andor">
+            <mat-select [(value)]="andor1">
               <mat-option value="and">
                 <span>And</span>
               </mat-option>
@@ -167,7 +386,7 @@
         </div>
         <div class="logic-condition">
           <mat-form-field appearance="outline" class="mat-select-outer">
-            <mat-select [(value)]="dselected5">
+            <mat-select [(value)]="displayQuestionsList2">
               <mat-option value="1">
                 <span>1 - Enter your question text</span>
               </mat-option>
@@ -179,23 +398,23 @@
         </div>
         <div class="logic-condition">
           <mat-form-field appearance="outline" class="mat-select-outer">
-            <mat-select [(value)]="dselected6" multiple>
+            <mat-select [(value)]="displayAnswersList2" multiple>
               <div class="any-all-radio">
                 <mat-radio-button>Any</mat-radio-button>
                 <mat-radio-button>All</mat-radio-button>
               </div>
               <hr>
-              <mat-option [value]="a">Choice 1</mat-option>
-              <mat-option [value]="b">Choice 2</mat-option>
-              <mat-option [value]="c">Choice 3</mat-option>
-              <mat-option [value]="d">Choice 4</mat-option>
+              <mat-option [value]="1">Choice 1</mat-option>
+              <mat-option [value]="2">Choice 2</mat-option>
+              <mat-option [value]="3">Choice 3</mat-option>
+              <mat-option [value]="4">Choice 4</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
         <div class="logic-condition">
           <span class="logic-pre">is</span>
           <mat-form-field appearance="outline" class="mat-select-outer">
-            <mat-select [(value)]="dselected7">
+            <mat-select [(value)]="displayOperators2">
               <mat-option value="yes">
                 <span>Selected</span>
               </mat-option>

@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
 
 import {ReactiveFormsModule} from '@angular/forms';
+//
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 //Angular Material Components
@@ -60,6 +62,7 @@ import { DialogImageComponent } from './dialog-image/dialog-image.component';
 import { DialogLogicComponent } from './dialog-logic/dialog-logic.component';
 import { DialogLibraryComponent } from './dialog-library/dialog-library.component';
 import { QuestionTypeComponent } from './question-type/question-type.component';
+import { ImagesComponent } from './images/images.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +83,7 @@ import { QuestionTypeComponent } from './question-type/question-type.component';
     DialogLogicComponent,
     DialogLibraryComponent,
     QuestionTypeComponent,
+    ImagesComponent,
   ],
   imports: [
     BrowserModule,
@@ -121,6 +125,8 @@ import { QuestionTypeComponent } from './question-type/question-type.component';
     AppRoutingModule,
     //
     ReactiveFormsModule,
+    //
+    FlexLayoutModule,
 
   ],
   providers: [],

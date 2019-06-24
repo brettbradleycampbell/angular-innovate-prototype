@@ -15,6 +15,7 @@ export const QUESTIONS: Question[] = [
     questionGroup: 1,
     questionType: 'select',
     answers: ['UT', 'CA', 'AZ', 'Long answer text and answer text and answer text and answer text and answer text and answer text and answer text and answer text and'],
+    skipLogic2: true,
   },
   {
     questionType: 'pageBreak',

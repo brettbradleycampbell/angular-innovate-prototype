@@ -7,6 +7,7 @@ export class Question {
   imageThumbnails?: Array<String>;
   answerElementType?: string;
   skipLogic?: boolean;
+  skipLogic2?: boolean;
   skipLogicDestination?: boolean;
   skipLogicDestination2?: boolean;
   displayLogic?: boolean;

@@ -260,6 +260,10 @@ $logic-bubble-color: gray; //blue //gray
       color: #54671c; //#454a15;
     }
     &.red span.logic-highlighted {
+      background: #f1d1d1;
+      color: #b83c3c;
+    }
+    &.pink span.logic-highlighted {
       background-color: #f1d1f1;
       color: #ab3cb8;
     }
@@ -276,7 +280,7 @@ $logic-bubble-color: gray; //blue //gray
       color: #217763;
     }
     .logic-hide {
-      background: #ff5a5f;
+      background: #222;
       color: #fff;
     }
     .logic-display {
@@ -336,6 +340,7 @@ $logic-bubble-color: gray; //blue //gray
     font-size: 14px;
     padding: 1px 0px 1px 2px;
     margin-right: 4px;
+    cursor: pointer;
     &.blue {
       background: #d3eaf1;
       color: #3c68b8;
