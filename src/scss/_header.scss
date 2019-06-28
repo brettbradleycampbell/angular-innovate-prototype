@@ -68,18 +68,22 @@
       padding-left: 0;
     }
   }
-  // .app-header__item {
-  //   span, a {
-  //     vertical-align: middle;
-  //   }
-  //   a {
-  //     // @include mdc-top-app-bar-ink-color($body-text-color);
-  //   }
-  // }
+
   .header-breadcrumbs {
     margin-left: 6px;
     position: relative;
     // top: -4px;
+
+
+    .breadcrumb-survey-name-outer {
+      display: inline-flex;
+    }
+    .breadcrumb-survey-name {
+      max-width: 260px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
 
     .breadcrumb-link,
     .breadcrumb-slash {
@@ -97,10 +101,18 @@
       }
     }
 
-    // .pause-play-survey {
-    //   font-size: 18px;
-    //   color: $text-on-header-top;
-    // }
+    .pause-play-survey {
+      position: relative;
+      left: -4px;
+
+      .mat-icon {
+        font-size: 18px;
+        position: relative;
+        left: -1px;
+        top: -1px;
+      }
+    }
+
   }
 
 

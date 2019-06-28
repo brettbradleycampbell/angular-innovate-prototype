@@ -1,0 +1,83 @@
+@media only screen and (max-width: 980px) {
+  #sbc-preview,
+  #show-logic-preview-menu {
+   display: none;
+  }
+  .mat-form-field-appearance-outline.header-search .mat-form-field-flex {
+   max-width: 160px;
+  }
+
+  .header-user-account-button {
+
+    &.icon-text-button.icon-left {
+      padding: 0;
+      min-width: 40px;
+      .mat-icon.material-icons.user-account-icon {
+        margin-right: 0;
+      }
+    }
+
+    .user-account-name {
+      display: none;
+    }
+  }
+
+}
+
+@media only screen and (max-width: 768px) {
+
+  .sidebar,
+  .mobile-hide {
+    display: none!important;
+  }
+  .preview-button.icon-text-button.icon-right {
+    padding-right: 16px;
+  }
+
+  .saving-changes {
+    margin-right: 16px;
+  }
+
+  .create-wrapper {
+    padding-left: 0;
+  }
+
+  .app-header .header-breadcrumbs .breadcrumb-survey-name {
+    max-width: 320px;
+  }
+
+}
+
+@media only screen and (max-width: 640px) {
+  #sbc-settings {display: none;}
+}
+
+@media only screen and (max-width: 480px) {
+  .app-header .header-breadcrumbs .breadcrumb-survey-name-outer {
+    display: inline-block;
+    max-width: 80%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    position: relative;
+    top: 3px;
+  }
+
+  .app-header .header-breadcrumbs {
+    max-width: 90%;
+  }
+
+  .custom-tabs .mat-tab-link {
+    padding: 0 6%;
+  }
+  .custom-tabs .mat-tab-link,
+  .custom-tabs .mat-tab-label {
+    min-width: 64px;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .mobile-only {
+    display: none!important;
+  }
+}

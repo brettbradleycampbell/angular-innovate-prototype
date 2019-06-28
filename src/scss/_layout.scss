@@ -68,22 +68,9 @@ hr {
   flex: 1 0 0;
 }
 
-// @if $question-settings-menu-left-right == left {
-//   #sbc-settings {
-//     order: 1;
-//   }
-//   #sbc-content {
-//     order: 2;
-//     box-shadow: inset 1px 0px 0px 0px #e1e1e1;
-//   }
-//   #sbc-preview {
-//     order: 3;
-//   }
-// } @else {
 #sbc-content {
   box-shadow: inset -1px 0px 0px 0px #e1e1e1;
 }
-//}
 
 #sbc-content {
     background: $bg-color-content;
@@ -94,12 +81,10 @@ hr {
   background: golden;
   box-shadow: 1px 0px 0 0px inset rgba(0,0,0,.12);
   max-width: 34%;
-  //
-  // display: none;
+
 }
 
 // Toggle
-
 #sbc-preview.hide-preview-window {display: none;}
 #sbc-content.hide-logic-summaries .group-display-logic-summary-outer,
 #sbc-content.hide-logic-summaries .logic-summary-bubble-outer,

@@ -1,15 +1,5 @@
-// New styles
-
 .sbc-question-group {
-  // border: 1px solid #e1e1e1;
-  // margin: 24px;
-  // border-radius: $global-border-radius;
-  margin: 24px 0;
-  // border-bottom: $light-border;
-
-  @if $question-group-full-width == false {
-    margin: $question-group-margin;
-  }
+  margin: $question-group-margin;
 }
 
 .sbc-question-outer {
@@ -18,22 +8,12 @@
   border-left: none;
 
   &.selected {
-    background: $bg-color-question-selected;
+    width: calc(100% + #{$question-group-margin});
 
-    @if $question-group-full-width == false {
-      width: calc(100% + #{$question-group-margin});
-
-      .button-add-question {
-        right: 8px + $question-group-margin;
-        background: $light-gray;
-      }
-    } @else {
-
-      .button-add-question {
-        background: $white;
-      }
+    .button-add-question {
+      right: 8px + $question-group-margin;
+      background: $light-gray;
     }
-
   }
 }
 
@@ -41,16 +21,10 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  // @if $question-settings-menu-left-right == left {
-  //   left: -1px;
-  // } @else {
   right: -1px;
-  // }
-
   width: 2px;
   background: $bg-color-question-selected;
   opacity: 0;
-  // transition: opacity, .2s;
 }
 
 .sbc-question-outer.selected .connect-question-to-menu {
@@ -86,21 +60,15 @@ $logic-bubble-color: gray; //blue //gray
   padding: 16px 4px 12px 12px;
   border-radius: 4px;
   font-size: 12px;
-  // margin: 24px 0px 8px 0px;
-  // opacity: 0.7;
   border: 1px dotted transparent;
-  // background: rgba(0,0,0,.02);
 
   &.logic-skip-outer {
     margin-top: 24px;
     margin-bottom: 8px;
-    // border-top: $light-border;
-
   }
   &.logic-display-outer {
     margin-top: 0;
     margin-bottom: 24px;
-    // border-bottom: $light-border;
   }
 
   .logic-bubble-row {
@@ -153,16 +121,6 @@ $logic-bubble-color: gray; //blue //gray
       color: $body-text-color; //#3f51b5;
     }
 
-    &.logic-selected {
-      // background: #fff; //#e0e4f5; //#c5cdea;
-      // color: #3f51b5;
-    }
-    &.logic-not-selected {
-      // background: #eac5cf; // da4040;
-      // color: #b52d2d; // fff;
-      // background: #fff; // #e0e4f5; //#c5cdea;
-      // color: #3f51b5;
-    }
     &.logic-answer-choice {
       @if $logic-bubble-color == blue {
         background: #c5cbea; // #b4bedc; // #3f51b5; // #673ab7; // #e0e4f5; //#dee3fb;
@@ -199,23 +157,6 @@ $logic-bubble-color: gray; //blue //gray
       // background: #3e3638;
       // color: #fff;
     }
-    // &.logic-display {
-    //   background: #4caf50;
-    //   color: #fff;
-    // }
-    // &.logic-if {
-    //   background: #ddd1f1;
-    //   color: #673AB7;
-    //
-    //   &.gold {
-    //     background: #efca5d;
-    //     color: #544413;
-    //   }
-    //   &.lime {
-    //     background: #d4e245;
-    //     color: #454a15;
-    //   }
-    // }
 
     &.logic-any-all-prefix {
       // border-top-right-radius: 0;
@@ -373,103 +314,15 @@ $logic-bubble-color: gray; //blue //gray
   }
 }
 
-// .question-text-area {
-//   resize: none;
-//   width: 100%;
-//   background: transparent;
-//   border: 2px solid transparent;
-//   border-radius: 4px;
-// }
-
-
-//
-//
-// // Old styles
-//
-
-.survey-builder-content {
-
-  @include breakpoint-large-up {
-    height: 690px; // figure out how to make this full height
-    overflow: scroll;
-  }
-  padding-bottom: $global-padding*40;
-
-  .material-icons {
-    color: rgba(0,0,0,.6);
-  }
-}
-
-.survey-builder-container {
-  position: relative;
-  background: $background-color-survey-builder-container;
-  padding-right: 0;
-
-  @include breakpoint-large-up {
-    // @if $question-settings-sidebar == left {
-    //   padding-right: $survey-preview-width;
-    //   padding-left: $settings-menu-width;
-    // } @else if $question-settings-sidebar == right {
-    padding-right: $settings-menu-width + $survey-preview-width;
-    // }
-
-  }
-  @include breakpoint-large {
-    padding-right: $settings-menu-width;
-  }
-  @include breakpoint-medium {
-    padding-right: 0;
-  }
-
-}
-// .sbc-question-group {
-//
-//   @if $boxed-sbc == true {
-//     margin: $question-group-margin;
-//     border: $light-border;
-//     border-radius: $global-border-radius;
-//   }
-//   // background: $background-color-question-group;
-//
-//   @if $group-contained == false {
-//     border: none;
-//     background: transparent;
-//     border-radius: none;
-//
-//   } @else if $group-contained == true {
-//     @if $low-borders == false {
-//       border: none;
-//       background: transparent;
-//       border-radius: none;
-//     }
-//   }
-//
-//
-// }
-
 .sbc-question-group-header {
   display: flex;
   position: relative;
   box-sizing: border-box;
   width: 100%;
   background: $bg-color-question-group-header;
-  @if $question-group-full-width == false {
-    border-radius: 2px 2px 0 0;
-    border: $light-border;
-    border-bottom: none;
-  }
-  // &.has-display-logic {
-  //   border-radius: 0;
-  // }
-
-  // border-top-left-radius: $global-border-radius;
-  // border-top-right-radius: $global-border-radius;
-  // border: $light-border;
-  // border-bottom: none;
-
-  // @if $group-contained == true and $low-borders == false {
-
-  // }
+  border-radius: 2px 2px 0 0;
+  border: $light-border;
+  border-bottom: none;
 
   .sbc-question-group-title,
   .sbc-question-group-icons {
@@ -478,20 +331,12 @@ $logic-bubble-color: gray; //blue //gray
     align-items: center;
     min-width: 0;
     z-index: 1;
-    // @if $group-contained == true {
     padding: $global-padding-large/1.5;
-    // }
 
   }
   .sbc-question-group-title {
     padding-left: $global-padding-large/1.5;
     font-size: $font-size-smaller;
-
-    // @if $group-contained == false {
-    //   color: #777;
-    //   padding: $global-padding*4;
-    //   padding-left: 0;
-    // }
 
   }
   .sbc-question-group-icons {
@@ -511,32 +356,9 @@ $logic-bubble-color: gray; //blue //gray
   background: transparent;
   border: $light-border;
   color: #666;
-
-  @if $question-group-full-width == true {
-    top: 0;
-    bottom: 0;
-    border-bottom: 0;
-    border-top: 0;
-    border-radius: 0;
-    height: 100%;
-  }
-
-  // @if $button-move-question-left-right == left {
   left: 0;
-  @if $question-group-full-width == false {
-    left: -26px;
-    border-radius: $global-border-radius 0 0 $global-border-radius;
-  } @else {
-    border-radius: 0;
-    border-left: 0;
-  }
-
-  // } @else {
-  //   right: 0;
-  //   border-radius: 2px 0 0 2px;
-  //   border-right: 0;
-  // }
-  //
+  left: -26px;
+  border-radius: $global-border-radius 0 0 $global-border-radius;
   visibility: hidden;
 
   button {
@@ -546,11 +368,6 @@ $logic-bubble-color: gray; //blue //gray
     min-width: 24px;
     height: 36px;
     border-radius: 0;
-
-    @if $question-group-full-width == true {
-      background: $bg-color-content;
-      height: 50%;
-    }
 
     &.move-question-up {
       border-top-left-radius: $global-border-radius - 1px;
@@ -573,54 +390,15 @@ $logic-bubble-color: gray; //blue //gray
 
 .sbc-question-outer {
   border-top: $light-border;
-  @if $question-group-full-width == true {
-    padding: $global-padding-large $global-padding-large*1.5;
-  } @else {
-    padding: $global-padding-large $global-padding-large/1.5;
-  }
-
+  padding: $global-padding-large $global-padding-large/1.5;
   padding-right: 8px; // to match alignment of question group settings icon.
   position: relative;
   // transition: background-color, .2s; // this was causing weird reload side effects / adding/removing top and bottom border.
-
   &.last {
     border-bottom: $light-border;
   }
-
-  // @if $question-settings-menu-left-right == left {
-  //   border-left: $light-border;
-  // } @else {
-
   border-right: $light-border;
-
-  @if $question-group-full-width == false {
-    border-left: $light-border;
-  }
-
-  //
-  // }
-
-  // @if $group-contained == true {
-  //   background: $bg-color-question-group;
-  //
-  //   @if $low-borders == false {
-  //     border-left: $light-border;
-  //     // border-right: $light-border;
-  //   }
-  //
-  // }
-  // @if $group-contained == false {
-  //
-  //   @if $boxed-sbc == false {
-  //     border-left-color: none;
-  //     border-right: none;
-  //   } @else {
-  //     border-left: $light-border;
-  //     // border-right: $light-border;
-  //   }
-  //   background: $gray-bg-lighter;
-  // }
-
+  border-left: $light-border;
 
   &:hover {
     background: $bg-color-question-hover;
@@ -658,15 +436,6 @@ $logic-bubble-color: gray; //blue //gray
 
       }
 
-      // &.button-add-circle {
-      //   width: 28px;
-      // }
-      //
-      // &.button-add-circle-dropdown {
-      //   width: 28px;
-      //   border-left: $light-border;
-      // }
-
       .material-icons {
         font-size: 18px;
       }
@@ -676,76 +445,23 @@ $logic-bubble-color: gray; //blue //gray
 
   &.sbc-question-first {
     border-top: $light-border;
-    // @if $low-borders == true {
-    //   border-top: $light-border-low;
-    // }
-    // @if $group-contained == false {
-    //   border-top-left-radius: $global-border-radius;
-    //   border-top-right-radius: $global-border-radius;
-    // }
+
   }
   &.sbc-question-last {
     border-bottom: $light-border;
-    // @if $low-borders == true {
-    //   border-bottom: $light-border-low;
-    // }
-    // @if $group-contained == false {
-    //   border-bottom-left-radius: $global-border-radius;
-    //   border-bottom-right-radius: $global-border-radius;
-    // }
+
   }
   &.sbc-question-only {
     border-top: $light-border;
     border-bottom: $light-border;
-    // @if $low-borders == true {
-    //   border-top: $light-border-low;
-    //   border-bottom: $light-border-low;
-    // }
-    // @if $group-contained == false {
-    //   border-radius: $global-border-radius;
-    // }
+
 
   }
   &.selected {
-    // @if $sbc-selected-attached == false {
-    //   background: $bg-color-question-group;
-    // } @else {
     background: $bg-color-settings-menu;
-    // }
     border-top: $light-border;
     border-bottom: $light-border;
     padding-right: 40px;
-
-    // border-right: none;
-    // &:after { // trying to make the menu connect to the outer, and hide the border in between.
-    //   content: "";
-    //   background: blue;
-    //   position: absolute;
-    //   width: 25px;
-    //   top: 0;
-    //   bottom: 0;
-    //   right: 0;
-    //   }
-    //
-    // @if $question-settings-sidebar == right and $sbc-selected-attached == true {
-    //
-    //   @include breakpoint-large-up {
-    //     @if $low-borders == false {
-    //       width: calc(100% + #{$question-group-margin}); // Previously had to add 1px for border. Don't know what's changed now.
-    //     } @else {
-    //       width: calc(100% + #{$question-group-margin});
-    //     }
-    //     .sbc-question-inner {
-    //       width: calc(100% - #{$question-group-margin});
-    //     }
-    //
-    //     .button-add-circle-outer {
-    //       right: $global-margin-large + $question-group-margin;
-    //     }
-    //
-    //   }
-    //
-    // }
 
     &+.sbc-question-outer {
       border-top: none;
@@ -809,15 +525,6 @@ $logic-bubble-color: gray; //blue //gray
       padding: 0;
     }
 
-    // &.button-add-circle {
-    //   width: 28px;
-    // }
-    //
-    // &.button-add-circle-dropdown {
-    //   width: 28px;
-    //   border-left: $light-border;
-    // }
-
     .material-icons {
       font-size: 18px;
     }
@@ -830,10 +537,8 @@ $logic-bubble-color: gray; //blue //gray
   text-align: center;
   padding: 24px $global-padding*3;
   background: transparent;
-  @if $question-group-full-width == false {
-    border-right-color: transparent;
-    border-left-color: transparent;
-  }
+  border-right-color: transparent;
+  border-left-color: transparent;
 
   &:hover {
     background: inherit;
@@ -965,20 +670,6 @@ $logic-bubble-color: gray; //blue //gray
       margin-top: 0;
     }
 
-    // &.last-line {
-    //   color: #ddd;
-    //   opacity: 0;
-
-    //   &:hover {
-    //     opacity: 1;
-    //   }
-    // }
-
-    // &:before {
-    //   content: "-";
-    //   position: absolute;
-    //   left: -12px;
-    // }
   }
   .sbc-atl-text {
     padding-right: 24px;
@@ -1079,19 +770,12 @@ $logic-bubble-color: gray; //blue //gray
   border-radius: 0 0 2px 2px;
   background: $bg-color-question-group;
 
-  @if $question-group-full-width == true {
-    display: none; // hack -- remove the Footer element once decide on a layout.
-  }
 }
 
 .new-group-button-container {
   display: flex;
   justify-content: center;
-  // @if $group-contained == false {
-  //   margin: $global-margin-large*2 0 $global-margin-large*1.5;
-  // } @else  {
   margin: $global-margin-large*1.5 0;
-  // }
 }
 
 .new-question-button .mdc-button,

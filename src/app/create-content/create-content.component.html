@@ -10,11 +10,11 @@
     <span style="padding: 16px; display: block; font-size: 18px; "><em>Survey preview</em></span>
   </div>
 </div>
-<button mat-icon-button [matMenuTriggerFor]="viewToggleMenu" style="position: absolute; top: 116px; right: 4px;">
+<button mat-icon-button [matMenuTriggerFor]="viewToggleMenu" id="show-logic-preview-menu-button" class="mobile-hide" style="position: absolute; top: 116px; right: 4px;">
   <mat-icon>more_horiz</mat-icon>
 </button>
 <mat-menu #viewToggleMenu="matMenu">
-  <button mat-menu-item [(ngModel)]="hidePreview" (click)="togglePreviewButton()" name="fieldName" ngDefaultControl class="mat-menu-icon-item">
+  <button mat-menu-item [(ngModel)]="hidePreview" (click)="togglePreviewButton()" name="fieldName" ngDefaultControl class="mat-menu-icon-item" id="show-logic-preview-menu">
     <mat-icon>{{ hidePreview == true ? '' : 'check' }}</mat-icon>
     <span>Show preview</span>
   </button>

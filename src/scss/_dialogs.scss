@@ -3,22 +3,8 @@
 }
 .dialog-image,
 .dialog-logic {
-  // padding: 4px;
-  // border: 2px solid purple;
-  // width: 100%;
-  // max-width: 100%!important;
-  // background: #fff;
   width: 80%; // MOBILE STYLES - NEED MEDIA QUERY / Queries
   font-size: 0.875rem;
-
-  .mat-dialog-container {
-    // width: auto;
-    // position: absolute;
-    // top: 24px;
-    // right: 0;
-    // bottom:0;
-    // left: 0;
-  }
 
   .mat-dialog-content {
     background: $light-gray;
@@ -64,6 +50,10 @@
     background: #f7f6f5;
     border-bottom: 1px solid #d9d8d7;
   }
+  .mat-form-field-wrapper {
+    max-width: 124px;
+  }
+
 }
 
 .any-all-radio {
@@ -126,12 +116,8 @@
   width: 89px;
 }
 
-// .cdk-overlay-dark-backdrop {
-//   background: rgba(247, 246, 245, .95);
-// }
+
 .mat-dialog-container {
-  // border: $light-border;
-  // box-shadow: 0px 4px 20px -10px rgba(29,28,27,.75);
   .image-dialog-inner,
   .logic-dialog-inner {
     position: relative;
@@ -163,33 +149,6 @@
       max-width: 100%;
     }
   }
-
-  // &.image-library {
-    // background: blue;
-    // display: flex;
-    // flex-wrap: wrap;
-
-    // .image-grid-item {
-    //   // background: red;
-    //   // padding: 4px;
-    //   // //
-    //   // width: 20%;
-    //   // // flex-grow: 1;
-    //   // padding-top: 20%;
-    //   // min-width: 200px;
-    //   // position: relative;
-    //   // background-size: cover;
-    //
-    //   &.bg-beach {background-image: url(/assets/images/beach.jpg)}
-    //   &.bg-books {background-image: url(/assets/images/books.jpg)}
-    //   &.bg-couch {background-image: url(/assets/images/couch.jpg)}
-    //   &.bg-tub {background-image: url(/assets/images/tub.jpg)}
-    //   &.bg-yosemite {background-image: url(https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/yosemite.jpg?raw=true)}
-    //   &.bg-yellowstone {background-image: url(https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/yellowstone.jpg?raw=true)}
-    //   &.bg-niagra-falls {background-image: url(https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/niagra-falls.jpg?raw=true)}
-    // }
-  // }
-
 
 }
 
@@ -247,8 +206,10 @@ h3.mat-dialog-title {
   margin-top: 85px;
   border-top: none;
   // position: relative;
-  min-height: calc(80vh - 90px); // min-height hack so Library and Web Search are same height. Must be a better solution.
+}
 
+.dialog-image .mat-dialog-content {
+  min-height: calc(80vh - 90px); // min-height hack so Library and Web Search are same height. Must be a better solution.
 }
 
 .image-dialog-subheader,

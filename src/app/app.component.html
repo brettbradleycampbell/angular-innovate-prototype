@@ -2,35 +2,41 @@
   <div class="mdc-top-app-bar__row header-row-one">
     <section class="mdc-top-app-bar__section">
       <div class="app-header__item">
-        <span>
+        <span class="mobile-hide">
           <a href="#"><img src="https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/innovate-logo-placeholder-black.png?raw=true" class="innovate-logo"></a>
+        </span>
+        <span class="mobile-only">
+          <button mat-icon-button class="pause-play-survey">
+            <mat-icon>menu</mat-icon>
+          </button>
         </span>
       </div>
       <!-- <div class="app-header__item">
         <span class="material-icons">home</span>
       </div> -->
       <div class="app-header__item header-breadcrumbs">
-        <span class="breadcrumb-slash">/</span>
-        <a href="/dashboard" class="breadcrumb-link">Surveys</a>
-        <span class="breadcrumb-slash breadcrumb-current">/</span>
-        <a class="breadcrumb-link breadcrumb-current">Customer Feedback Survey 1</a>
+        <span class="breadcrumb-slash mobile-hide">/</span>
+        <a href="/dashboard" class="breadcrumb-link mobile-hide">Surveys</a>
+        <span class="breadcrumb-slash breadcrumb-current mobile-hide">/</span>
+        <a class="breadcrumb-link breadcrumb-current breadcrumb-survey-name-outer">
+          <span class="breadcrumb-survey-name">Customer Feedback Survey 1 - Long Survey Name text Long survey name text</span>
+        </a>
         <button mat-icon-button class="pause-play-survey">
           <mat-icon>pause_circle_outline</mat-icon>
         </button>
       </div>
     </section>
     <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
-      <div class="app-header__item">
+      <div class="app-header__item mobile-hide">
         <mat-form-field appearance="outline" class="header-search">
           <mat-icon matPrefix>search</mat-icon>
           <input matInput>
         </mat-form-field>
-
       </div>
-      <div class="app-header__item">
-        <button mat-stroked-button class="icon-text-button icon-left">
-          <mat-icon>person</mat-icon>
-          <span>Matt Dusig</span>
+      <div class="app-header__item mobile-hide">
+        <button mat-stroked-button class="header-user-account-button icon-text-button icon-left">
+          <mat-icon class="user-account-icon">person</mat-icon>
+          <span class="user-account-name">Matt Dusig</span>
         </button>
       </div>
     </section>
@@ -50,12 +56,13 @@
 
     <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
       <div class="app-header__item saving-changes">
-        <span>Saving...</span>
+        <span class="mobile-hide">Saving...</span>
+        <span class="mobile-only"><mat-icon>check</mat-icon></span>
       </div>
       <div class="app-header__item">
-        <button mat-flat-button color="primary" onclick="window.open(''); return false;" class="icon-text-button icon-right">
+        <button mat-flat-button color="primary" onclick="window.open(''); return false;" class="preview-button icon-text-button icon-right">
           <span>View</span>
-          <mat-icon>open_in_new</mat-icon>
+          <mat-icon class="mobile-hide">open_in_new</mat-icon>
         </button>
       </div>
     </section>
