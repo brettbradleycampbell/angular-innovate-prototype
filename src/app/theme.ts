@@ -4,4 +4,5 @@ export class Theme {
   questionColor: string;
   answerColor: string;
   buttonColor: string;
+  buttonTextColor: string;
 }

@@ -1,0 +1,115 @@
+.survey-summary-outer {
+  margin-bottom: 16px;
+  background: #fff;
+  padding: 0 8px;
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+
+  .survey-summary-item {
+    display: inline-flex;
+    align-items: center;
+
+    .start-complete-rate {
+      display: flex;
+      flex-direction: column;
+      margin: 0 24px;
+
+      .rate-label {
+        color: #aaa;
+        text-transform: uppercase;
+        font-size: 10px;
+        font-weight: 500;
+      }
+      .rate-number {
+        font-size: 22px;
+      }
+    }
+
+    &.survey-summary-buttons {
+      margin-left: auto;
+      button {
+        margin-left: 8px;
+      }
+    }
+
+  }
+
+  .survey-status {
+    display: inline-block;
+    font-weight: 500;
+    width: 68px;
+    text-align: center;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 8px 0;
+    letter-spacing: 1px;
+
+    &.survey-active {
+      background: #eeeff9;
+      color: #3f51b5;
+    }
+
+    &.survey-paused {
+      color: $body-text-color;
+      background: #f3f2f1;
+    }
+  }
+
+  .survey-title {
+    width: 400px;
+    color: $body-text-color;
+    padding: 32px 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 400px;
+  }
+}
+
+.dashboard-page-header-outer {
+  display: flex;
+  align-items: center;
+}
+.page-header {
+  font-weight: 400;
+}
+.page-header-button-outer {
+  margin-left: auto;
+}
+#template-list {
+  padding: 0;
+  max-width: 320px;
+  position: relative;
+
+  .page-header {
+    margin-top: 8px;
+    margin-bottom: 28px;
+  }
+  .mat-form-field {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+}
+
+.dashboard-list-surveys {
+  padding: 0 16px;
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 24px;
+}
+
+#template-preview {
+  border-left: $light-border;
+}
+.template-preview-header {
+  padding: 16px;
+  text-align: right;
+  border-bottom: $light-border;
+  .use-template-button {
+    margin-right: 12px;
+  }
+}

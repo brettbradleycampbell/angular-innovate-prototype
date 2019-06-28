@@ -6,10 +6,10 @@
 </style>
 
 <div class="dashboard-wrapper">
-  <div class="dashboard-list-surveys" style="padding: 0 16px; max-width: 1080px; margin-left: auto; margin-right: auto; margin-top: 24px;">
-    <div class="" style="display: flex; align-items: center;">
-      <h3 class="page-header" style="font-weight: 400;">Surveys</h3>
-      <div class="" style="margin-left: auto;">
+  <div class="dashboard-list-surveys">
+    <div class="dashboard-page-header-outer">
+      <h3 class="page-header">Surveys</h3>
+      <div class="page-header-button-outer">
         <button mat-flat-button color="primary" class="icon-text-button icon-left">
           <mat-icon>add</mat-icon>
           <span>New Survey</span>
@@ -17,29 +17,27 @@
         <a href="library" style="position: absolute; top: 75px; color: red; opacity: .4;"><mat-icon>fingerprint</mat-icon></a>
       </div>
     </div>
-    <div class="survey-outer" style="margin-bottom: 16px; background: #fff; padding: 0 8px; border: 1px solid #e1e1e1; border-radius: 4px; display: flex; align-items: center;">
-      <div style="display: inline-flex; align-items: center;">
-        <div>
-          <button mat-icon-button>
-            <mat-icon>pause_circle_outline</mat-icon>
-          </button>
-          <span style="display: inline-block; font-weight: 500; width: 68px; text-align: center; color: #3f51b5; background: #eeeff9; border-radius: 4px; text-transform: uppercase; font-size: 12px; padding: 8px 0; letter-spacing: 1px;">Active</span>
 
-        </div>
-        <a href="create/content" style="color: #2b2b2b; padding: 32px 16px;">Customer Feedback Survey 1</a>
+    <!-- Survey -->
+    <div class="survey-summary-outer">
+      <div class="survey-summary-item">
+        <button mat-icon-button>
+          <mat-icon>pause_circle_outline</mat-icon>
+        </button>
+        <span class="survey-status survey-active">Active</span>
+        <a href="create/content" class="survey-title">Customer Feedback Survey 1</a>
       </div>
-      <div style="display: inline-flex;">
-        <div style="display: flex; flex-direction: column; margin-left: 48px;">
-          <span style="color: #aaa; text-transform: uppercase; font-size: 10px; font-weight: 500;">Starts</span>
-          <span style="font-size: 22px;">210</span>
+      <div class="survey-summary-item">
+        <div class="start-complete-rate">
+          <span class="rate-label">Starts</span>
+          <span class="rate-number">210</span>
         </div>
-        <div style="display: flex; flex-direction: column; margin-left: 48px;">
-          <span style="color: #aaa; text-transform: uppercase; font-size: 10px; font-weight: 500;">Completes</span>
-          <span style="font-size: 22px;">54</span>
+        <div class="start-complete-rate">
+          <span class="rate-label">Completes</span>
+          <span class="rate-number">54</span>
         </div>
-
       </div>
-      <div style="display: inline-flex;" style="margin-left: auto;">
+      <div class="survey-summary-item survey-summary-buttons">
         <button mat-button class="">Edit</button>
         <button mat-button class="">View Results</button>
         <button mat-icon-button [matMenuTriggerFor]="surveyListMenu">
@@ -60,28 +58,26 @@
       </div>
     </div>
 
-    <div class="survey-outer" style="margin-bottom: 16px; background: #fff; padding: 0 8px; border: 1px solid #e1e1e1; border-radius: 4px; display: flex; align-items: center;">
-      <div style="display: inline-flex; align-items: center;">
-        <div>
-          <button mat-icon-button>
-            <mat-icon>play_circle_outline</mat-icon>
-          </button>
-          <span style="display: inline-block; font-weight: 500; width: 68px; text-align: center; color: #ff3131; color: #2b2b2b; background: #ffeaea; background: #f3f2f1; border-radius: 4px; text-transform: uppercase; font-size: 12px; padding: 8px 0; letter-spacing: 1px;">Paused</span>
-
-        </div>
-        <a href="create/content" style="color: #2b2b2b; padding: 32px 16px;">Customer Feedback Survey 2</a>
+    <!-- Survey -->
+    <div class="survey-summary-outer">
+      <div class="survey-summary-item">
+        <button mat-icon-button>
+          <mat-icon>play_circle_outline</mat-icon>
+        </button>
+        <span class="survey-status survey-paused">Paused</span>
+        <a href="create/content" class="survey-title">Demo Survey - Long survey title text survey title text </a>
       </div>
-      <div style="display: inline-flex;">
-        <div style="display: flex; flex-direction: column; margin-left: 48px;">
-          <span style="color: #aaa; text-transform: uppercase; font-size: 10px; font-weight: 500;">Starts</span>
-          <span style="font-size: 22px;">120</span>
+      <div class="survey-summary-item">
+        <div class="start-complete-rate">
+          <span class="rate-label">Starts</span>
+          <span class="rate-number">210</span>
         </div>
-        <div style="display: flex; flex-direction: column; margin-left: 48px;">
-          <span style="color: #aaa; text-transform: uppercase; font-size: 10px; font-weight: 500;">Completes</span>
-          <span style="font-size: 22px;">21</span>
+        <div class="start-complete-rate">
+          <span class="rate-label">Completes</span>
+          <span class="rate-number">54</span>
         </div>
       </div>
-      <div style="display: inline-flex;" style="margin-left: auto;">
+      <div class="survey-summary-item survey-summary-buttons">
         <button mat-button class="">Edit</button>
         <button mat-button class="">View Results</button>
         <button mat-icon-button [matMenuTriggerFor]="surveyListMenu">

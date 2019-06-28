@@ -5,40 +5,31 @@
 </style>
 
 <div class="settings-menu-top">
-  <div style="display: flex; flex-direction: column;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;">
-    <span style="
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 500;
-    color: #777;
-    margin-bottom: 2px;">Theme</span>
-    <span *ngIf="selectedTheme; else elseBlock" style="overflow: hidden; text-overflow: ellipsis;">{{selectedTheme.name}}</span>
+  <div class="themes-list-current-theme-outer">
+    <span class="theme-list-label-text">Theme</span>
+    <span *ngIf="selectedTheme; else elseBlock" class="theme-list-current-theme">{{selectedTheme.name}}</span>
     <ng-template #elseBlock>Innovate MR 1</ng-template>
   </div>
-  <div style="display: flex; margin-left: auto;">
+  <div class="customize-theme-button">
     <button mat-stroked-button>Customize</button>
   </div>
 </div>
 
 <div class="settings-menu-bottom">
-  <div class="" style="margin: 2%; margin-bottom: 196px;">
+  <div class="theme-list-outer">
     <div class="theme-outer" *ngFor="let theme of themes" (click)="onSelect(theme)" [class.selected]="theme === selectedTheme">
 
       <div class="theme-snapshot" [style.background-color]="theme.bgColor">
-        <h3 [style.color]="theme.questionColor" style="margin: 0; margin-bottom: 8px;">Question text</h3>
-        <div style="display: inline-flex; align-items: center;">
-          <mat-icon [style.background-color]="theme.buttonColor" style="margin-right: 8px; color: #fff; border-radius: 2px; width: auto; height: auto; font-size: 14px;">check</mat-icon>
-          <p [style.color]="theme.answerColor" style="margin: 0;">Answer text</p>
+        <h3 class="theme-snapshot-question" [style.color]="theme.questionColor">Question text</h3>
+        <div class="theme-snapshot-answer">
+          <mat-icon [style.background-color]="theme.buttonColor" [style.color]="theme.buttonTextColor" class="theme-snapshot-checkbox">check</mat-icon>
+          <span [style.color]="theme.answerColor">Answer text</span>
         </div>
       </div>
 
-      <div class="theme-footer" style="display: flex; align-items: center;">
-        <span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{theme.name}}</span>
-        <button mat-icon-button [matMenuTriggerFor]="qgMenu" style="margin-left: auto;">
+      <div class="theme-footer">
+        <span class="theme-title">{{theme.name}}</span>
+        <button mat-icon-button [matMenuTriggerFor]="qgMenu">
           <mat-icon>more_horiz</mat-icon>
         </button>
         <mat-menu #qgMenu="matMenu">
@@ -52,10 +43,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-<!-- <div id="themes" [class.hide]="menuOpen"> -->
-
-<!-- </div> -->

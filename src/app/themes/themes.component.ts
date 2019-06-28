@@ -9,24 +9,14 @@ import { THEMES } from '../demo-themes'; // demo-questions-2 for Starting screen
 })
 export class ThemesComponent implements OnInit {
 
-
   selectedTheme: Theme;
   onSelect(theme: Theme): void {
     this.selectedTheme = theme;
   }
-
-
   themes = THEMES;
 
-  // // Show/hide Customize tab hack
-  // menuOpen = false;
-  // theme = THEMES;
   constructor() {
   }
-  // onClick($event) {
-  //   this.menuOpen = !this.menuOpen;
-  // }
-  // //
 
   ngOnInit() {
   }

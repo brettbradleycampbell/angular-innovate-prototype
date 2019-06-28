@@ -14,12 +14,12 @@
   <mat-icon>more_horiz</mat-icon>
 </button>
 <mat-menu #viewToggleMenu="matMenu">
-  <button mat-menu-item [(ngModel)]="hidePreview" (click)="togglePreviewButton()" name="fieldName" ngDefaultControl style="padding-left: 8px;">
-    <mat-icon style="margin-right: 8px; height: 20px; width: 20px; font-size: 20px; margin-top: -4px;">{{ hidePreview == true ? '' : 'check' }}</mat-icon>
+  <button mat-menu-item [(ngModel)]="hidePreview" (click)="togglePreviewButton()" name="fieldName" ngDefaultControl class="mat-menu-icon-item">
+    <mat-icon>{{ hidePreview == true ? '' : 'check' }}</mat-icon>
     <span>Show preview</span>
   </button>
-  <button mat-menu-item [(ngModel)]="hideLogic" (click)="toggleLogicButton()" name="fieldName" ngDefaultControl style="padding-left: 8px;">
-    <mat-icon style="margin-right: 8px; height: 20px; width: 20px; font-size: 20px; margin-top: -4px;">{{ hideLogic == true ? '' : 'check' }}</mat-icon>
+  <button mat-menu-item [(ngModel)]="hideLogic" (click)="toggleLogicButton()" name="fieldName" ngDefaultControl class="mat-menu-icon-item">
+    <mat-icon>{{ hideLogic == true ? '' : 'check' }}</mat-icon>
     <span>Show logic</span>
   </button>
 </mat-menu>

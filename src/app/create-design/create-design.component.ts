@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-//
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { DialogImageComponent } from '../dialog-image/dialog-image.component';
 
@@ -27,23 +26,17 @@ export class CreateDesignComponent implements OnInit {
   addBackgroundImage() {
     this.backgroundImage = !this.backgroundImage;
   }
-
-  // constructor() {
-  // }
-
   imageNameDialogRef: MatDialogRef<DialogImageComponent>;
-  constructor(private dialog: MatDialog) {}
   openAddImageDialog() {
     this.imageNameDialogRef = this.dialog.open(DialogImageComponent, {
       panelClass: 'dialog-image',
     });
   }
-
-
   onClick($event) {
     this.menuOpen = !this.menuOpen;
   }
-  //
+
+  constructor(private dialog: MatDialog) {}
 
   ngOnInit() {
   }

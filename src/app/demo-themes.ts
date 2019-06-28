@@ -7,6 +7,7 @@ export const THEMES: Theme[] = [
     questionColor: '#573594',
     answerColor: '#673AB7',
     buttonColor: '#573594',
+    buttonTextColor: '#fff',
   },
   {
     name: 'Yellow Light',
@@ -14,6 +15,7 @@ export const THEMES: Theme[] = [
     questionColor: '#b19e16',
     answerColor: '#d4bd17',
     buttonColor: '#b19e16',
+    buttonTextColor: '#fff',
   },
   {
     name: 'Blue Light',
@@ -21,6 +23,7 @@ export const THEMES: Theme[] = [
     questionColor: '#36558e',
     answerColor: '#36558e',
     buttonColor: '#36558e',
+    buttonTextColor: '#fff',
   },
   {
     name: 'National Parks',
@@ -28,6 +31,7 @@ export const THEMES: Theme[] = [
     questionColor: '#477839',
     answerColor: '#5d4a20',
     buttonColor: '#5d4a20',
+    buttonTextColor: '#fff',
   },
   {
     name: 'Innovate MR Blue Long Name Long Name Text Theme',
@@ -35,6 +39,7 @@ export const THEMES: Theme[] = [
     questionColor: '#3F51B5',
     answerColor: '#3F51B5',
     buttonColor: '#3F51B5',
+    buttonTextColor: '#fff',
   },
   {
     name: 'Red light',
@@ -42,6 +47,7 @@ export const THEMES: Theme[] = [
     questionColor: '#E91E63',
     answerColor: '#E91E63',
     buttonColor: '#E91E63',
+    buttonTextColor: '#fff',
   },
   {
     name: 'iOS Device',
@@ -49,6 +55,7 @@ export const THEMES: Theme[] = [
     questionColor: '#444444',
     answerColor: '#777777',
     buttonColor: '#3399ff',
+    buttonTextColor: '#fff',
   },
   {
     name: 'Green Light',
@@ -56,6 +63,7 @@ export const THEMES: Theme[] = [
     questionColor: '#009688',
     answerColor: '#009688',
     buttonColor: '#009688',
+    buttonTextColor: '#fff',
   },
   {
     name: 'Nature',
@@ -63,6 +71,7 @@ export const THEMES: Theme[] = [
     questionColor: '#477839',
     answerColor: '#5d4a20',
     buttonColor: '#5d4a20',
+    buttonTextColor: '#fff',
   },
   {
     name: 'Yellow Lighter',
@@ -70,6 +79,7 @@ export const THEMES: Theme[] = [
     questionColor: '#b19e16',
     answerColor: '#d4bd17',
     buttonColor: '#b19e16',
+    buttonTextColor: '#fff',
   },
   {
     name: 'Blue Light',
@@ -77,6 +87,7 @@ export const THEMES: Theme[] = [
     questionColor: '#36558e',
     answerColor: '#36558e',
     buttonColor: '#36558e',
+    buttonTextColor: '#fff',
   },
   {
     name: 'National Parks',
@@ -84,6 +95,7 @@ export const THEMES: Theme[] = [
     questionColor: '#477839',
     answerColor: '#5d4a20',
     buttonColor: '#5d4a20',
+    buttonTextColor: '#fff',
   },
   {
     name: 'Purple Light',
@@ -91,6 +103,7 @@ export const THEMES: Theme[] = [
     questionColor: '#573594',
     answerColor: '#673AB7',
     buttonColor: '#573594',
+    buttonTextColor: '#fff',
   },
   {
     name: 'Yellow Light',
@@ -98,6 +111,7 @@ export const THEMES: Theme[] = [
     questionColor: '#b19e16',
     answerColor: '#d4bd17',
     buttonColor: '#b19e16',
+    buttonTextColor: '#fff',
   },
   {
     name: 'Blue Light',
@@ -105,6 +119,7 @@ export const THEMES: Theme[] = [
     questionColor: '#36558e',
     answerColor: '#36558e',
     buttonColor: '#36558e',
+    buttonTextColor: '#fff',
   },
   {
     name: 'National Parks',
@@ -112,6 +127,7 @@ export const THEMES: Theme[] = [
     questionColor: '#477839',
     answerColor: '#5d4a20',
     buttonColor: '#5d4a20',
+    buttonTextColor: '#fff',
   },
 
 

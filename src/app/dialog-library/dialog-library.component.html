@@ -1,20 +1,12 @@
 <!-- Question Library Dialog -->
-
-
-<div style="position: relative;">
-  <!-- <button mat-icon-button mat-dialog-close style="position: absolute; top: 0; right: 0;">
-    <mat-icon>close</mat-icon>
-  </button> -->
+<div class="dialog-question-library-inner">
 
   <h3 mat-dialog-title>Import from Question Library</h3>
-  <mat-dialog-content  style="display: flex; padding: 0; border-top: 1px solid #d9d8d7; border-bottom: 1px solid #d9d8d7;">
-    <style>
-      .ql-list {width: 260px; position: relative;}
-      .ql-preview {width: 400px; border-left: 1px solid #d9d8d7; background: #f7f6f5; min-height: 380px;}
-    </style>
+
+  <mat-dialog-content class="ql-dialog-conent-outer">
 
     <div class="ql-list settings-menu">
-      <div class="settings-menu-top" style="background: #f7f6f5; flex-direction: column; padding: 12px 16px;">
+      <div class="settings-menu-top ql-dialog">
         <mat-form-field appearance="outline" class="mat-select-outer">
           <mat-select [(value)]="selected">
             <mat-option value="all">All Questions</mat-option>
@@ -30,16 +22,15 @@
           <input matInput>
         </mat-form-field>
       </div>
-      <div class="settings-menu-bottom" style="margin-top: 120px;">
+      <div class="settings-menu-bottom ql-dialog">
         <mat-selection-list>
           <mat-list-option >Age</mat-list-option>
           <mat-list-option >Gender</mat-list-option>
           <mat-list-option >Education</mat-list-option>
-          <mat-list-option >Marriage status</mat-list-option>
-          <mat-list-option >Question Template</mat-list-option>
-          <mat-list-option >Question Template</mat-list-option>
-          <mat-list-option >Question Template</mat-list-option>
-          <mat-list-option >Question Template</mat-list-option>
+          <mat-list-option >Marital status</mat-list-option>
+          <mat-list-option >Salary</mat-list-option>
+          <mat-list-option >Product satisfaction</mat-list-option>
+          <mat-list-option >Personal information</mat-list-option>
           <mat-list-option >Question Template</mat-list-option>
           <mat-list-option >Question Template</mat-list-option>
           <mat-list-option >Question Template</mat-list-option>
@@ -56,7 +47,7 @@
   </mat-dialog-content>
 
   <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close style="margin-right: 12px;">Cancel</button>
-    <button mat-flat-button mat-dialog-close color="primary">Import 3 Questions</button>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-flat-button mat-dialog-close color="primary" class="dialog-primary-action-button">Import 3 Questions</button>
   </mat-dialog-actions>
 </div>

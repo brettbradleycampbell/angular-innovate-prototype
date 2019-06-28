@@ -1,10 +1,14 @@
-.dialog-image {
+.mat-flat-button.dialog-primary-action-button {
+  margin-left: 12px;
+}
+.dialog-image,
+.dialog-logic {
   // padding: 4px;
   // border: 2px solid purple;
   // width: 100%;
   // max-width: 100%!important;
   // background: #fff;
-  width: 70%; // MOBILE STYLES - NEED MEDIA QUERY / Queries
+  width: 80%; // MOBILE STYLES - NEED MEDIA QUERY / Queries
   font-size: 0.875rem;
 
   .mat-dialog-container {
@@ -18,11 +22,23 @@
 
   .mat-dialog-content {
     background: $light-gray;
-    border: 1px solid #d9d8d7;
+    border: $light-border;
     border-right: none;
     border-left: none;
   }
 
+}
+.dialog-question-library-inner {
+  position: relative;
+}
+.mat-dialog-content.ql-dialog-conent-outer {
+  display: flex;
+  padding: 0;
+  border-top: $light-border;
+  border-bottom: $light-border;
+}
+.dialog-logic {
+  width: auto;
 }
 
 .image-url-input {
@@ -64,14 +80,25 @@
 .logic-pre {
   white-space: nowrap;
   margin-right: 8px;
+  &.logic-range {
+    margin-left: 8px;
+  }
 }
 .logic-post {
   white-space: nowrap;
   margin-left: 8px;
 }
 
+.logic-conditions-outer {
+  padding: 0 24px;
+
+  .add-logic-condition-button {
+    margin-top: 24px;
+    margin-left: 12px;
+  }
+}
 .logic-conditions-row {
-  padding: 0;
+  padding: 4px 0;
   max-width: none;
   display: flex;
   background: transparent;
@@ -82,12 +109,21 @@
 
 .logic-drag-indicator {
   position: absolute;
-  top: 14px;
+  top: 19px;
   left: -12px;
   cursor: grab;
+  opacity: .4;
+
+  &:hover {
+    opacity: 1;
+  }
   .mat-icon {
     font-size: 14px;
   }
+}
+
+.input-display-hide {
+  width: 89px;
 }
 
 // .cdk-overlay-dark-backdrop {
@@ -96,7 +132,8 @@
 .mat-dialog-container {
   // border: $light-border;
   // box-shadow: 0px 4px 20px -10px rgba(29,28,27,.75);
-  .image-dialog-inner {
+  .image-dialog-inner,
+  .logic-dialog-inner {
     position: relative;
     // width: 75%; // MOBILE STYLES - NEED MEDIA QUERY
   }
@@ -197,16 +234,14 @@
 
 }
 
-.mat-dialog-title {
+h3.mat-dialog-title {
   margin-bottom: 20px;
-  h3 {
-    font-weight: 400;
-    font-size: 18px;
-    margin-bottom: 0;
-  }
+  font-weight: 400;
+  font-size: 18px;
 }
 
-.dialog-image .mat-dialog-content {
+.dialog-image .mat-dialog-content,
+.dialog-logic .mat-dialog-content {
   padding-top: 24px;
   padding-bottom: 24px;
   margin-top: 85px;
@@ -216,7 +251,8 @@
 
 }
 
-.image-dialog-subheader {
+.image-dialog-subheader,
+.logic-dialog-subheader {
   margin-bottom: 24px;
   display: flex;
   flex-direction: column;
@@ -256,6 +292,12 @@
   }
 }
 
+.image-dialog-url {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+}
+
 .fade-hide-gradient-bg {
   position: absolute;
   width: 100%;
@@ -276,14 +318,28 @@
   font-size: 14px;
   text-align: center;
   line-height: 1.4em;
+
   .upload-text {
     padding: 0 24px;
+    .upload-link {
+      text-decoration: underline;
+      color: $theme-primary-color;
+    }
   }
-  // if putting in the top right:
-  // Yeah, I think it's better here. So move it, position: absolute was a quick hack.
-  // Or actually, maybe the.. Library/Web Search should be fixed/ absolute too, so when you scroll they stay there.
-  // padding: 14px 24px;
-  // position: absolute;
-  // top: 71px;
-  // right: 0;
+}
+
+// Import from Question Library Dialog
+.ql-preview {
+  width: 400px;
+  border-left: $light-border;
+  // background: #f7f6f5;
+  min-height: 380px;
+}
+.ql-list {
+  width: 260px;
+  position: relative;
+  .mat-form-field {
+    width: 100%;
+    margin-bottom: 12px;
+  }
 }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-//
 import {FormControl} from '@angular/forms';
 
 @Component({
@@ -9,12 +8,6 @@ import {FormControl} from '@angular/forms';
 })
 export class CreateContentComponent implements OnInit {
 
-
-  // hidePreview() {
-  //   this.imageNameDialogRef = this.dialog.open(DialogImageComponent, {
-  //     panelClass: 'dialog-image',
-  //   });
-  // }
   hideLogic: boolean = false;
   hidePreview: boolean = false;
   toggleLogicButton() {this.hideLogic = !this.hideLogic;}

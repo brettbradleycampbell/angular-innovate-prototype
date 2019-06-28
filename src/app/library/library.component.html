@@ -5,10 +5,10 @@
 </style>
 <div class="dashboard-wrapper sbc-columns-wrapper">
 
-  <div class="sbc-column settings-menu" id="template-list" style="padding: 0; max-width: 320px; position: relative; background: #fff;">
+  <div class="sbc-column settings-menu" id="template-list">
 
-    <div class="settings-menu-top" style="font-size: inherit; align-items: flex-start; padding: 16px 16px 24px; flex-direction: column;">
-      <h3 class="page-header" style="font-weight: 400; margin-top: 8px;">Survey Template Library</h3>
+    <div class="settings-menu-top template-library">
+      <h3 class="page-header">Survey Template Library</h3>
 
       <mat-form-field appearance="outline" class="mat-select-outer">
         <mat-select [(value)]="selected">
@@ -28,27 +28,26 @@
 
     </div>
 
-    <div class="settings-menu-bottom" style="margin-top: 173px;">
+    <div class="settings-menu-bottom template-library">
       <mat-selection-list>
         <mat-list-option >Market Research Survey</mat-list-option>
         <mat-list-option >Customer Satisfaction Survey</mat-list-option>
         <mat-list-option >Demographics Questionnaire</mat-list-option>
-        <mat-list-option >Saved Survey 2</mat-list-option>
-        <mat-list-option >Saved Survey 3</mat-list-option>
-        <mat-list-option >Saved Survey 4</mat-list-option>
-        <mat-list-option >Saved Survey 5</mat-list-option>
-        <mat-list-option >Saved Survey</mat-list-option>
-        <mat-list-option >Saved Survey</mat-list-option>
-        <mat-list-option >Saved Survey</mat-list-option>
-        <mat-list-option >Saved Survey</mat-list-option>
-        <mat-list-option >Saved Survey</mat-list-option>
-        <mat-list-option >Saved Survey</mat-list-option>
-        <mat-list-option >Saved Survey</mat-list-option>
-        <mat-list-option >Saved Survey</mat-list-option>
-        <mat-list-option >Saved Survey</mat-list-option>
-        <mat-list-option >Saved Survey</mat-list-option>
-        <mat-list-option >Saved Survey</mat-list-option>
-        <mat-list-option >Saved Survey</mat-list-option>
+        <mat-list-option >Market Research Survey</mat-list-option>
+        <mat-list-option >Survey Template 1</mat-list-option>
+        <mat-list-option >Market Research Survey - EU</mat-list-option>
+        <mat-list-option >Survey Template 2</mat-list-option>
+        <mat-list-option >Survey Template 3</mat-list-option>
+        <mat-list-option >Customer Survey Template 4</mat-list-option>
+        <mat-list-option >Survey Template</mat-list-option>
+        <mat-list-option >Survey Template</mat-list-option>
+        <mat-list-option >Survey Template</mat-list-option>
+        <mat-list-option >Survey Template</mat-list-option>
+        <mat-list-option >Survey Template</mat-list-option>
+        <mat-list-option >Survey Template</mat-list-option>
+        <mat-list-option >Survey Template</mat-list-option>
+        <mat-list-option >Survey Template</mat-list-option>
+        <mat-list-option >Survey Template</mat-list-option>
       </mat-selection-list>
     </div>
 
@@ -65,16 +64,15 @@
 
   </div>
 
-  <div class="sbc-column" id="template-preview" style="background: #f7f6f5; border-left: 1px solid #d9d8d7;">
-    <div style="background: #fff; padding: 16px; text-align: right; border-bottom: 1px solid #d9d8d7;">
+  <div class="sbc-column" id="template-preview">
+    <div class="template-preview-header">
       <a href="create/content" style="position: absolute; right: 0; top: 60px; color: red; opacity: .4;"><mat-icon>fingerprint</mat-icon></a>
-      <button mat-flat-button color="primary">Use this template</button>
-      <button mat-stroked-button color="primary" style="margin-left: 12px;">Start from scratch</button>
-
+      <button mat-flat-button color="primary" class="use-template-button">Use this template</button>
+      <button mat-stroked-button color="primary">Start from scratch</button>
     </div>
 
-    <div style="padding: 8px; display: block;">
-      Survey Preview (on click)
+    <div style="padding: 24px; display: block;">
+      Survey Preview on click <span style="font-size: 14px; color: #999;">(should be radio buttons instead of checkboxes)</span>
     </div>
   </div>
 

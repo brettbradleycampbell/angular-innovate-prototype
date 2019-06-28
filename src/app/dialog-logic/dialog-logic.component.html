@@ -1,11 +1,29 @@
-<div mat-dialog-title>
-  <h3 style="margin-top: 0;">Edit Question Logic</h3>
-</div>
+<div class="logic-dialog-inner">
 
-<mat-dialog-content>
-  <mat-tab-group animationDuration="0ms" dynamicHeight class="custom-tabs" disableRipple>
-    <mat-tab label="Skip Logic">
-      <!-- Skip Logic - Multiple Choice -->
+  <h3 mat-dialog-title>Edit Question Logic</h3>
+
+  <mat-dialog-content>
+
+    <div class="logic-dialog-subheader">
+      <div class="image-dialog-tab-buttons">
+        <button (click)="skipLogicTabToggle()" mat-flat-button [ngClass]="{'active-dialog-tab': skipLogicTab === true}">
+          <span>
+            Skip logic
+          </span>
+        </button>
+
+        <button (click)="skipLogicTabToggle()" mat-flat-button [ngClass]="{'active-dialog-tab': skipLogicTab === false}">
+          <span>
+            Display logic
+          </span>
+        </button>
+
+
+      </div>
+    </div>
+
+    <!-- Skip Logic OUTER -->
+    <div *ngIf="skipLogicTab === true" class="logic-conditions-outer">
       <div class="logic-conditions-row settings-menu">
 
         <div class="logic-drag-indicator" matTooltip="Multiple choice, Dropdown list" matTooltipPosition="above">
@@ -105,7 +123,7 @@
           <mat-form-field appearance="outline" class="mat-select-outer" [ngClass]="{'input-size-small': textEntryOperators == '11' || textEntryOperators == '12'}">
             <input matInput placeholder="" value="">
           </mat-form-field>
-          <span *ngIf="textEntryOperators == '11' || textEntryOperators == '12'" class="logic-pre" style="margin-left: 8px;">and</span>
+          <span *ngIf="textEntryOperators == '11' || textEntryOperators == '12'" class="logic-pre logic-range">and</span>
           <mat-form-field *ngIf="textEntryOperators == '11' || textEntryOperators == '12'" appearance="outline" class="mat-select-outer input-size-small">
             <input matInput placeholder="" value="">
           </mat-form-field>
@@ -173,7 +191,7 @@
           <mat-form-field appearance="outline" class="mat-select-outer input-size-small">
             <input matInput placeholder="" value="" type="number" min="0">
           </mat-form-field>
-          <span *ngIf="scaleOperators == '11' || scaleOperators == '12'" class="logic-pre" style="margin-left: 8px;">and</span>
+          <span *ngIf="scaleOperators == '11' || scaleOperators == '12'" class="logic-pre logic-range">and</span>
           <mat-form-field *ngIf="scaleOperators == '11' || scaleOperators == '12'" appearance="outline" class="mat-select-outer input-size-small">
             <input matInput placeholder="" value="" type="number" min="0">
           </mat-form-field>
@@ -252,7 +270,7 @@
           <mat-form-field appearance="outline" class="mat-select-outer input-size-small">
             <input matInput placeholder="" value="" type="number" min="0">
           </mat-form-field>
-          <span *ngIf="rankOperators == '11' || rankOperators == '12'" class="logic-pre" style="margin-left: 8px;">and</span>
+          <span *ngIf="rankOperators == '11' || rankOperators == '12'" class="logic-pre logic-range">and</span>
           <mat-form-field *ngIf="rankOperators == '11' || rankOperators == '12'" appearance="outline" class="mat-select-outer input-size-small">
             <input matInput placeholder="" value="" type="number" min="0">
           </mat-form-field>
@@ -288,19 +306,19 @@
 
       </div>
 
-      <button mat-stroked-button class="icon-text-button icon-left" style="margin-top: 24px;">
+      <button mat-stroked-button class="icon-text-button icon-left add-logic-condition-button">
         <mat-icon>add</mat-icon>
         <span>Add skip</span>
       </button>
 
-    </mat-tab>
+    </div><!-- END NEW DIV -->
 
     <!-- Display Logic -->
-    <mat-tab label="Display Logic">
+    <div *ngIf="skipLogicTab === false" class="logic-conditions-outer">
 
       <div class="logic-conditions-row settings-menu">
         <div class="logic-condition">
-          <mat-form-field appearance="outline" class="mat-select-outer" style="max-width: 89px;">
+          <mat-form-field appearance="outline" class="mat-select-outer input-display-hide">
             <mat-select [(value)]="displayhide">
               <mat-option value="display">
                 <span>Display</span>
@@ -373,7 +391,7 @@
           <mat-icon>drag_indicator</mat-icon>
         </div>
         <div class="logic-condition">
-          <mat-form-field appearance="outline" class="mat-select-outer" style="max-width: 89px;">
+          <mat-form-field appearance="outline" class="mat-select-outer input-size-small">
             <mat-select [(value)]="andor1">
               <mat-option value="and">
                 <span>And</span>
@@ -433,16 +451,20 @@
       </div>
 
 
-      <button mat-stroked-button class="icon-text-button icon-left" style="margin-top: 24px;">
+      <button mat-stroked-button class="icon-text-button icon-left add-logic-condition-button">
         <mat-icon>add</mat-icon>
         <span>Add condition</span>
       </button>
 
-    </mat-tab>
-  </mat-tab-group>
-</mat-dialog-content>
+    </div>
+  </mat-dialog-content>
 
-<mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close style="margin-right: 12px;">Cancel</button>
-  <button mat-flat-button mat-dialog-close color="primary">Save</button>
-</mat-dialog-actions>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-flat-button mat-dialog-close color="primary" class="dialog-primary-action-button">Save</button>
+  </mat-dialog-actions>
+
+
+
+
+</div>

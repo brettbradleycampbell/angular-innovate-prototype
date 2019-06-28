@@ -1,69 +1,29 @@
 <div class="image-dialog-inner">
-  <!-- <button mat-icon-button mat-dialog-close style="position: absolute; top: 0; right: 0;">
-    <mat-icon>close</mat-icon>
-  </button> -->
 
-  <div mat-dialog-title>
-    <h3 style="margin-top: 0;">Add Image</h3>
-  </div>
+  <h3 mat-dialog-title>Add Image</h3>
 
   <mat-dialog-content>
+
     <div class="image-dialog-subheader">
-      <!-- <div class="image-dialog-subheader-inner"> -->
       <div class="image-dialog-tab-buttons">
         <button (click)="imageLibraryTabToggle()" mat-flat-button [ngClass]="{'active-dialog-tab': imageLibraryTab === true}">
-          <span>
-            Library
-          </span>
+          <span>Library</span>
         </button>
-
         <button (click)="imageLibraryTabToggle()" mat-flat-button [ngClass]="{'active-dialog-tab': imageLibraryTab === false}">
-          <span>
-            Web search
-          </span>
+          <span>Web search</span>
         </button>
-
-        <div style="margin-left: auto; display: inline-flex; align-items: center;">
+        <div class="image-dialog-url">
           <mat-checkbox></mat-checkbox>
           <mat-form-field appearance="outline" class="custom-height-input image-url-input">
             <input matInput placeholder="Image URL">
           </mat-form-field>
         </div>
-        <!-- <a class="image-grid-item upload-image-input" *ngIf="imageLibraryTab === true">
-          <span><span style="text-decoration: underline; color: #3f51b5;">Upload</span> or drag files here</span>
-        </a> -->
-
       </div>
-
-      <!-- <div style="display: flex; width: 100%;">
-
-
-
-      </div> -->
-      <!-- </div> -->
     </div>
-
-    <!-- <div class="fade-hide-gradient-bg">
-    </div> -->
-
-    <!-- <mat-grid-list *ngIf="imageLibraryTab === true" cols="4" rowHeight="160px" gutterSize="20px" class="image-grid-library">
-      <div *ngFor="let image of images" (click)="onSelect(image)" [class.selected]="image === selectedImage" [style.background-image]="image.url"></div>
-      <mat-grid-tile style="background-image: url(https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/yosemite.jpg?raw=true);"></mat-grid-tile>
-      <mat-grid-tile style="background-image: url(https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/yellowstone.jpg?raw=true);"></mat-grid-tile>
-    </mat-grid-list> -->
-
-    <!-- <div class="image-grid image-library" *ngIf="imageLibraryTab === true">
-      <div class="image-grid-item bg-beach"></div>
-      <div class="image-grid-item bg-books"></div>
-      <div class="image-grid-item bg-couch"></div>
-      <div class="image-grid-item bg-yosemite"></div>
-      <div class="image-grid-item bg-yellowstone"></div>
-      <div class="image-grid-item bg-niagra-falls"></div>
-    </div> -->
 
     <mat-grid-list *ngIf="imageLibraryTab === true" cols="4" rowHeight="140px" gutterSize="20px" class="image-grid-library">
       <mat-grid-tile class="image-grid-item upload-image-input">
-        <span class="upload-text"><span style="text-decoration: underline; color: #3f51b5;">Upload</span> or drag files here</span>
+        <span class="upload-text"><span class="upload-link">Upload</span> or drag files here</span>
       </mat-grid-tile>
       <mat-grid-tile *ngFor="let image of images" (click)="onSelect(image)" [class.selected]="image === selectedImage" [style.background-image]="'url('+image.url+')'">
         <div class="image-settings-overlay">
@@ -75,25 +35,6 @@
       </mat-grid-tile>
     </mat-grid-list>
 
-    <!-- <mat-grid-list *ngIf="imageLibraryTab === false" cols="4" rowHeight="140px" gutterSize="20px" class="image-grid-library">
-      <mat-grid-tile *ngFor="let image of images" (click)="onSelect(image)" [class.selected]="image === selectedImage" [style.background-image]="'url('+image.url+')'"></mat-grid-tile>
-    </mat-grid-list> -->
-
-    <!-- <div *ngIf="imageLibraryTab === false">
-      <app-images id="images"></app-images>
-    </div> -->
-
-    <!-- <mat-grid-list *ngIf="imageLibraryTab === false" cols="4" rowHeight="140px" gutterSize="20px" class="image-grid-library">
-      <mat-grid-tile *ngFor="let image of images" (click)="onSelect(image)" [class.selected]="image === selectedImage" [style.background-image]="image.url">{{image.url}}</mat-grid-tile>
-    </mat-grid-list> -->
-
-    <!--
-    Use FlexLayoutModule for MOBILE STYLES / MEDIA QUERIES
-    <div fxLayout="row" fxLayoutAlign="center center" class="row-example">
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-    </div> -->
 
     <mat-form-field appearance="outline" class="header-search image-web-search-bar" *ngIf="imageLibraryTab === false">
       <mat-icon matPrefix>search</mat-icon>
@@ -102,78 +43,15 @@
 
     <div class="image-grid-web-search" *ngIf="imageLibraryTab === false">
       <div class="image-grid-item" *ngFor="let image of images" (click)="onSelect(image)" [class.selected]="image === selectedImage">
-        <!-- <div class="image-settings-overlay">
-          <mat-icon [matMenuTriggerFor]="imageDelete">more_horiz</mat-icon>
-          <mat-menu #imageDelete="matMenu">
-            <button mat-menu-item>Delete</button>
-          </mat-menu>
-        </div> -->
         <img src="{{image.url}}" />
       </div>
-
-      <!-- <div class="image-grid-item">
-        <img src="https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/yosemite.jpg?raw=true" />
-      </div>
-      <div class="image-grid-item">
-        <img src="https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/yellowstone.jpg?raw=true" />
-      </div>
-      <div class="image-grid-item">
-        <img src="https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/niagra-falls.jpg?raw=true" />
-      </div>
-      <div class="image-grid-item">
-        <img src="/assets/images/house.jpg" />
-      </div>
-      <div class="image-grid-item">
-        <img src="https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/yosemite.jpg?raw=true" />
-      </div>
-      <div class="image-grid-item">
-        <img src="/assets/images/books.jpg" />
-      </div>
-      <div class="image-grid-item">
-        <img src="/assets/images/couch.jpg" />
-      </div>
-      <div class="image-grid-item">
-        <img src="/assets/images/tub.jpg" />
-      </div>
-      <div class="image-grid-item">
-        <img src="https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/niagra-falls.jpg?raw=true" />
-      </div>
-      <div class="image-grid-item">
-        <img src="/assets/images/house.jpg" />
-      </div>
-      <div class="image-grid-item">
-        <img src="/assets/images/beach.jpg" />
-      </div>
-      <div class="image-grid-item">
-        <img src="https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/yosemite.jpg?raw=true" />
-      </div>
-      <div class="image-grid-item">
-        <img src="https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/yellowstone.jpg?raw=true" />
-      </div>
-      <div class="image-grid-item">
-        <img src="/assets/images/house.jpg" />
-      </div>
-      <div class="image-grid-item">
-        <img src="https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/niagra-falls.jpg?raw=true" />
-      </div>
-      <div class="image-grid-item">
-        <img src="https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/niagra-falls.jpg?raw=true" />
-      </div>
-      <div class="image-grid-item">
-        <img src="/assets/images/beach.jpg" />
-      </div>
-      <div class="image-grid-item">
-        <img src="https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/yosemite.jpg?raw=true" />
-      </div>
-      <div class="image-grid-item">
-        <img src="https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/yellowstone.jpg?raw=true" />
-      </div> -->
     </div>
 
   </mat-dialog-content>
 
   <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close style="margin-right: 12px;">Cancel</button>
-    <button mat-flat-button mat-dialog-close color="primary">Add image</button>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-flat-button mat-dialog-close color="primary" class="dialog-primary-action-button">Add image</button>
   </mat-dialog-actions>
+
 </div>

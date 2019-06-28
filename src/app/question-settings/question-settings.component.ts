@@ -1,13 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { DialogImageComponent } from '../dialog-image/dialog-image.component';
-//
-//
-//
 import {FormControl} from '@angular/forms';
-//
-//
-//
 import { QuestionType } from '../question-type';
 import { QUESTIONTYPES } from '../question-types'; // demo-questions-2 for Starting screen.
 import { QuestionTypeComponent } from '../question-type/question-type.component';

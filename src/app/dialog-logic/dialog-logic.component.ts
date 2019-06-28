@@ -50,6 +50,18 @@ export class DialogLogicComponent implements OnInit {
   // rankOperators = '1';
   // rankDestination = '1';
 
+
+  //
+  //
+  //
+  skipLogicTab: boolean = true;
+  skipLogicTabToggle() {
+    this.skipLogicTab = !this.skipLogicTab;
+  }
+  //
+  //
+  //
+
   constructor(
     // // DIALOGS NOT WORKING TEST
     // private dialogRef: MatDialogRef<DialogLogicComponent>,

@@ -69,7 +69,7 @@
 <div class="settings-menu-item-outer settings-border-bottom settings-select" *ngIf="qType === 'Scale'">
   <mat-label class="full-flex-label">Answer type</mat-label>
   <div>
-    <mat-form-field appearance="outline" class="" style="">
+    <mat-form-field appearance="outline" class="">
       <mat-select [(value)]="scaleAnswerType">
         <mat-option value="stars">Stars</mat-option>
         <mat-option value="hearts">Hearts</mat-option>
@@ -90,7 +90,7 @@
 <!-- TEXT ENTRY ANSWER OPTIONS (Instead of Preset Answers)-->
 <div class="settings-menu-item-outer settings-border-bottom settings-select" *ngIf="qType === 'Text Entry'">
   <mat-label class="full-flex-label">Text Field Type</mat-label>
-  <mat-form-field appearance="outline" class="" style="">
+  <mat-form-field appearance="outline" class="">
     <mat-select [(value)]="textFieldType">
       <mat-option value="text">Single line</mat-option>
       <mat-option value="textarea">Multiline</mat-option>
@@ -147,9 +147,7 @@
   <span>Video URL</span>
   <mat-icon class="help-tooltip" matTooltip="YouTube or Vimeo link" matTooltipPosition="above">help</mat-icon>
   <button (click)="clickEvent()" mat-stroked-button>
-    <span>
-      {{ videoURL == true ? 'Remove' : 'Add' }}
-    </span>
+    <span>{{ videoURL == true ? 'Remove' : 'Add' }}</span>
   </button>
   <div>
   </div>
@@ -181,30 +179,7 @@
 <!-- ANSWER IMAGES - LABELS -->
 <mat-slide-toggle class="settings-menu-item-outer" [(ngModel)]="answerImageLabelsToggle" *ngIf="qType !== 'Statement' && qType !== 'Scale' && qType !== 'Text Entry' && qType !== 'File Upload'  && qType !== 'NPS' && answerImagesToggle">Answer image labels</mat-slide-toggle>
 
-<!-- Why would we want a "None" option? They need some kind of label for reporting at least?
-<div class="settings-menu-item-outer" *ngIf="qType !== 'Statement' && qType !== 'Scale' && qType !== 'Text Entry' && qType !== 'File Upload' && answerImagesToggle">
-  <mat-label>Answer image labels</mat-label>
-  <mat-form-field appearance="outline" class="">
-    <mat-select [(value)]="answerImageLabels">
-      <mat-option value="public">Public</mat-option>
-      <mat-option value="reporting">Reporting only</mat-option>
-      <mat-option value="none">None</mat-option>
-    </mat-select>
-  </mat-form-field>
-</div> -->
-
-<!-- SCALE - LABELS -->
-<!-- <mat-slide-toggle [(ngModel)]="scaleLabelsToggle" class="settings-menu-item-outer" *ngIf="qType === 'Scale'">Scale labels</mat-slide-toggle>
-
-<div *ngIf="scaleLabelsToggle" class="settings-menu-item-outer" style="display: flex; align-items: center;">
-  <mat-form-field appearance="outline" class="">
-    <input matInput placeholder="Left" value="">
-  </mat-form-field>
-  <mat-form-field appearance="outline" class="">
-    <input matInput placeholder="Right" value="">
-  </mat-form-field>
-</div> -->
-
+<!-- Scale Labels -->
 <div class="settings-menu-item-outer" *ngIf="qType === 'Scale'" [ngClass]="{'toggle-menu-open': scaleLabelsToggle}">
   <mat-slide-toggle [(ngModel)]="scaleLabelsToggle">Scale labels</mat-slide-toggle>
   <div *ngIf="scaleLabelsToggle" class="input-list-outer expanded-border-bottom">
@@ -220,16 +195,14 @@
   </div>
 </div>
 
-<!-- Maybe NPS should be its own question type.. it has a bunch of differences, and is supposed to have specific wording in the Question itself -- It would be annoying to have it change the question text that you just entered. But otherwise how do we show the right wording.
--- Yeah, it should be its own question type.
--->
+<!-- NPS Scale Labels -->
 <div class="settings-menu-item-outer settings-border-bottom" *ngIf="qType === 'NPS'">
   <mat-label class="full-flex-label">Scale labels</mat-label>
   <div class="input-list-outer">
-    <mat-form-field appearance="outline" class="" style="">
+    <mat-form-field appearance="outline" class="">
       <input matInput placeholder="Not at all likely" value="Not at all likely" type="text">
     </mat-form-field>
-    <mat-form-field appearance="outline" class="" style="">
+    <mat-form-field appearance="outline" class="">
       <input matInput placeholder="Extremely likely" value="Extremely likely" type="text">
     </mat-form-field>
   </div>

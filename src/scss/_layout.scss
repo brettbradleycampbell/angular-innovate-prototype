@@ -68,22 +68,22 @@ hr {
   flex: 1 0 0;
 }
 
-@if $question-settings-menu-left-right == left {
-  #sbc-settings {
-    order: 1;
-  }
-  #sbc-content {
-    order: 2;
-    box-shadow: inset 1px 0px 0px 0px #e1e1e1;
-  }
-  #sbc-preview {
-    order: 3;
-  }
-} @else {
-  #sbc-content {
-    box-shadow: inset -1px 0px 0px 0px #e1e1e1;
-  }
+// @if $question-settings-menu-left-right == left {
+//   #sbc-settings {
+//     order: 1;
+//   }
+//   #sbc-content {
+//     order: 2;
+//     box-shadow: inset 1px 0px 0px 0px #e1e1e1;
+//   }
+//   #sbc-preview {
+//     order: 3;
+//   }
+// } @else {
+#sbc-content {
+  box-shadow: inset -1px 0px 0px 0px #e1e1e1;
 }
+//}
 
 #sbc-content {
     background: $bg-color-content;
