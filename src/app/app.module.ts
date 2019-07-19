@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import {ReactiveFormsModule} from '@angular/forms';
 //
 import { FlexLayoutModule } from '@angular/flex-layout';
+//
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 //Angular Material Components
@@ -63,6 +65,9 @@ import { DialogLogicComponent } from './dialog-logic/dialog-logic.component';
 import { DialogLibraryComponent } from './dialog-library/dialog-library.component';
 import { QuestionTypeComponent } from './question-type/question-type.component';
 import { ImagesComponent } from './images/images.component';
+import { SurveyComponent } from './survey/survey.component';
+import { SurveyQuestionsComponent } from './survey-questions/survey-questions.component';
+import { SurveyAnswersComponent } from './survey-answers/survey-answers.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +89,9 @@ import { ImagesComponent } from './images/images.component';
     DialogLibraryComponent,
     QuestionTypeComponent,
     ImagesComponent,
+    SurveyComponent,
+    SurveyQuestionsComponent,
+    SurveyAnswersComponent,
   ],
   imports: [
     BrowserModule,
@@ -127,6 +135,8 @@ import { ImagesComponent } from './images/images.component';
     ReactiveFormsModule,
     //
     FlexLayoutModule,
+    //
+    DragDropModule,
 
   ],
   providers: [],

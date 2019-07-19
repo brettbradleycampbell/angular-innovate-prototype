@@ -1,0 +1,56 @@
+<div class="question-outer"
+*ngFor="let surveyquestion of surveyquestions;">
+  <div class="question-inner">
+    <div class="question-text">
+      <h2 >{{surveyquestion.questionText}}</h2>
+    </div>
+
+    <!-- Multiple Choice - Answers -->
+    <div class="answer-text-outer" *ngIf="surveyquestion.questionType == 'multipleChoice'">
+      <ul class="answer-options" >
+        <li class="answer"
+        *ngFor="let answers of surveyquestion.answers"
+        ><mat-radio-button>{{answers}}</mat-radio-button></li>
+      </ul>
+    </div>
+
+    <!-- Multiple Choice Checkbox - Answers -->
+    <div class="answer-text-outer" *ngIf="surveyquestion.questionType == 'multipleChoiceCheckbox'">
+      <ul class="answer-options" >
+        <li class="answer"
+        *ngFor="let answers of surveyquestion.answers"
+        ><mat-checkbox>{{answers}}</mat-checkbox></li>
+      </ul>
+    </div>
+
+    <!-- Rank - Answers -->
+    <div class="answer-text-outer" *ngIf="surveyquestion.questionType == 'rank'">
+      <ul class="answer-options" cdkDropList (cdkDropListDropped)="drop($event)">
+        <li class="answer answer-rank" *ngFor="let rankAnswer of rankAnswers" cdkDrag>
+          <mat-icon class="rank-drag-icon">drag_indicator</mat-icon>
+          {{rankAnswer}}
+        </li>
+      </ul>
+    </div>
+
+    <!-- Select / Dropdown - Answers -->
+    <div class="answer-text-outer" *ngIf="surveyquestion.questionType == 'select'">
+      <mat-form-field>
+        <mat-select>
+          <mat-option *ngFor="let answers of surveyquestion.answers" [value]="surveyquestion.answers">
+            {{answers}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <!-- Text Entry - Answers -->
+    <div class="answer-text-outer answer-text-entry" *ngIf="surveyquestion.questionType == 'textEntryShort'">
+      <mat-form-field class="example-full-width">
+        <input matInput>
+      </mat-form-field>
+    </div>
+
+
+  </div>
+</div>

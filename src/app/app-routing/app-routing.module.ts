@@ -8,6 +8,7 @@ import { CreateSettingsComponent } from '../create-settings/create-settings.comp
 import { CreateContentComponent } from '../create-content/create-content.component'
 import { ShareComponent } from '../share/share.component'
 import { ResultsComponent } from '../results/results.component'
+import { SurveyComponent } from '../survey/survey.component'
 
 const routes: Routes = [
     {
@@ -34,6 +35,10 @@ const routes: Routes = [
     {
         path: 'results',
         component: ResultsComponent,
+    },
+    {
+        path: 'survey',
+        component: SurveyComponent,
     },
 
 ];
