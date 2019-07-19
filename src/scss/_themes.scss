@@ -1,16 +1,143 @@
+$logo-image-url: url(https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/amazon-logo-white.png?raw=true);
+
+$survey-body-background-color: #232f3e;
+$bg-filter-color: transparent;
+$bg-filter-opacity: 0;
+
+$survey-body-background-image-url: none;
+$survey-body-background-size: cover;
 $survey-text-color: #fff;
+
+@mixin background-opacity($survey-text-color, $opacity: 0.3) {
+    background: $survey-text-color; /* The Fallback */
+    background: rgba($survey-text-color, $opacity);
+}
+
+@mixin color-opacity($survey-text-color, $opacity: 0.3) {
+    color: $survey-text-color; /* The Fallback */
+    color: rgba($survey-text-color, $opacity);
+}
+
 $selected-answer-background-color: #f0c14b;
 $selected-answer-text-color: #232f3e;
-$answer-element-background-color: rgba(255,255,255,.08);
-
+$answer-element-background-color: rgba($survey-text-color, 0.08);
+$answer-element-background-color-hover: rgba($survey-text-color, 0.2);
 $question-text-font-size: 20px;
 $answer-text-font-size: 16px;
+
+$button-background-color: #06a463;
+$button-text-color: #fff;
 
 $answer-element-padding: 12px;
 $answer-element-margin: 6px;
 $answer-element-border-radius: 2px;
-$logo-image-width: 120px;
+$logo-image-width: 85px;
 
+//
+// List of themes:
+//
+// Amazon
+// Plants
+// Sky
+// Gold
+// Innovate
+
+$theme: 'Plants';
+
+@if $theme == 'Amazon' {
+  // Default settings above
+}
+
+@if $theme == 'Plants' {
+  $survey-body-background-color: #3948ff;
+  $survey-body-background-image-url: url(https://images.unsplash.com/photo-1453904300235-0f2f60b15b5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=933&q=80);
+  $logo-image-url: url(https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/innovate-logo-placeholder-black.png?raw=true);
+  $logo-image-width: 120px;
+
+  $survey-text-color: #000;
+  $answer-element-background-color: rgba($survey-text-color, 0.08);
+  $answer-element-background-color-hover: rgba($survey-text-color, 0.2);
+
+  $selected-answer-background-color: #009688;
+  $selected-answer-text-color: #fff;
+
+  $button-background-color: #009688;
+  $button-text-color: #fff;
+}
+
+@if $theme == 'Sky' {
+  $survey-body-background-color: #3948ff;
+  $survey-body-background-image-url: url(https://images.unsplash.com/photo-1548268770-66184a21657e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=582&q=80);
+  $logo-image-url: url(https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/innovate-logo-placeholder.png?raw=true);
+  $logo-image-width: 120px;
+
+  $survey-text-color: #fff;
+  $answer-element-background-color: rgba($survey-text-color, 0.08);
+  $answer-element-background-color-hover: rgba($survey-text-color, 0.2);
+
+  $selected-answer-background-color: #fff;
+  $selected-answer-text-color: #00839d;
+
+  $button-background-color: #000;
+  $button-text-color: #eaeae6;
+}
+
+@if $theme == 'Gold' {
+  $survey-body-background-color: #eaeae6;
+  $logo-image-url: none;
+  $logo-image-width: 120px;
+
+  $survey-text-color: #222;
+  $answer-element-background-color: rgba($survey-text-color, 0.08);
+  $answer-element-background-color-hover: rgba($survey-text-color, 0.2);
+
+  $selected-answer-background-color: #caa724;
+  $selected-answer-text-color: #fff;
+
+  $button-background-color: #000;
+  $button-text-color: #eaeae6;
+}
+
+@if $theme == 'Innovate' {
+  $survey-body-background-color: #fff;
+  $logo-image-url: url(https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/innovate-logo.png?raw=true);
+  $logo-image-width: 120px;
+
+  $survey-text-color: #000;
+  $answer-element-background-color: rgba($survey-text-color, 0.08);
+  $answer-element-background-color-hover: rgba($survey-text-color, 0.2);
+
+  $selected-answer-background-color: #548ade;
+  $selected-answer-text-color: #fff;
+
+  $button-background-color: #06a463;
+  $button-text-color: #fff;
+}
+
+
+
+
+.survey-body-hack {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: $survey-body-background-color;
+  background-image: $survey-body-background-image-url;
+  background-size: $survey-body-background-size;
+  z-index: -2;
+}
+
+.bg-filter {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba($bg-filter-color, $bg-filter-opacity);
+  z-index: -1;
+}
 
 .logo-container {
 
@@ -19,7 +146,7 @@ $logo-image-width: 120px;
   .logo-image {
     height: 100px;
     width: $logo-image-width;
-    background-image: url(https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/amazon-logo-white.png?raw=true);
+    background-image: $logo-image-url;
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -47,7 +174,7 @@ $logo-image-width: 120px;
 .survey-content {
   color: $survey-text-color;
   //
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto 320px auto;
   padding: 0 24px;
 }
@@ -96,7 +223,7 @@ ul.answer-options {
     transition: background 200ms ease-in-out, color 200ms ease-in-out;
 
     &:hover {
-      background: rgba(255,255,255,.2);
+      background: $answer-element-background-color-hover;
     }
   }
 
@@ -165,10 +292,10 @@ ul.answer-options {
   color: $survey-text-color;
 }
 .mat-select-arrow {
-  color: rgba(255,255,255,0.54);
+  @include color-opacity($survey-text-color, 0.54);
 }
 .mat-form-field-appearance-legacy .mat-form-field-underline {
-  background-color: rgba(255,255,255,0.42);
+  @include background-opacity($survey-text-color, 0.42);
 }
 .mat-form-field.mat-focused .mat-form-field-ripple {
   background-color: $selected-answer-background-color;
@@ -191,7 +318,7 @@ ul.answer-options {
   text-align: right;
 }
 button.mat-flat-button {
-  background: $selected-answer-background-color;
-  color: $selected-answer-text-color;
+  background: $button-background-color;
+  color: $button-text-color;
   font-size: $answer-text-font-size;
 }
