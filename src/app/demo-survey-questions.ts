@@ -31,5 +31,24 @@ export const SURVEYQUESTIONS: SurveyQuestion[] = [
     questionType: 'textEntryShort',
     // answers: ['Choice 1', 'Choice 2', 'Choice 3'],
   },
+  {
+    id: 6,
+    questionText: 'Please upload your files. ',
+    questionType: 'fileUpload',
+    // answers: ['Choice 1', 'Choice 2', 'Choice 3'],
+  },
+  {
+    id: 7,
+    questionText: 'Which of these vacations would you enjoy? Choose all that apply. ',
+    questionType: 'multipleChoiceImageCheckbox',
+    answers: ['Yosemite', 'Yellowstone', 'Beach', 'Niagra Falls'],
+  },
+  {
+    id: 8,
+    questionText: 'Which is your favorite? ',
+    questionType: 'multipleChoiceImage',
+    answers: ['Yosemite', 'Beach', 'Niagra Falls'],
+  },
+
 
 ];

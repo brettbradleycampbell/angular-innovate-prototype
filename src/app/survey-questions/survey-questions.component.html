@@ -6,27 +6,27 @@
     </div>
 
     <!-- Multiple Choice - Answers -->
-    <div class="answer-text-outer" *ngIf="surveyquestion.questionType == 'multipleChoice'">
-      <ul class="answer-options" >
-        <li class="answer"
+    <div class="answer-text-outer answer-multiple-choice-radio" *ngIf="surveyquestion.questionType == 'multipleChoice'">
+      <ul class="answer-options-list" >
+        <li class="answer-option"
         *ngFor="let answers of surveyquestion.answers"
         ><mat-radio-button>{{answers}}</mat-radio-button></li>
       </ul>
     </div>
 
     <!-- Multiple Choice Checkbox - Answers -->
-    <div class="answer-text-outer" *ngIf="surveyquestion.questionType == 'multipleChoiceCheckbox'">
-      <ul class="answer-options" >
-        <li class="answer"
+    <div class="answer-outer answer-multiple-choice-checkbox" *ngIf="surveyquestion.questionType == 'multipleChoiceCheckbox'">
+      <ul class="answer-options-list" >
+        <li class="answer-option"
         *ngFor="let answers of surveyquestion.answers"
         ><mat-checkbox>{{answers}}</mat-checkbox></li>
       </ul>
     </div>
 
     <!-- Rank - Answers -->
-    <div class="answer-text-outer" *ngIf="surveyquestion.questionType == 'rank'">
-      <ul class="answer-options" cdkDropList (cdkDropListDropped)="drop($event)">
-        <li class="answer answer-rank" *ngFor="let rankAnswer of rankAnswers" cdkDrag>
+    <div class="answer-outer answer-rank" *ngIf="surveyquestion.questionType == 'rank'">
+      <ul class="answer-options-list" cdkDropList (cdkDropListDropped)="drop($event)">
+        <li class="answer-option answer-option-rank" *ngFor="let rankAnswer of rankAnswers" cdkDrag>
           <mat-icon class="rank-drag-icon">drag_indicator</mat-icon>
           {{rankAnswer}}
         </li>
@@ -34,23 +34,75 @@
     </div>
 
     <!-- Select / Dropdown - Answers -->
-    <div class="answer-text-outer" *ngIf="surveyquestion.questionType == 'select'">
+    <div class="answer-outer answer-select" *ngIf="surveyquestion.questionType == 'select'">
       <mat-form-field>
         <mat-select>
-          <mat-option *ngFor="let answers of surveyquestion.answers" [value]="surveyquestion.answers">
+          <mat-option *ngFor="let answers of surveyquestion.answers" [value]="surveyquestion.answers" class="heyy">
             {{answers}}
           </mat-option>
         </mat-select>
       </mat-form-field>
     </div>
 
-    <!-- Text Entry - Answers -->
-    <div class="answer-text-outer answer-text-entry" *ngIf="surveyquestion.questionType == 'textEntryShort'">
+    <!-- Text Entry -->
+    <div class="answer-outer answer-text-entry" *ngIf="surveyquestion.questionType == 'textEntryShort'">
       <mat-form-field class="example-full-width">
         <input matInput>
       </mat-form-field>
     </div>
 
+    <!-- File Upload -->
+    <div class="answer-outer" *ngIf="surveyquestion.questionType == 'fileUpload'">
+      <div class="file-upload-input-container">
+        <span class="drag-file-icon"><mat-icon>attach_file</mat-icon></span>
+        <span class="drag-file-text">Drag files here to upload or</span>
+        <button mat-flat-button>Choose files</button>
+      </div>
+      <div class="uploaded-files-list">
+        <div class="uploaded-file">
+          <button mat-icon-button class="remove-uploaded-file"><mat-icon>close</mat-icon></button> <span>example-file-1.pdf</span> <mat-icon class="upload-success-icon">check</mat-icon>
+        </div>
+        <div class="uploaded-file">
+          <button mat-icon-button class="remove-uploaded-file"><mat-icon>close</mat-icon></button> <span>set-of-example-files.zip</span> <mat-icon class="upload-success-icon">check</mat-icon>
+        </div>
+      </div>
+      <!-- <input type="button" id="loadFileXml" value="Choose files" onclick="document.getElementById('file').click();" />
+      <input class="file-upload-input" style="display: none;" type="file" id="file" name="file"/> -->
+      <!-- <label for="input-file-id" class="md-button md-raised md-primary">Browse</label>
+      <input id="input-file-id" multiple type="file" /> -->
+    </div>
+
+    <img url="https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/yosemite.jpg?raw=true;" />
+
+    <!-- Multiple Choice Image - Checkbox -->
+    <div class="answer-outer answer-multiple-choice-image" *ngIf="surveyquestion.questionType == 'multipleChoiceImageCheckbox'">
+      <ul class="answer-options-list" >
+        <li class="answer-option" *ngFor="let answers of surveyquestion.answers">
+          <mat-checkbox>
+            <div *ngIf="answers == 'Yosemite'" class="image-div yosemite"></div>
+            <div *ngIf="answers == 'Beach'" class="image-div beach"></div>
+            <div *ngIf="answers == 'Niagra Falls'" class="image-div niagra-falls"></div>
+            <div *ngIf="answers == 'Yellowstone'" class="image-div yellowstone"></div>
+            <span class="image-answer-label-text">{{answers}}</span>
+          </mat-checkbox>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Multiple Choice Image -->
+    <div class="answer-outer answer-multiple-choice-image" *ngIf="surveyquestion.questionType == 'multipleChoiceImage'">
+      <ul class="answer-options-list" >
+        <li class="answer-option" *ngFor="let answers of surveyquestion.answers">
+          <mat-radio-button>
+            <div *ngIf="answers == 'Yosemite'" class="image-div yosemite"></div>
+            <div *ngIf="answers == 'Beach'" class="image-div beach"></div>
+            <div *ngIf="answers == 'Niagra Falls'" class="image-div niagra-falls"></div>
+            <div *ngIf="answers == 'Yellowstone'" class="image-div yellowstone"></div>
+            <span class="image-answer-label-text">{{answers}}</span>
+          </mat-radio-button>
+        </li>
+      </ul>
+    </div>
 
   </div>
 </div>

@@ -1,4 +1,5 @@
 $logo-image-url: url(https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/amazon-logo-white.png?raw=true);
+$theme-style: 'Modern'; // 'Modern' or 'Standard'
 
 $survey-body-background-color: #232f3e;
 $bg-filter-color: transparent;
@@ -16,6 +17,11 @@ $survey-text-color: #fff;
 @mixin color-opacity($survey-text-color, $opacity: 0.3) {
     color: $survey-text-color; /* The Fallback */
     color: rgba($survey-text-color, $opacity);
+}
+
+@mixin border-color-opacity($survey-text-color, $opacity: 0.3) {
+    border-color: $survey-text-color; /* The Fallback */
+    border-color: rgba($survey-text-color, $opacity);
 }
 
 $selected-answer-background-color: #f0c14b;
@@ -41,11 +47,50 @@ $logo-image-width: 85px;
 // Sky
 // Gold
 // Innovate
+// Basic -- (Radio buttons)
+// Dark -- (Radio buttons)
 
-$theme: 'Plants';
+$theme: 'Basic';
 
 @if $theme == 'Amazon' {
   // Default settings above
+}
+
+@if $theme == 'Basic' {
+
+  $theme-style: 'Standard';
+  //
+  $survey-body-background-color: #fff;
+  $logo-image-url: none;
+  $survey-text-color: #333;
+  $answer-element-background-color: rgba($survey-text-color, 0.08);
+  $answer-element-background-color-hover: rgba($survey-text-color, 0.2);
+
+  $selected-answer-background-color: #1664ff;
+  $selected-answer-text-color: #fff;
+
+  $button-background-color: #1664ff;
+  $button-text-color: #fff;
+
+
+}
+
+@if $theme == 'Dark' {
+
+  $theme-style: 'Standard';
+  //
+  $survey-body-background-color: #1b1b1b;
+  $logo-image-url: none;
+  $survey-text-color: #f2f1f0;
+  $answer-element-background-color: rgba($survey-text-color, 0.08);
+  $answer-element-background-color-hover: rgba($survey-text-color, 0.2);
+
+  $selected-answer-background-color: #f44336;
+  $selected-answer-text-color: #fff;
+
+  $button-background-color: #fff;
+  $button-text-color: #1b1b1b;
+
 }
 
 @if $theme == 'Plants' {
@@ -161,7 +206,7 @@ $theme: 'Plants';
 .survey-content.center-aligned {
   text-align: center;
 
-  .answer-options {
+  .answer-options-list {
     margin: 0 auto;
   }
 }
@@ -178,71 +223,209 @@ $theme: 'Plants';
   margin: 0 auto 320px auto;
   padding: 0 24px;
 }
-ul.answer-options {
+ul.answer-options-list {
   list-style: none;
   margin: 0;
   padding: 0;
   max-width: 320px;
 }
 
-.answer {
+.answer-option {
+
   .mat-checkbox-inner-container {
     margin-left: 0;
   }
+
+  .mat-checkbox-layout .mat-checkbox-label {
+    line-height: inherit; // was set to 24px for some reason.
+  }
+
 }
 
-.mat-checkbox-layout .mat-checkbox-label {
-  line-height: inherit; // was set to 24px for some reason.
-}
 
 
-.answer .mat-radio-button {
+
+
+.answer-multiple-choice-radio .answer-option .mat-radio-button {
   display: flex;
 
-  .mat-radio-label-content {
-    padding-left: 0;
-  }
-}
-
-.answer .mat-checkbox,
-.answer .mat-radio-button {
-
-  .mat-checkbox-inner-container,
-  .mat-radio-container {
-    display: none;
-  }
-
-  label {
-    display: flex;
-    font-size: $answer-text-font-size;
-    padding: $answer-element-padding;
-    background: $answer-element-background-color;
-    border-radius: $answer-element-border-radius;
-    margin-bottom: $answer-element-margin;
-    cursor: pointer;
-    transition: background 200ms ease-in-out, color 200ms ease-in-out;
-
-    &:hover {
-      background: $answer-element-background-color-hover;
+  @if $theme-style == 'Modern' {
+    .mat-radio-label-content {
+      padding-left: 0;
     }
   }
 
-  &.mat-checkbox-checked,
-  &.mat-radio-checked {
+}
+
+.answer-option .mat-checkbox,
+.answer-option .mat-radio-button {
+
+  @if $theme-style == 'Modern' {
+    .mat-checkbox-inner-container,
+    .mat-radio-container {
+      display: none;
+    }
+  }
+
+  @if $theme-style == 'Modern' {
+
     label {
-      background: $selected-answer-background-color;
-      color: $selected-answer-text-color;
+      display: flex;
+      font-size: $answer-text-font-size;
+      padding: $answer-element-padding;
+      background: $answer-element-background-color;
+      border-radius: $answer-element-border-radius;
+      cursor: pointer;
+      transition: background 200ms ease-in-out, color 200ms ease-in-out;
+
+      &:hover {
+        background: $answer-element-background-color-hover;
+      }
+    }
+
+    &.mat-checkbox-checked,
+    &.mat-radio-checked {
+      label {
+        background: $selected-answer-background-color;
+        color: $selected-answer-text-color;
+      }
+    }
+
+  }
+
+}
+
+.answer-multiple-choice-radio,
+.answer-multiple-choice-checkbox {
+  .answer-option label {
+    margin-bottom: $answer-element-margin;
+  }
+}
+
+// Material theme CSS -
+.survey-content {
+  .mat-radio-outer-circle,
+  .mat-checkbox-frame {
+    @include border-color-opacity($survey-text-color, 0.54);
+  }
+
+  .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background, .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+  .mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple,
+  .mat-checkbox-checked:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element, .mat-checkbox:active:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element {
+    background: $selected-answer-background-color;
+  }
+  .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: $selected-answer-background-color;
+  }
+  .mat-checkbox-checkmark {
+    fill: $selected-answer-text-color;
+  }
+  .mat-checkbox-checkmark-path {
+    stroke: $selected-answer-text-color!important;
+  }
+}
+
+
+// Multiple Choice Image
+
+.answer-multiple-choice-image {
+
+  .answer-options-list {
+    display: flex;
+    margin-left: -8px;
+    width: calc(100% + 16px);
+    max-width: none;
+    flex-wrap: wrap;
+
+    .answer-option {
+      width: calc(33.3333333% - 16px); // Allow user to choose "column number"? How many answer image columns on desktop.. ?
+      margin: 8px;
+
+      @media only screen and (max-width: 768px) {
+        width: calc(50% - 16px);
+      }
+
+      .mat-radio-button {
+        display: flex;
+      }
+      .mat-radio-label-content {
+        padding-left: 0;
+      }
+
+      @if $theme-style == 'Standard' {
+        .mat-checkbox-layout,
+        .mat-radio-button {
+          position: relative;
+        }
+
+        .mat-checkbox-inner-container,
+        .mat-radio-container {position: absolute;}
+          .mat-checkbox-inner-container {bottom: 0;}
+          .mat-radio-container {bottom: 0;}
+
+      }
+
+      // @if $theme-style == 'Hybrid'?? {
+      //   .mat-checkbox-inner-container {bottom: 12px;}
+      //   .mat-radio-container {bottom: 10px;}
+      // }
+
+    }
+  }
+
+  .mat-checkbox-label,
+  .mat-checkbox-layout,
+  .mat-radio-label-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .image-div {
+    padding-top: 67%;  // And allow user to choose aspect ratio? Square, Wide, Tall
+    background-size: cover;
+    background-position: center;
+
+    @if $theme-style == 'Standard' {
+      border-radius: 2px;
+    }
+
+
+    &.yellowstone {background-image: url(https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/yellowstone.jpg?raw=true;);}
+    &.niagra-falls {background-image: url(https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/niagra-falls.jpg?raw=true;);}
+    &.beach {background-image: url(https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/beach.jpg?raw=true;);}
+    &.yosemite {background-image: url(https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/yosemite.jpg?raw=true;);}
+  }
+
+  .image-answer-label-text {
+    margin-top: 12px;
+    @if $theme-style == 'Standard' {
+      margin-left: 26px;
     }
   }
 
 }
 
+@if $theme-style == 'Standard' {
+  .answer-multiple-choice-image .mat-checkbox-checked .image-div,
+  .answer-multiple-choice-image .mat-radio-checked .image-div {
+    box-shadow: 0 0 0 4px $selected-answer-background-color;
+  }
+}
 
+//
+// div.column {
+//   max-width: 800px;
+// }
+//
+// figure.fixedratio {
+//   padding-top: 56.25%;  /* 450px/800px = 0.5625 */
+// }
 
 
 
 // Rank
-.answer.answer-rank {
+.answer-option.answer-option-rank {
   padding: $answer-element-padding;
   background: $answer-element-background-color;
   border-radius: $answer-element-border-radius;
@@ -283,42 +466,128 @@ ul.answer-options {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-.cdk-drop-list-dragging .answer:not(.cdk-drag-placeholder) {
+.cdk-drop-list-dragging .answer-option:not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
 // Select / Dropdown
-.mat-select-value {
-  color: $survey-text-color;
+// & Text Entry
+.answer-outer.answer-select,
+.answer-outer.answer-text-entry {
+
+  .mat-select-value {
+    color: $survey-text-color;
+  }
+  .mat-select-arrow {
+    @include color-opacity($survey-text-color, 0.54);
+  }
+  .mat-form-field-appearance-legacy .mat-form-field-underline {
+    @include background-opacity($survey-text-color, 0.42);
+  }
+  .mat-form-field.mat-focused .mat-form-field-ripple {
+    background-color: $selected-answer-background-color;
+  }
+  .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+    color: $selected-answer-background-color;
+  }
+
 }
-.mat-select-arrow {
-  @include color-opacity($survey-text-color, 0.54);
+
+.mat-select-panel .mat-option.heyy.mat-selected:not(.mat-option-multiple) {
+  background: $selected-answer-background-color;
 }
-.mat-form-field-appearance-legacy .mat-form-field-underline {
-  @include background-opacity($survey-text-color, 0.42);
-}
-.mat-form-field.mat-focused .mat-form-field-ripple {
-  background-color: $selected-answer-background-color;
-}
-.mat-form-field.mat-focused.mat-primary .mat-select-arrow {
-  color: $selected-answer-background-color;
+.mat-primary .mat-option.heyy.mat-selected:not(.mat-option-disabled) {
+  color: $selected-answer-text-color;
 }
 
 // Text Entry
-.mat-input-element {
-  caret-color: $selected-answer-background-color;
-}
-.answer-text-entry .mat-form-field {
-  width: 100%;
-  max-width: 400px;
+.answer-outer.answer-text-entry {
+
+  .mat-input-element {
+    caret-color: $selected-answer-background-color;
+  }
+  .mat-form-field {
+    width: 100%;
+    max-width: 400px;
+  }
+
 }
 
+
 // Button
-.button-container {
-  text-align: right;
+.survey-content {
+
+  .button-container {
+    text-align: right;
+  }
+  button.mat-flat-button {
+    background: $button-background-color;
+    color: $button-text-color;
+    font-size: $answer-text-font-size;
+  }
+
 }
-button.mat-flat-button {
-  background: $button-background-color;
-  color: $button-text-color;
-  font-size: $answer-text-font-size;
+
+// File Upload
+.file-upload-input-container {
+  max-width: 400px;
+  text-align: center;
+  background: rgba($survey-text-color, 0.08);
+  border-radius: 4px;
+  padding: 32px 24px;
+  border: 2px solid transparent;
+  margin-bottom: 24px;
+
+  .drag-file-text {
+    display: block;
+    margin-bottom: 24px;
+  }
+
+  .drag-file-icon {
+    display: block;
+    margin-bottom: 12px;
+
+    .mat-icon {
+      font-size: 32px;
+      height: auto;
+      width: auto;
+    }
+  }
+
+  &:hover {
+    border-color: $selected-answer-background-color;
+  }
 }
+
+.uploaded-file {
+  display: flex;
+  align-items: center;
+
+  .upload-success-icon {
+    background: $selected-answer-background-color;
+    color: $selected-answer-text-color;
+    border-radius: 40px;
+    font-size: 12px;
+    padding: 2px;
+    height: auto;
+    width: auto;
+    margin-left: 6px;
+  }
+  .remove-uploaded-file .mat-icon {
+    font-size: 18px;
+    color: rgba($survey-text-color, 0.54)
+  }
+
+}
+
+// .file-upload-input {
+//   background: rgba($survey-text-color, 0.08);
+//   border: 2px solid transparent;
+//   padding: 24px;
+//   border-radius: 4px;
+//
+//
+//   &:hover {
+//     border-color: $selected-answer-background-color;
+//   }
+// }
