@@ -472,32 +472,38 @@ ul.answer-options-list {
 
 // Select / Dropdown
 // & Text Entry
-.answer-outer.answer-select,
-.answer-outer.answer-text-entry {
 
-  .mat-select-value {
-    color: $survey-text-color;
-  }
-  .mat-select-arrow {
-    @include color-opacity($survey-text-color, 0.54);
-  }
-  .mat-form-field-appearance-legacy .mat-form-field-underline {
-    @include background-opacity($survey-text-color, 0.42);
-  }
-  .mat-form-field.mat-focused .mat-form-field-ripple {
-    background-color: $selected-answer-background-color;
-  }
-  .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
-    color: $selected-answer-background-color;
+
+.survey-content {
+  
+  .answer-outer.answer-select,
+  .answer-outer.answer-text-entry {
+
+    .mat-select-value {
+      color: $survey-text-color;
+    }
+    .mat-select-arrow {
+      @include color-opacity($survey-text-color, 0.54);
+    }
+    .mat-form-field-appearance-legacy .mat-form-field-underline {
+      @include background-opacity($survey-text-color, 0.42);
+    }
+    .mat-form-field.mat-focused .mat-form-field-ripple {
+      background-color: $selected-answer-background-color;
+    }
+    .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+      color: $selected-answer-background-color;
+    }
+
   }
 
-}
+  .mat-select-panel .mat-option.heyy.mat-selected:not(.mat-option-multiple) {
+    background: $selected-answer-background-color;
+  }
+  .mat-primary .mat-option.heyy.mat-selected:not(.mat-option-disabled) {
+    color: $selected-answer-text-color;
+  }
 
-.mat-select-panel .mat-option.heyy.mat-selected:not(.mat-option-multiple) {
-  background: $selected-answer-background-color;
-}
-.mat-primary .mat-option.heyy.mat-selected:not(.mat-option-disabled) {
-  color: $selected-answer-text-color;
 }
 
 // Text Entry

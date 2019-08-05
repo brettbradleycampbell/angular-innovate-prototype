@@ -1,0 +1,130 @@
+.share-wrapper .mat-form-field-appearance-outline {
+  .mat-form-field-outline {top: 0;}
+  .mat-form-field-wrapper {padding: 0; margin: 0;}
+  // input.mat-input-element {line-height: 1.35em;} // This was making the Text Input elements and Select elements different heights.
+  .mat-form-field-flex {margin-top: 0;}
+  .mat-form-field-infix {border: 0;padding: 10px 0;}
+  .mat-select-arrow-wrapper {transform: none;}
+}
+
+.content-box-outer {
+  padding: 24px 16px;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: $light-border;
+  border-radius: 4px;
+  // justify-content: space-between;
+
+  &.no-padding {
+    padding: 0;
+  }
+}
+
+.survey-link-outer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 12px 4px;
+  border-bottom: $light-border;
+
+  &.general-link {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    // border-bottom: $light-border;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  // &.custom-link {
+  //   margin-bottom: 16px;
+  // }
+
+  .mat-form-field {
+    width: 320px;
+  }
+  .mat-form-field-appearance-outline .mat-form-field-flex {
+    padding-right: 0;
+  }
+
+  .mat-form-field-appearance-outline .mat-form-field-outline-end, .mat-form-field-appearance-outline .mat-form-field-outline-start {
+    border: none;
+  }
+
+  .share-link-input-outer {
+    border: $light-border;
+    border-radius: 5px;
+  }
+
+  .copy-link-button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: 1px solid #d3d2d1;
+    height: 38px;
+  }
+
+}
+
+.general-survey-link-outer {
+  display: inline-flex;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-top: 16px;
+}
+
+.survey-link-inner-section {
+  // border: 1px solid red;
+  display: flex;
+  align-items: center;
+}
+.survey-link-status {
+
+}
+.survey-link-title {
+  width: 164px;
+  padding: 0 12px;
+}
+.survey-link-icon {
+  background: #b979ea;
+  border-radius: 3px;
+  color: #fff;
+  padding: 3px;
+  line-height: 0;
+
+  &.fb {
+    background: #3b5998;
+    color: #fff;
+  }
+  &.twitter {
+    background: #1da1f2;
+    color: #fff;
+  }
+
+  .mat-icon {
+    height: auto;
+    width: auto;
+    font-size: 20px;
+  }
+}
+
+.survey-link-delete {
+  margin-left: auto;
+}
+
+.survey-link-title-inner {
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mat-flat-button.mat-primary.buy-panelists-button {
+  background: #06a463;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  width: 100%;
+  justify-content: center;
+}

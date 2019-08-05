@@ -7,6 +7,7 @@ html, body {
   color: $black;
   cursor: default;
   font-family: 'Roboto', sans-serif;
+  background: $light-gray;
 }
 
 a {
@@ -90,3 +91,14 @@ hr {
 #sbc-content.hide-logic-summaries .logic-summary-bubble-outer,
 #sbc-content.hide-logic-summaries .skip-logic-destination-container
  {display: none;}
+
+// Share
+.share-wrapper {
+  padding-top: $header-height;
+  padding-left: $global-padding-large;
+  padding-right: $global-padding-large;
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 24px;
+}
