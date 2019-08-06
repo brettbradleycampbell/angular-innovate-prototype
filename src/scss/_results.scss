@@ -1,0 +1,30 @@
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    padding: 16px 12px;
+    border-bottom: $light-border;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &:first-child {
+      border-top: $light-border;
+    }
+    &:hover {
+      background: $light-gray;
+    }
+  }
+}
+
+.column-summary-sidebar {
+  background: #fff;
+  max-width: 320px;
+  border-left: $light-border;
+}
+.column-summary-main {
+  padding: 32px;
+}

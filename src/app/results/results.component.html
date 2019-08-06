@@ -1,3 +1,64 @@
-<p>
-  results works!
-</p>
+<!-- Sidebar -->
+<aside class="sidebar">
+  <mat-list role="list">
+    <mat-list-item role="listitem">
+      <button mat-button class="sidebar-button" routerLink="/results" routerLinkActive="active">
+        <mat-icon>poll</mat-icon>
+      </button>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <button mat-button class="sidebar-button">
+        <mat-icon>people</mat-icon>
+      </button>
+    </mat-list-item>
+    <mat-list-item role="listitem">
+      <button mat-button class="sidebar-button">
+        <mat-icon>pie_chart</mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
+</aside>
+
+
+<div class="results-wrapper">
+
+  <div class="results-column column-summary-main">
+
+    <h3 class="page-header">Summary</h3>
+
+    <button mat-stroked-button class="icon-text-button icon-right">
+      <span>Share</span>
+      <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+    <button mat-flat-button color="primary">
+      <span>Create Custom Report</span>
+    </button>
+
+    <div class="results-summary-container">
+
+    </div>
+
+
+  </div>
+
+  <div class="results-column column-summary-sidebar">
+    <h3 class="page-header">Questions</h3>
+
+    <ul class="nav-list">
+      <li>Key Stats</li>
+      <li>1 - Enter your question text here. </li>
+      <li>2 - What state do you live in? </li>
+      <li>3 - How likely are you to recommend our business to a friend or colleague? </li>
+      <li>4 - Please rate your experience. </li>
+      <li>5 - Please rate your experience. </li>
+      <li>6 - Please rate your experience. </li>
+      <li>7 - Thank you for taking this survey. </li>
+      <li>8 - Please rank the following. </li>
+      <li>9 - Please rank these images. </li>
+      <li>10 - Choose a picture. </li>
+    </ul>
+
+
+  </div>
+
+</div>

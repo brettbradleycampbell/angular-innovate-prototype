@@ -102,3 +102,20 @@ hr {
   margin-right: auto;
   margin-top: 24px;
 }
+
+.results-wrapper {
+  padding-left: 56px;
+  padding-top: $header-height;
+  //
+  display: flex;
+  flex-direction: row;
+  align-content: stretch;
+  height: 100%;
+
+  .results-column {
+    max-height: 100%;
+    overflow: scroll;
+    flex: 1 0 0;
+  }
+
+}
