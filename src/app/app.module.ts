@@ -68,6 +68,9 @@ import { ImagesComponent } from './images/images.component';
 import { SurveyComponent } from './survey/survey.component';
 import { SurveyQuestionsComponent } from './survey-questions/survey-questions.component';
 import { SurveyAnswersComponent } from './survey-answers/survey-answers.component';
+import { ResultsSummaryComponent } from './results-summary/results-summary.component';
+import { ResultsResponsesComponent } from './results-responses/results-responses.component';
+import { ResultsReportsComponent } from './results-reports/results-reports.component';
 
 @NgModule({
   declarations: [
@@ -92,6 +95,9 @@ import { SurveyAnswersComponent } from './survey-answers/survey-answers.componen
     SurveyComponent,
     SurveyQuestionsComponent,
     SurveyAnswersComponent,
+    ResultsSummaryComponent,
+    ResultsResponsesComponent,
+    ResultsReportsComponent,
   ],
   imports: [
     BrowserModule,

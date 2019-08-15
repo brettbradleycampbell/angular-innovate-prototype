@@ -8,6 +8,9 @@ import { CreateSettingsComponent } from '../create-settings/create-settings.comp
 import { CreateContentComponent } from '../create-content/create-content.component'
 import { ShareComponent } from '../share/share.component'
 import { ResultsComponent } from '../results/results.component'
+import { ResultsSummaryComponent } from '../results-summary/results-summary.component'
+import { ResultsResponsesComponent } from '../results-responses/results-responses.component'
+import { ResultsReportsComponent } from '../results-reports/results-reports.component'
 import { SurveyComponent } from '../survey/survey.component'
 
 const routes: Routes = [
@@ -35,6 +38,11 @@ const routes: Routes = [
     {
         path: 'results',
         component: ResultsComponent,
+        children: [
+          { path: 'summary', component: ResultsSummaryComponent },
+          { path: 'responses', component: ResultsResponsesComponent },
+          { path: 'reports', component: ResultsReportsComponent },
+        ]
     },
     {
         path: 'survey',

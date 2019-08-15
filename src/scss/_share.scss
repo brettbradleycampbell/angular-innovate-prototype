@@ -32,6 +32,10 @@
     padding-top: 24px;
     padding-bottom: 24px;
     // border-bottom: $light-border;
+    .share-link-input-outer {
+      width: 50%;
+    }
+
   }
 
   &:last-child {
@@ -43,7 +47,7 @@
   // }
 
   .mat-form-field {
-    width: 320px;
+    width: 100%;
   }
   .mat-form-field-appearance-outline .mat-form-field-flex {
     padding-right: 0;
@@ -56,6 +60,7 @@
   .share-link-input-outer {
     border: $light-border;
     border-radius: 5px;
+    width: 100%;
   }
 
   .copy-link-button {
@@ -84,7 +89,8 @@
 
 }
 .survey-link-title {
-  width: 164px;
+  width: 180px;
+  min-width: 180px;
   padding: 0 12px;
 }
 .survey-link-icon {
