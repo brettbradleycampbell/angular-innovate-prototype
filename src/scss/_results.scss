@@ -163,22 +163,61 @@
   }
 }
 
-.respondent-summary-container {
-  h3 {
-    margin: 0;
+.respondent-summary-table-container {
+  margin-bottom: 24px;
+}
+.responses-summary-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  td, th {
+    border: $light-border;
+    padding: 4px;
+    min-width: 64px;
+  }
+  th {
+    background: $light-gray;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 400;
+    text-align: left;
   }
 }
+
+.respondent-summary-container {
+  padding-bottom: 0;
+  margin-bottom: 24px;
+}
+
+.respondent-container-header {
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: $light-border;
+
+  .respondent-identifier {
+    display: flex;
+    margin-bottom: 4px;
+    align-items: baseline;
+  }
+}
+
 .respondent-answer-outer {
   display: flex;
   flex-direction: column;
   margin: 16px 0;
 
   .respondent-question {
-    opacity: 0.4;
+    opacity: 0.5;
     font-size: 90%;
+    margin-bottom: 8px;
   }
 
   .respondent-answer {
-    font-size: 110%;
+    margin-bottom: 16px;
+  }
+
+  .scale-out-of-text {
+    opacity: 0.5;
   }
 }

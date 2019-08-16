@@ -14,7 +14,7 @@
         <span>Add filter</span>
       </button>
       <div class="page-header-button-outer">
-        <button mat-stroked-button class="icon-text-button icon-right">
+        <button mat-flat-button color="primary" class="icon-text-button icon-right">
           <span>Share</span>
           <mat-icon>arrow_drop_down</mat-icon>
         </button>
@@ -25,10 +25,50 @@
     <div class="results-summary-container">
 
 
+      <div class="key-stats-container respondent-summary-table-container">
+        <h3 class="page-header">All respondents</h3>
+
+        <table class="responses-summary-table">
+
+          <tr>
+            <th>Respondent</th>
+            <th>1 - What is your age?</th>
+            <th>2 - What state do you live in?</th>
+            <th>3 - Please rate your experience</th>
+            <th>4 - Please leave any feedback.</th>
+          </tr>
+
+          <tr>
+            <td>16783374</td>
+            <td>25 - 34</td>
+            <td>Alabama</td>
+            <td>4</td>
+            <td>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna Aliqua?</td>
+          </tr>
+          <tr>
+            <td>24783123</td>
+            <td>35 - 44</td>
+            <td>Alaska</td>
+            <td>5</td>
+            <td>One other thing, lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna Aliqua?</td>
+          </tr>
+          <tr>
+            <td>22755174</td>
+            <td>25 - 34</td>
+            <td>Arizona</td>
+            <td>3</td>
+            <td>Here's my review, lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna Aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna Aliqua.</td>
+          </tr>
+
+        </table>
+
+      </div>
+
       <div class="key-stats-container respondent-summary-container">
-        <h3 class="answer-bar-question-title">daniel-97@hotmail.com</h3>
-        <span style="font-size: 90%">08/09/19</span><span style="font-size: 90%; opacity: 0.4; margin-left: 8px;">08:34</span>
-        <hr>
+        <div class="respondent-container-header">
+          <span class="respondent-identifier">daniel-97@hotmail.com <!--<span style="font-size: 90%; margin-left: 8px; opacity: 0.5">16783374</span>--></span>
+          <span style="font-size: 90%">08/09/19</span><span style="font-size: 90%; opacity: 0.5; margin-left: 8px;">08:34</span>
+        </div>
 
         <div class="respondent-answer-outer">
           <span class="respondent-question">1 - What is your age?</span>
@@ -40,7 +80,7 @@
         </div>
         <div class="respondent-answer-outer">
           <span class="respondent-question">3 - Please rate your experience</span>
-          <span class="respondent-answer">4</span>
+          <span class="respondent-answer">4 <span class="scale-out-of-text">out of 5</span></span>
         </div>
         <div class="respondent-answer-outer">
           <span class="respondent-question">4 - Please leave any feedback.</span>
@@ -48,10 +88,11 @@
         </div>
       </div>
 
-      <div class="key-stats-container respondent-summary-container" style="margin-top: 24px;">
-        <h3 class="answer-bar-question-title">janetreyes@gmail.com</h3>
-        <span style="font-size: 90%">08/09/19</span><span style="font-size: 90%; opacity: 0.4; margin-left: 8px;">08:34</span>
-        <hr>
+      <div class="key-stats-container respondent-summary-container">
+        <div class="respondent-container-header">
+          <span class="respondent-identifier">janetreyes@gmail.com</span>
+          <span style="font-size: 90%">08/09/19</span><span style="font-size: 90%; opacity: 0.4; margin-left: 8px;">08:42</span>
+        </div>
 
         <div class="respondent-answer-outer">
           <span class="respondent-question">1 - What is your age?</span>
@@ -63,11 +104,35 @@
         </div>
         <div class="respondent-answer-outer">
           <span class="respondent-question">3 - Please rate your experience</span>
-          <span class="respondent-answer">5</span>
+          <span class="respondent-answer">5 <span class="scale-out-of-text">out of 5</span></span>
         </div>
         <div class="respondent-answer-outer">
           <span class="respondent-question">4 - Please leave any feedback.</span>
           <span class="respondent-answer">One other thing, lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna Aliqua?</span>
+        </div>
+      </div>
+
+      <div class="key-stats-container respondent-summary-container">
+        <div class="respondent-container-header">
+          <span class="respondent-identifier">william-89@yahoo.com</span>
+          <span style="font-size: 90%">08/09/19</span><span style="font-size: 90%; opacity: 0.4; margin-left: 8px;">12:06</span>
+        </div>
+
+        <div class="respondent-answer-outer">
+          <span class="respondent-question">1 - What is your age?</span>
+          <span class="respondent-answer">35 - 44</span>
+        </div>
+        <div class="respondent-answer-outer">
+          <span class="respondent-question">2 - What state do you live in?</span>
+          <span class="respondent-answer">Arizona</span>
+        </div>
+        <div class="respondent-answer-outer">
+          <span class="respondent-question">3 - Please rate your experience</span>
+          <span class="respondent-answer">3 <span class="scale-out-of-text">out of 5</span></span>
+        </div>
+        <div class="respondent-answer-outer">
+          <span class="respondent-question">4 - Please leave any feedback.</span>
+          <span class="respondent-answer">Here's my review, lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna Aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna Aliqua. </span>
         </div>
       </div>
 

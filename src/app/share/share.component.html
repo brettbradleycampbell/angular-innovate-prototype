@@ -9,7 +9,17 @@
       </div>
   </div> -->
 
-  <h3 class="page-header">Survey Links</h3>
+  <!-- <div class="dashboard-page-header-outer">
+    <h3 class="page-header">Survey Links</h3>
+    <div class="page-header-button-outer">
+      <button mat-flat-button color="primary" class="icon-text-button icon-left">
+        <mat-icon>add</mat-icon>
+        <span>New Link</span>
+      </button>
+    </div>
+  </div> -->
+
+  <h3 class="page-header">Share your survey</h3>
 
   <div class="" style="display: flex; align-items: flex-start;">
 
@@ -20,11 +30,15 @@
         <div class="survey-link-inner-section">
           <button mat-icon-button><mat-icon>pause_circle_outline</mat-icon></button>
         </div>
-        <div  class="survey-link-inner-section share-link-input-outer">
-          <mat-form-field appearance="outline">
-            <input matInput placeholder="" disabled value="pegasusmr.com/survey-url">
+        <div  class="survey-link-inner-section">
+
+          <span style="font-size: 125%; margin-right: 12px;">pegasusmr.com/survey-url</span>
+          <button mat-stroked-button class="">Copy</button>
+
+          <!-- <mat-form-field appearance="outline">
+            <input matInput placeholder="" value="pegasusmr.com/survey-url">
           </mat-form-field>
-          <button mat-button class="copy-link-button">Copy</button>
+          <button mat-button class="copy-link-button">Copy</button> -->
         </div>
         <button mat-flat-button color="primary" class="icon-text-button icon-left" style="margin-left: auto; margin-right: 12px;">
           <mat-icon>add</mat-icon>
@@ -32,6 +46,8 @@
         </button>
 
       </div>
+
+      <hr style="width: 100%; margin: 0 0 12px 0;">
 
       <div class="survey-link-outer custom-link">
         <div class="survey-link-inner-section">
