@@ -26,16 +26,23 @@
 
 
       <div class="key-stats-container respondent-summary-table-container">
-        <h3 class="page-header">All respondents</h3>
+
+        <div style="display: flex; align-items: center; margin-bottom: 8px;">
+          <h3 class="page-header" style="margin: 0;">All respondents</h3>
+          <div style="margin-left: auto;">
+            <button mat-icon-button><mat-icon>arrow_left</mat-icon></button>
+            <button mat-icon-button><mat-icon>arrow_right</mat-icon></button>
+          </div>
+        </div>
 
         <table class="responses-summary-table">
 
           <tr>
-            <th>Respondent</th>
-            <th>1 - What is your age?</th>
-            <th>2 - What state do you live in?</th>
-            <th>3 - Please rate your experience</th>
-            <th>4 - Please leave any feedback.</th>
+            <th><span>Respondent</span> <mat-icon>arrow_drop_down</mat-icon></th>
+            <th><span>1 - What is your age?</span> <mat-icon>arrow_drop_down</mat-icon></th>
+            <th><span>2 - What state do you live in?</span> <mat-icon>arrow_drop_down</mat-icon></th>
+            <th><span>3 - Please rate your experience</span> <mat-icon>arrow_drop_down</mat-icon></th>
+            <th><span>4 - Please leave any feedback.</span> <mat-icon>arrow_drop_down</mat-icon></th>
           </tr>
 
           <tr>
@@ -63,6 +70,8 @@
         </table>
 
       </div>
+
+      <hr style="margin: 12px 0 24px 0;">
 
       <div class="key-stats-container respondent-summary-container">
         <div class="respondent-container-header">

@@ -165,15 +165,40 @@
 
 .respondent-summary-table-container {
   margin-bottom: 24px;
+  padding-top: 12px;
 }
 .responses-summary-table {
   width: 100%;
   border-collapse: collapse;
+  font-size: 14px;
 
   td, th {
     border: $light-border;
-    padding: 4px;
+    padding: 6px;
     min-width: 64px;
+
+    // Do we want this or what? How do we make the All Respondents table look presentable?
+    white-space: nowrap;
+    max-width: 64px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    span {
+      max-width: 80%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: inline-block;
+      padding-top: 4px;
+    }
+
+    .mat-icon {
+      float: right;
+    }
+
+
+    span, .mat-icon {
+      vertical-align: middle;
+    }
   }
   th {
     background: $light-gray;
