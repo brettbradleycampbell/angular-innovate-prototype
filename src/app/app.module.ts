@@ -71,6 +71,7 @@ import { SurveyAnswersComponent } from './survey-answers/survey-answers.componen
 import { ResultsSummaryComponent } from './results-summary/results-summary.component';
 import { ResultsResponsesComponent } from './results-responses/results-responses.component';
 import { ResultsReportsComponent } from './results-reports/results-reports.component';
+import { ResultsReportNewComponent } from './results-report-new/results-report-new.component';
 
 @NgModule({
   declarations: [
@@ -98,6 +99,7 @@ import { ResultsReportsComponent } from './results-reports/results-reports.compo
     ResultsSummaryComponent,
     ResultsResponsesComponent,
     ResultsReportsComponent,
+    ResultsReportNewComponent,
   ],
   imports: [
     BrowserModule,

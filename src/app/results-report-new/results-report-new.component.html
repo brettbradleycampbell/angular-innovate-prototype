@@ -1,6 +1,88 @@
 
 <div class="results-wrapper">
 
+  <div class="results-column create-report-sidebar" style="position: relative;">
+    <a href="/results/reports" style="padding: 12px 12px 0; font-size: 80%; color: #666; display: block;">
+      <mat-icon style="    width: auto;
+    height: auto;
+    font-size: 16px;
+    position: relative;
+    top: 3px;">chevron_left</mat-icon>Reports</a>
+    <h3 class="page-header" style="margin-top: 8px; margin-left: 12px;">Custom Report 1</h3>
+
+    <div class="" style="font-size: 14px; display: flex; justify-content: space-between; margin: 48px 12px 12px;">
+      <mat-form-field appearance="outline" class="header-search" style="max-width: 210px">
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput placeholder="search questions">
+      </mat-form-field>
+      <button mat-stroked-button style="padding: 0 2px 0 8px;">Filter <mat-icon>arrow_drop_down</mat-icon></button>
+    </div>
+
+    <div class="" style="font-size: 14px; display: flex; align-items: center; margin: 12px;">
+      <mat-checkbox></mat-checkbox>
+      <button mat-stroked-button style="padding: 0 2px 0 8px; margin-left: 12px;">Action <mat-icon>arrow_drop_down</mat-icon></button>
+    </div>
+
+    <ul class="nav-list respondent-nav-list">
+      <li class="selected">
+        <mat-checkbox></mat-checkbox>
+        <span class="report-sidebar-question-text">Key Stats</span>
+        <div class="" style="margin-left: auto; align-items: center; display: flex;">
+          <button mat-icon-button class="favorite-respondent">
+            <mat-icon>star_outline</mat-icon>
+          </button>
+          <mat-icon>drag_indicator</mat-icon>
+        </div>
+      </li>
+      <li>
+        <mat-checkbox></mat-checkbox>
+        <span class="report-sidebar-question-text">1 - What is your age?</span>
+        <div class="" style="margin-left: auto; align-items: center; display: flex;">
+          <button mat-icon-button class="favorite-respondent">
+            <mat-icon>star_outline</mat-icon>
+          </button>
+          <mat-icon>drag_indicator</mat-icon>
+        </div>
+      </li>
+      <li>
+        <mat-checkbox></mat-checkbox>
+        <span class="report-sidebar-question-text">2 - What state do you live in?</span>
+        <div class="" style="margin-left: auto; align-items: center; display: flex;">
+          <button mat-icon-button class="favorite-respondent">
+            <mat-icon>star_outline</mat-icon>
+          </button>
+          <mat-icon>drag_indicator</mat-icon>
+        </div>
+      </li>
+      <li>
+        <mat-checkbox></mat-checkbox>
+        <span class="report-sidebar-question-text">3 - Please rate your experience.</span>
+        <div class="" style="margin-left: auto; align-items: center; display: flex;">
+          <button mat-icon-button class="favorite-respondent">
+            <mat-icon>star_outline</mat-icon>
+          </button>
+          <mat-icon>drag_indicator</mat-icon>
+        </div>
+      </li>
+      <li>
+        <mat-checkbox></mat-checkbox>
+        <span class="report-sidebar-question-text">4 - Please leave any feedback.</span>
+        <div class="" style="margin-left: auto; align-items: center; display: flex;">
+          <button mat-icon-button class="favorite-respondent">
+            <mat-icon>star_outline</mat-icon>
+          </button>
+          <mat-icon>drag_indicator</mat-icon>
+        </div>
+      </li>
+    </ul>
+
+    <div class="button-container-brain" style="width: 100%; position: absolute; bottom: 0; padding: 12px; background: #fff; border-top: 1px solid #d1d1d1;">
+      <button mat-flat-button color="primary" style="width: 100%;"><mat-icon>add</mat-icon>Add New Page</button>
+    </div>
+
+
+  </div>
+
   <div class="results-column column-summary-main" style="position: relative; padding-top: 112px;">
     <div class="dashboard-page-header-outer" style="position: absolute;
     top: 0;
@@ -9,25 +91,27 @@
     padding: 12px 24px;
     background: #fff;
     border-bottom: 1px solid #d1d1d1;">
-      <h3 class="page-header">Summary</h3>
+      <button mat-stroked-button>
+        <span>Add filter</span>
+      </button>
+      <button mat-stroked-button style="margin-left: 12px;">
+        <span>Add breakout</span>
+      </button>
+
       <div class="page-header-button-outer">
         <button mat-flat-button color="primary" class="icon-text-button icon-right">
           <span>Share</span>
           <mat-icon>arrow_drop_down</mat-icon>
         </button>
-        <a href="/results/reports/new"><mat-icon style="position: absolute;
-    top: 5px;
-    color: red;
-    opacity: .4;
-    right: 4px;">fingerprint</mat-icon></a>
-        <button mat-flat-button color="primary" style="margin-left: 12px;">
-          <span>Create Custom Report</span>
+        <button mat-stroked-button style="margin-left: 12px;">
+          <span>Settings</span>
         </button>
       </div>
     </div>
 
 
     <div class="results-summary-container">
+
 
       <div class="key-stats-container">
 
@@ -97,7 +181,7 @@
         </table>
       </div>
 
-      <hr style="margin: 32px 0;">
+      <hr style="margin: 12px 0 24px 0;">
 
       <div class="key-stats-container question-summary-container">
         <h3 class="answer-bar-question-title">1 - Enter your question text here.</h3>
@@ -151,6 +235,12 @@
             <td class="">202 (100%)</td>
           </tr>
         </table>
+
+        <div class="" style="display: flex; width: 100%; padding: 24px; justify-content: center;">
+          <button mat-stroked-button style="margin: 12px;">Add text/image</button>
+          <button mat-flat-button color="primary" style="margin: 12px;">Add chart</button>
+        </div>
+
       </div>
 
 
@@ -206,29 +296,19 @@
             <td class="">202 (100%)</td>
           </tr>
         </table>
+
+        <div class="" style="display: flex; width: 100%; padding: 24px; justify-content: center;">
+          <button mat-stroked-button style="margin: 12px;">Add text/image</button>
+          <button mat-flat-button color="primary" style="margin: 12px;">Add chart</button>
+        </div>
+
       </div>
 
+
+
+
+
     </div>
-
-
-  </div>
-
-  <div class="results-column column-summary-sidebar">
-    <h3 class="page-header" style="margin-left: 12px;">Questions</h3>
-
-    <ul class="nav-list">
-      <li class="selected">Key Stats</li>
-      <li>1 - Enter your question text here. </li>
-      <li>2 - What state do you live in? </li>
-      <li>3 - How likely are you to recommend our business to a friend or colleague? </li>
-      <li>4 - Please rate your experience. </li>
-      <li>5 - Please rate your experience. </li>
-      <li>6 - Please rate your experience. </li>
-      <li>7 - Thank you for taking this survey. </li>
-      <li>8 - Please rank the following. </li>
-      <li>9 - Please rank these images. </li>
-      <li>10 - Choose a picture. </li>
-    </ul>
 
 
   </div>

@@ -1,3 +1,91 @@
-<p>
-  results-reports works!
-</p>
+<div class="results-wrapper">
+  <div class="reports-list-outer">
+    <div class="dashboard-page-header-outer">
+      <h3 class="page-header">Reports</h3>
+      <div class="page-header-button-outer" style="position: relative;">
+        <button mat-flat-button color="primary" class="icon-text-button icon-left">
+          <mat-icon>add</mat-icon>
+          <span>Create Report</span>
+        </button>
+        <a href="/results/reports/new"><mat-icon style="position: absolute;
+    top: -18px;
+    color: red;
+    opacity: .4;
+    right: -16px;">fingerprint</mat-icon></a>
+      </div>
+    </div>
+
+    <!-- Survey -->
+    <div class="survey-summary-outer">
+      <div class="survey-summary-item">
+        <a href="results/summary" class="survey-title">Summary</a>
+      </div>
+      <!-- <div class="survey-summary-item">
+        <div class="start-complete-rate">
+          <span class="rate-label">Starts</span>
+          <span class="rate-number">210</span>
+        </div>
+        <div class="start-complete-rate">
+          <span class="rate-label">Completes</span>
+          <span class="rate-number">54</span>
+        </div>
+      </div> -->
+      <div class="survey-summary-item survey-summary-buttons">
+        <button mat-button class="">Edit</button>
+        <button mat-icon-button [matMenuTriggerFor]="surveyListMenu">
+          <mat-icon>more_horiz</mat-icon>
+        </button>
+        <mat-menu #surveyListMenu="matMenu">
+          <button mat-menu-item>Share</button>
+          <button mat-menu-item>Duplicate</button>
+          <button mat-menu-item [matMenuTriggerFor]="reports">View Report</button>
+          <hr>
+          <button mat-menu-item>Delete</button>
+        </mat-menu>
+        <mat-menu #reports="matMenu">
+          <button mat-menu-item>Report 1</button>
+          <button mat-menu-item>Exectuive Summary</button>
+          <button mat-menu-item>Test Report</button>
+        </mat-menu>
+      </div>
+    </div>
+
+    <hr style="margin: 20px 0 24px 0;">
+
+    <!-- Survey -->
+    <div class="survey-summary-outer">
+      <div class="survey-summary-item">
+        <a href="results/reports/new" class="survey-title">Custom Report 1</a>
+      </div>
+      <!-- <div class="survey-summary-item">
+        <div class="start-complete-rate">
+          <span class="rate-label">Starts</span>
+          <span class="rate-number">210</span>
+        </div>
+        <div class="start-complete-rate">
+          <span class="rate-label">Completes</span>
+          <span class="rate-number">54</span>
+        </div>
+      </div> -->
+      <div class="survey-summary-item survey-summary-buttons">
+        <button mat-button class="">Edit</button>
+        <button mat-icon-button [matMenuTriggerFor]="surveyListMenu">
+          <mat-icon>more_horiz</mat-icon>
+        </button>
+        <mat-menu #surveyListMenu="matMenu">
+          <button mat-menu-item>Share</button>
+          <button mat-menu-item>Duplicate</button>
+          <button mat-menu-item [matMenuTriggerFor]="reports">View Report</button>
+          <hr>
+          <button mat-menu-item>Delete</button>
+        </mat-menu>
+        <mat-menu #reports="matMenu">
+          <button mat-menu-item>Report 1</button>
+          <button mat-menu-item>Exectuive Summary</button>
+          <button mat-menu-item>Test Report</button>
+        </mat-menu>
+      </div>
+    </div>
+
+  </div>
+</div>

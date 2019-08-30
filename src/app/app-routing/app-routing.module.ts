@@ -11,6 +11,7 @@ import { ResultsComponent } from '../results/results.component'
 import { ResultsSummaryComponent } from '../results-summary/results-summary.component'
 import { ResultsResponsesComponent } from '../results-responses/results-responses.component'
 import { ResultsReportsComponent } from '../results-reports/results-reports.component'
+import { ResultsReportNewComponent } from '../results-report-new/results-report-new.component'
 import { SurveyComponent } from '../survey/survey.component'
 
 const routes: Routes = [
@@ -42,6 +43,7 @@ const routes: Routes = [
           { path: 'summary', component: ResultsSummaryComponent },
           { path: 'responses', component: ResultsResponsesComponent },
           { path: 'reports', component: ResultsReportsComponent },
+          { path: 'reports/new', component: ResultsReportNewComponent },
         ]
     },
     {
