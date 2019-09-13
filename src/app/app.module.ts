@@ -72,6 +72,7 @@ import { ResultsSummaryComponent } from './results-summary/results-summary.compo
 import { ResultsResponsesComponent } from './results-responses/results-responses.component';
 import { ResultsReportsComponent } from './results-reports/results-reports.component';
 import { ResultsReportNewComponent } from './results-report-new/results-report-new.component';
+import { ResultsReportSettingsComponent } from './results-report-settings/results-report-settings.component';
 
 @NgModule({
   declarations: [
@@ -100,6 +101,7 @@ import { ResultsReportNewComponent } from './results-report-new/results-report-n
     ResultsResponsesComponent,
     ResultsReportsComponent,
     ResultsReportNewComponent,
+    ResultsReportSettingsComponent,
   ],
   imports: [
     BrowserModule,

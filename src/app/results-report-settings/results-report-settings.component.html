@@ -1,0 +1,214 @@
+<!-- DATA SOURCE -->
+<div class="settings-menu-item-outer settings-border-bottom settings-select">
+  <mat-label class="full-flex-label">Data Source</mat-label>
+  <mat-form-field appearance="outline" class="">
+    <mat-select [(ngModel)]="dataSource">
+      <!-- Need to remove icon text from Select value -->
+      <mat-select-trigger>
+        {{dataSource}}
+      </mat-select-trigger>
+      <mat-option [value]="question.questionText" *ngFor="let question of questions">
+        <span *ngIf="question.questionType !== 'pageBreak'">{{question.id}} - {{question.questionText}}</span>
+        <span *ngIf="question.questionType === 'pageBreak'" style="display: none;"></span>
+      </mat-option>
+
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<!-- BREAKOUT BY -->
+<div class="settings-menu-item-outer settings-border-bottom settings-select">
+  <mat-label class="full-flex-label">Breakout by</mat-label>
+  <mat-form-field appearance="outline" class="">
+    <mat-select [(ngModel)]="breakout">
+      <!-- Need to remove icon text from Select value -->
+      <mat-select-trigger>
+        {{breakout}}
+      </mat-select-trigger>
+      <mat-option [value]="question.questionText" *ngFor="let question of questions">
+        <span *ngIf="question.questionType !== 'pageBreak'">{{question.id}} - {{question.questionText}}</span>
+        <span *ngIf="question.questionType === 'pageBreak'" style="display: none;"></span>
+      </mat-option>
+
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<!-- FILTER -->
+<div class="settings-menu-item-outer settings-border-bottom settings-inline-button" [ngClass]="{'inline-button-menu-open': videoURL === true}">
+  <span>Filter</span>
+  <mat-icon class="help-tooltip" matTooltip="Add filter to this graph only" matTooltipPosition="above">help</mat-icon>
+  <button (click)="clickEvent()" mat-stroked-button>
+    <span>{{ videoURL == true ? 'Remove' : 'Add' }}</span>
+  </button>
+  <div>
+  </div>
+</div>
+<div *ngIf="videoURL === true" class="settings-menu-item-outer expanded-border-bottom">
+  <mat-form-field appearance="outline" class="">
+    <input matInput placeholder="https://" value="">
+  </mat-form-field>
+</div>
+
+<!-- TITLE -->
+<div class="settings-menu-item-outer">
+  <mat-slide-toggle [(ngModel)]="presetAnswersToggle" [ngClass]="{'toggle-menu-open': presetAnswersToggle}">Title</mat-slide-toggle>
+  <div *ngIf="presetAnswersToggle === true" class="settings-menu-item-outer expanded-border-bottom">
+    <mat-form-field appearance="outline" class="">
+      <input matInput placeholder="" value="">
+    </mat-form-field>
+  </div>
+</div>
+
+<!-- Visualization Type -->
+<div class="settings-menu-item-outer settings-border-bottom settings-select">
+  <mat-label class="full-flex-label">Visualization type</mat-label>
+  <mat-button-toggle-group #group="matButtonToggleGroup" [(ngModel)]="chartType">
+    <mat-button-toggle value="bar_chart">
+      <mat-icon>bar_chart</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="line_graph">
+      <mat-icon>show_chart</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="pie_chart">
+      <mat-icon>pie_chart</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="table">
+      <mat-icon>table_chart</mat-icon>
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+
+<!-- BAR_CHART OPTIONS-->
+<div class="" *ngIf="chartType === 'bar_chart'">
+
+  <!-- Sort order -->
+  <div class="settings-menu-item-outer settings-border-bottom settings-select">
+    <mat-label class="full-flex-label">Sort Order</mat-label>
+    <mat-form-field appearance="outline" class="">
+      <mat-select [(ngModel)]="sortOrder">
+        <!-- Need to remove icon text from Select value -->
+        <mat-select-trigger>
+          {{sortOrder}}
+        </mat-select-trigger>
+        <mat-option value="Default">
+          <span>Default</span>
+        </mat-option>
+        <mat-option value="Ascending">
+          <span>Ascending</span>
+        </mat-option>
+        <mat-option value="Descending">
+          <span>Descending</span>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <!-- Horizontal Bars -->
+  <div class="settings-menu-item-outer">
+    <mat-slide-toggle>Horizontal bars</mat-slide-toggle>
+  </div>
+
+  <!-- Labels inside bars -->
+  <div class="settings-menu-item-outer">
+    <mat-slide-toggle>Labels inside bars</mat-slide-toggle>
+  </div>
+
+  <!-- Trend lines -->
+  <div class="settings-menu-item-outer">
+    <mat-slide-toggle>Show trend lines</mat-slide-toggle>
+  </div>
+
+  <!-- Y AXIS -->
+  <div class="settings-menu-item-outer">
+    <mat-slide-toggle [(ngModel)]="showYAxis">Show Y Axis</mat-slide-toggle>
+  </div>
+
+  <!-- Y AXIS INTERVALS -->
+  <div *ngIf="showYAxis === true" class="settings-menu-item-outer settings-border-bottom settings-inline-input">
+    <span>Y Axis intervals</span>
+    <mat-form-field appearance="outline" class="">
+      <input matInput placeholder="0" value="3" type="number" min="0">
+    </mat-form-field>
+  </div>
+
+  <!-- Y AXIS LABEL -->
+  <div *ngIf="showYAxis === true" class="settings-menu-item-outer">
+    <mat-slide-toggle [(ngModel)]="yAxisLabel" [ngClass]="{'toggle-menu-open': yAxisLabel}">Y Axis label</mat-slide-toggle>
+    <div *ngIf="yAxisLabel === true" class="settings-menu-item-outer expanded-border-bottom">
+      <mat-form-field appearance="outline" class="">
+        <input matInput placeholder="" value="">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <!-- X AXIS -->
+  <div class="settings-menu-item-outer">
+    <mat-slide-toggle [(ngModel)]="showXAxis">Show X Axis</mat-slide-toggle>
+  </div>
+
+  <!-- AXIS INTERVALS -->
+  <div *ngIf="showXAxis === true" class="settings-menu-item-outer settings-border-bottom settings-inline-input">
+    <span>Y axis intervals</span>
+    <mat-form-field appearance="outline" class="">
+      <input matInput placeholder="0" value="3" type="number" min="0">
+    </mat-form-field>
+  </div>
+
+  <!-- X AXIS LABEL -->
+  <div *ngIf="showXAxis === true" class="settings-menu-item-outer">
+    <mat-slide-toggle [(ngModel)]="xAxisLabel" [ngClass]="{'toggle-menu-open': xAxisLabel}">X Axis label</mat-slide-toggle>
+    <div *ngIf="xAxisLabel === true" class="settings-menu-item-outer expanded-border-bottom">
+      <mat-form-field appearance="outline" class="">
+        <input matInput placeholder="" value="">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <!-- TRUNCATE LABELS -->
+  <div class="settings-menu-item-outer">
+    <mat-slide-toggle [(ngModel)]="truncateLabels" [ngClass]="{'toggle-menu-open': truncateLabels}">Truncate labels</mat-slide-toggle>
+    <div *ngIf="truncateLabels === true" class="settings-menu-item-outer expanded-border-bottom">
+      <mat-form-field appearance="outline" class="">
+        <input matInput placeholder="0" value="15" type="number" min="0">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <!-- Show Breakout Legend -->
+  <div class="settings-menu-item-outer">
+    <mat-slide-toggle [(ngModel)]="showBreakoutLegend">Breakout Legend</mat-slide-toggle>
+  </div>
+
+  <!-- <div class="settings-menu-item-outer settings-border-bottom" *ngIf="showBreakoutLegend === true">
+    <mat-label class="full-flex-label">Legend Title</mat-label>
+    <mat-form-field appearance="outline" class="">
+      <input matInput placeholder="" value="">
+    </mat-form-field>
+  </div> -->
+
+  <div *ngIf="showBreakoutLegend === true" class="settings-menu-item-outer expanded-border-bottom">
+    <mat-label class="full-flex-label">Legend Title</mat-label>
+    <mat-form-field appearance="outline" class="">
+      <input matInput placeholder="" value="">
+    </mat-form-field>
+  </div>
+
+
+  <!-- STACK BREAKOUT BARS -->
+  <div class="settings-menu-item-outer">
+    <mat-slide-toggle [(ngModel)]="stackBreakoutBars">Stack Breakout Bars</mat-slide-toggle>
+  </div>
+
+
+</div> <!-- / BAR_CHART-->
+
+<div class="" *ngIf="chartType === 'line_graph'">
+  LINE GRAPH Options
+</div>
+<div class="" *ngIf="chartType === 'pie_chart'">
+  PIE CHART Options
+</div>
+<div class="" *ngIf="chartType === 'table'">
+  TABLE Options
+</div>

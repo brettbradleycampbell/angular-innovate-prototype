@@ -1,316 +1,323 @@
+<div class="results-wrapper sbc-columns-wrapper">
 
-<div class="results-wrapper">
+  <div class="create-report-header" style="display: flex;">
 
-  <div class="results-column create-report-sidebar" style="position: relative;">
-    <a href="/results/reports" style="padding: 12px 12px 0; font-size: 80%; color: #666; display: block;">
-      <mat-icon style="    width: auto;
-    height: auto;
-    font-size: 16px;
-    position: relative;
-    top: 3px;">chevron_left</mat-icon>Reports</a>
-    <h3 class="page-header" style="margin-top: 8px; margin-left: 12px;">Custom Report 1</h3>
+    <button mat-stroked-button>
+      <span>Add filter</span>
+    </button>
+    <button mat-stroked-button style="margin-left: 12px;">
+      <span>Add breakout</span>
+    </button>
 
-    <div class="" style="font-size: 14px; display: flex; justify-content: space-between; margin: 48px 12px 12px;">
-      <mat-form-field appearance="outline" class="header-search" style="max-width: 210px">
-        <mat-icon matPrefix>search</mat-icon>
-        <input matInput placeholder="search questions">
-      </mat-form-field>
-      <button mat-stroked-button style="padding: 0 2px 0 8px;">Filter <mat-icon>arrow_drop_down</mat-icon></button>
-    </div>
-
-    <div class="" style="font-size: 14px; display: flex; align-items: center; margin: 12px;">
-      <mat-checkbox></mat-checkbox>
-      <button mat-stroked-button style="padding: 0 2px 0 8px; margin-left: 12px;">Action <mat-icon>arrow_drop_down</mat-icon></button>
-    </div>
-
-    <ul class="nav-list respondent-nav-list">
-      <li class="selected">
-        <mat-checkbox></mat-checkbox>
-        <span class="report-sidebar-question-text">Key Stats</span>
-        <div class="" style="margin-left: auto; align-items: center; display: flex;">
-          <button mat-icon-button class="favorite-respondent">
-            <mat-icon>star_outline</mat-icon>
-          </button>
-          <mat-icon>drag_indicator</mat-icon>
-        </div>
-      </li>
-      <li>
-        <mat-checkbox></mat-checkbox>
-        <span class="report-sidebar-question-text">1 - What is your age?</span>
-        <div class="" style="margin-left: auto; align-items: center; display: flex;">
-          <button mat-icon-button class="favorite-respondent">
-            <mat-icon>star_outline</mat-icon>
-          </button>
-          <mat-icon>drag_indicator</mat-icon>
-        </div>
-      </li>
-      <li>
-        <mat-checkbox></mat-checkbox>
-        <span class="report-sidebar-question-text">2 - What state do you live in?</span>
-        <div class="" style="margin-left: auto; align-items: center; display: flex;">
-          <button mat-icon-button class="favorite-respondent">
-            <mat-icon>star_outline</mat-icon>
-          </button>
-          <mat-icon>drag_indicator</mat-icon>
-        </div>
-      </li>
-      <li>
-        <mat-checkbox></mat-checkbox>
-        <span class="report-sidebar-question-text">3 - Please rate your experience.</span>
-        <div class="" style="margin-left: auto; align-items: center; display: flex;">
-          <button mat-icon-button class="favorite-respondent">
-            <mat-icon>star_outline</mat-icon>
-          </button>
-          <mat-icon>drag_indicator</mat-icon>
-        </div>
-      </li>
-      <li>
-        <mat-checkbox></mat-checkbox>
-        <span class="report-sidebar-question-text">4 - Please leave any feedback.</span>
-        <div class="" style="margin-left: auto; align-items: center; display: flex;">
-          <button mat-icon-button class="favorite-respondent">
-            <mat-icon>star_outline</mat-icon>
-          </button>
-          <mat-icon>drag_indicator</mat-icon>
-        </div>
-      </li>
-    </ul>
-
-    <div class="button-container-brain" style="width: 100%; position: absolute; bottom: 0; padding: 12px; background: #fff; border-top: 1px solid #d1d1d1;">
-      <button mat-flat-button color="primary" style="width: 100%;"><mat-icon>add</mat-icon>Add New Page</button>
-    </div>
-
-
-  </div>
-
-  <div class="results-column column-summary-main" style="position: relative; padding-top: 112px;">
-    <div class="dashboard-page-header-outer" style="position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 12px 24px;
-    background: #fff;
-    border-bottom: 1px solid #d1d1d1;">
-      <button mat-stroked-button>
-        <span>Add filter</span>
+    <div class="page-header-button-outer">
+      <button mat-flat-button color="primary" class="icon-text-button icon-right">
+        <span>Share</span>
+        <mat-icon>arrow_drop_down</mat-icon>
       </button>
       <button mat-stroked-button style="margin-left: 12px;">
-        <span>Add breakout</span>
+        <span>Settings</span>
       </button>
-
-      <div class="page-header-button-outer">
-        <button mat-flat-button color="primary" class="icon-text-button icon-right">
-          <span>Share</span>
-          <mat-icon>arrow_drop_down</mat-icon>
-        </button>
-        <button mat-stroked-button style="margin-left: 12px;">
-          <span>Settings</span>
-        </button>
-      </div>
     </div>
-
-
-    <div class="results-summary-container">
-
-
-      <div class="key-stats-container">
-
-        <table class="key-stats-table">
-          <tr class="table-header">
-            <th></th>
-            <th>Completions</th>
-            <th>Starts</th>
-            <th>Terminations</th>
-            <th>Completion rate</th>
-            <th>Avgerage time</th>
-          </tr>
-          <tr class="all-sources">
-            <td style="font-size: 19px;">Key Stats</td>
-            <td class="key-number">304</td>
-            <td class="key-number">500</td>
-            <td class="key-number">42</td>
-            <td class="key-number">60.8%</td>
-            <td class="key-number">1:04</td>
-          </tr>
-        </table>
-
-        <hr style="margin: 12px 0 12px 0;">
-
-        <div class="" style="text-align: center;
-    padding: 0 12px 12px 12px;
-    font-size: 12px;
-    color: #555;">
-          <a style="text-decoration: underline; margin: 0 auto; cursor: pointer;">Hide source data</a>
-        </div>
-
-        <table class="key-stats-table">
-          <tr>
-            <td>
-              <span class="survey-link-icon"><mat-icon>link</mat-icon></span>
-              <span>Custom link 1</span>
-            </td>
-            <td>329</td>
-            <td>208</td>
-            <td>6</td>
-            <td>15.0%</td>
-            <td>0:44</td>
-          </tr>
-          <tr>
-            <td>
-              <span class="survey-link-icon fb"><mat-icon>link</mat-icon></span>
-              <span>Facebook</span>
-            </td>
-            <td>99</td>
-            <td>318</td>
-            <td>10</td>
-            <td>31.1%</td>
-            <td>1:12</td>
-          </tr>
-          <tr>
-            <td>
-              <span class="survey-link-icon twitter"><mat-icon>link</mat-icon></span>
-              <span>Twitter</span>
-            </td>
-            <td>3</td>
-            <td>20</td>
-            <td>10</td>
-            <td>15.0%</td>
-            <td>0:44</td>
-          </tr>
-
-        </table>
-      </div>
-
-      <hr style="margin: 12px 0 24px 0;">
-
-      <div class="key-stats-container question-summary-container">
-        <h3 class="answer-bar-question-title">1 - Enter your question text here.</h3>
-
-        <div class="answer-bar-container">
-          <span class="answer-bar-percentage">12%</span>
-          <div class="answer-bar-outer">
-            <span class="answer-bar-label">Choice 1</span>
-            <div class="answer-bar-inner" style="width: 12%;">
-            </div>
-          </div>
-        </div>
-
-        <div class="answer-bar-container">
-          <span class="answer-bar-percentage">57%</span>
-          <div class="answer-bar-outer">
-            <span class="answer-bar-label">Choice 2</span>
-            <div class="answer-bar-inner" style="width: 57%;">
-            </div>
-          </div>
-        </div>
-
-        <div class="answer-bar-container">
-          <span class="answer-bar-percentage">31%</span>
-          <div class="answer-bar-outer">
-            <span class="answer-bar-label">Choice 3</span>
-            <div class="answer-bar-inner" style="width: 31%;">
-            </div>
-          </div>
-        </div>
-
-        <table class="answer-data-summary-table" cellspacing=0>
-          <tr>
-            <th>Answer choice</th>
-            <th>Responses</th>
-          </tr>
-          <tr class="">
-            <td class="">Choice 1</td>
-            <td class="">25 (12%)</td>
-          </tr>
-          <tr class="">
-            <td class="">Choice 2</td>
-            <td class="">115 (57%)</td>
-          </tr>
-          <tr class="">
-            <td class="">Choice 3</td>
-            <td class="">62 (31%)</td>
-          </tr>
-          <tr class="total">
-            <td class="">Total</td>
-            <td class="">202 (100%)</td>
-          </tr>
-        </table>
-
-        <div class="" style="display: flex; width: 100%; padding: 24px; justify-content: center;">
-          <button mat-stroked-button style="margin: 12px;">Add text/image</button>
-          <button mat-flat-button color="primary" style="margin: 12px;">Add chart</button>
-        </div>
-
-      </div>
-
-
-      <div class="key-stats-container question-summary-container">
-        <h3 class="answer-bar-question-title">2 - What state do you live in?</h3>
-
-        <div class="answer-bar-container">
-          <span class="answer-bar-percentage">12%</span>
-          <div class="answer-bar-outer">
-            <span class="answer-bar-label">Alabama</span>
-            <div class="answer-bar-inner" style="width: 12%;">
-            </div>
-          </div>
-        </div>
-
-        <div class="answer-bar-container">
-          <span class="answer-bar-percentage">57%</span>
-          <div class="answer-bar-outer">
-            <span class="answer-bar-label">Alaska</span>
-            <div class="answer-bar-inner" style="width: 57%;">
-            </div>
-          </div>
-        </div>
-
-        <div class="answer-bar-container">
-          <span class="answer-bar-percentage">31%</span>
-          <div class="answer-bar-outer">
-            <span class="answer-bar-label">Arizona</span>
-            <div class="answer-bar-inner" style="width: 31%;">
-            </div>
-          </div>
-        </div>
-
-        <table class="answer-data-summary-table">
-          <tr>
-            <th>Answer choice</th>
-            <th>Responses</th>
-          </tr>
-          <tr class="">
-            <td class="">Alabama</td>
-            <td class="">12% (25)</td>
-          </tr>
-          <tr class="">
-            <td class="">Alaska</td>
-            <td class="">57% (115)</td>
-          </tr>
-          <tr class="">
-            <td class="">Arizona</td>
-            <td class="">31% (62)</td>
-          </tr>
-          <tr class="total">
-            <td class="">Total</td>
-            <td class="">202 (100%)</td>
-          </tr>
-        </table>
-
-        <div class="" style="display: flex; width: 100%; padding: 24px; justify-content: center;">
-          <button mat-stroked-button style="margin: 12px;">Add text/image</button>
-          <button mat-flat-button color="primary" style="margin: 12px;">Add chart</button>
-        </div>
-
-      </div>
-
-
-
-
-
-    </div>
-
 
   </div>
+
+  <div class="sbc-column create-report-sidebar" id="" style="position: relative;">
+      <a href="/results/reports" style="padding: 12px 12px 0; font-size: 80%; color: #666; display: block;">
+        <mat-icon style="    width: auto;
+      height: auto;
+      font-size: 16px;
+      position: relative;
+      top: 3px;">chevron_left</mat-icon>Reports</a>
+      <h3 class="page-header" style="margin-top: 8px; margin-left: 12px;">Custom Report 1</h3>
+
+      <div class="" style="font-size: 14px; display: flex; justify-content: space-between; margin: 48px 12px 12px;">
+        <mat-form-field appearance="outline" class="header-search" style="max-width: 210px">
+          <mat-icon matPrefix>search</mat-icon>
+          <input matInput placeholder="search questions">
+        </mat-form-field>
+        <button mat-stroked-button style="padding: 0 2px 0 8px;">Filter <mat-icon>arrow_drop_down</mat-icon></button>
+      </div>
+
+      <div class="" style="font-size: 14px; display: flex; align-items: center; margin: 12px;">
+        <mat-checkbox></mat-checkbox>
+        <button mat-stroked-button style="padding: 0 2px 0 8px; margin-left: 12px;">Action <mat-icon>arrow_drop_down</mat-icon></button>
+      </div>
+
+      <ul class="nav-list respondent-nav-list">
+        <li *ngFor="let question of questions; let first = first; let last = last">
+          <mat-checkbox></mat-checkbox>
+          <span class="report-sidebar-question-text">{{question.id}} - {{question.questionText}}</span>
+          <div class="" style="margin-left: auto; align-items: center; display: flex;">
+            <button mat-icon-button class="favorite-respondent">
+              <mat-icon>star_outline</mat-icon>
+            </button>
+            <mat-icon>drag_indicator</mat-icon>
+          </div>
+        </li>
+      </ul>
+
+      <div class="button-container-brain" style="width: 100%; position: absolute; bottom: 0; padding: 12px; background: #fff; border-top: 1px solid #d1d1d1;">
+        <button mat-flat-button color="primary" style="width: 100%;"><mat-icon>add</mat-icon>Add New Page</button>
+      </div>
+  </div>
+
+  <div class="sbc-column results-summary-container" id="" style="padding: 32px; padding-top: 98px; box-shadow: inset -1px 0px 0px 0px #e1e1e1">
+  <!-- -->
+
+
+    <!-- Question -->
+    <div class="sbc-question-outer report-question-outer"
+    *ngFor="let question of questions; let first = first; let last = last"
+    (click)="onSelect(question)"
+    [class.selected]="question === selectedQuestion"
+    [ngClass]="{ first: first, last: last, 'page-break':question.questionType === 'pageBreak'}">
+      <div class="sbc-question-inner" *ngIf="question.questionType !== 'pageBreak'">
+
+        <div class="sbc-question-header">
+          <div class="" style="position: absolute; font-size: 12px; opacity: 0.25; top: 8px; right: 8px;">
+            {{question.reportingVisualizationType}}
+          </div>
+          <div class="sbc-question-title">
+            {{question.id}} - {{question.questionText}}
+          </div>
+          <div class="sbc-question-icons">
+            <button mat-icon-button [matMenuTriggerFor]="qMenu">
+              <mat-icon>more_horiz</mat-icon>
+            </button>
+
+            <mat-menu #qMenu="matMenu">
+              <button mat-menu-item>Duplicate</button>
+              <button mat-menu-item>Hide</button>
+              <button mat-menu-item (click)="openAddLogicDialog()">Favorite</button>
+              <!-- <button mat-menu-item [matMenuTriggerFor]="reports">Move</button> -->
+              <hr>
+              <button mat-menu-item>Delete</button>
+            </mat-menu>
+            <mat-menu #reports="matMenu">
+              <button mat-menu-item *ngFor="let question of questions">
+                <span *ngIf="question.questionType !== 'pageBreak'">{{question.id}} - {{question.questionText}}</span>
+                <span *ngIf="question.questionType === 'pageBreak'"><hr class="move-menu-page-break"></span>
+              </button>
+            </mat-menu>
+
+
+          </div>
+        </div>
+        <div *ngIf="question.reportingVisualizationType == 'Bar Chart' || question.reportingVisualizationType == 'Multiple'" class="report-element-outer selected">
+          <div class="sbc-answer-text-line" *ngFor="let answers of question.answers">
+            <div class="answer-bar-container">
+              <span class="answer-bar-percentage">20%</span>
+              <div class="answer-bar-outer">
+                <span class="answer-bar-label">{{answers}}</span>
+                <div class="answer-bar-inner" style="width: 20%;">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div *ngIf="question.reportingVisualizationType == 'Line Graph' || question.reportingVisualizationType == 'Multiple'" class="report-element-outer selected" [ngClass]="{ 'no-select-hack':question.reportingVisualizationType === 'Multiple'}">
+          <svg viewBox="0 0 500 100" class="chart" style="min-height: 164px;">
+            <polyline
+               fill="none"
+               stroke="#0074d9"
+               stroke-width="2"
+               points="
+                 00,120
+                 20,60
+                 40,80
+                 60,20
+                 80,80
+                 100,80
+                 120,60
+                 140,100
+                 160,90
+                 180,80
+                 200, 110
+                 220, 10
+                 240, 70
+                 260, 100
+                 280, 100
+                 300, 40
+                 320, 0
+                 340, 100
+                 360, 100
+                 380, 120
+                 400, 60
+                 420, 70
+                 440, 80
+               "
+             />
+
+          </svg>
+        </div>
+
+
+        <div *ngIf="question.reportingVisualizationType == 'Pie Chart' || question.reportingVisualizationType == 'Multiple'" class="report-element-outer selected" [ngClass]="{ 'no-select-hack':question.reportingVisualizationType === 'Multiple'}" >
+
+
+          <div class="pie">
+            <div class="pie__segment" style="--offset: 0; --value: 25; --bg: #db0a5b;"></div>
+            <div class="pie__segment" style="--offset: 25; --value: 10; --bg: #22a7f0;"></div>
+            <div class="pie__segment" style="--offset: 35; --value: 60; --bg: #2ecc71; --over50: 1;"></div>
+            <div class="pie__segment" style="--offset: 95; --value: 5; --bg: #4d05e8;"></div>
+          </div>
+
+          <style>
+            .pie {
+              border-radius: 100%;
+              height: calc(var(--size, 200) * 1px);
+              overflow: hidden;
+              position: relative;
+              width: calc(var(--size, 200) * 1px);
+              margin-left: auto;
+              margin-right: auto;
+            }
+            .pie__segment {
+              --a: calc(var(--over50, 0) * -100%);
+              --b: calc((1 + var(--over50, 0)) * 100%);
+              --degrees: calc((var(--offset, 0) / 100) * 360);
+              -webkit-clip-path: polygon(var(--a) var(--a), var(--b) var(--a), var(--b) var(--b), var(--a) var(--b));
+              clip-path: polygon(var(--a) var(--a), var(--b) var(--a), var(--b) var(--b), var(--a) var(--b));
+              height: 100%;
+              position: absolute;
+              -webkit-transform: translate(0, -50%) rotate(90deg) rotate(calc(var(--degrees) * 1deg));
+                      transform: translate(0, -50%) rotate(90deg) rotate(calc(var(--degrees) * 1deg));
+              -webkit-transform-origin: 50% 100%;
+                      transform-origin: 50% 100%;
+              width: 100%;
+              z-index: calc(1 + var(--over50));
+              z-index: 1;
+            }
+            .pie__segment:after,
+            .pie__segment:before {
+              background: var(--bg, #e74c3c);
+              content: '';
+              height: 100%;
+              position: absolute;
+              width: 100%;
+            }
+            .pie__segment:before {
+              --degrees: calc((var(--value, 45) / 100) * 360);
+              -webkit-transform: translate(0, 100%) rotate(calc(var(--degrees) * 1deg));
+                      transform: translate(0, 100%) rotate(calc(var(--degrees) * 1deg));
+              -webkit-transform-origin: 50% 0%;
+                      transform-origin: 50% 0%;
+            }
+            .pie__segment:after {
+              opacity: var(--over50, 0);
+            }
+            * {
+              box-sizing: border-box;
+            }
+            body {
+              align-items: center;
+              background: #111;
+              color: #fafafa;
+              display: flex;
+              flex-direction: column;
+              padding: 1rem;
+              font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+              justify-content: center;
+              min-height: 100vh;
+            }
+            label {
+              font-size: 1rem;
+              margin-bottom: 0.5rem;
+            }
+            input {
+              min-width: 80px;
+            }
+
+          </style>
+        </div>
+
+        <div *ngIf="question.reportingVisualizationType == 'Table' || question.reportingVisualizationType == 'Multiple'" class="report-element-outer selected" [ngClass]="{ 'no-select-hack':question.reportingVisualizationType === 'Multiple'}" >
+          <table class="answer-data-summary-table" cellspacing=0>
+            <tr>
+              <th>Answer</th>
+              <th>Responses</th>
+            </tr>
+            <tr class="" *ngFor="let answers of question.answers">
+              <td class="">{{answers}}</td>
+              <td class="">25 (20%)</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="sbc-answer-text-editor" *ngIf="question.questionType == 'textEntry' || question.questionType == 'fileUpload'">
+          <!-- <div class="answer-element-type" *ngIf="question.answerElementType == 'email'">
+            [ Email ]
+          </div>
+          <div class="answer-element-type" *ngIf="question.answerElementType == 'textarea'">
+            [ Textarea ]
+          </div>
+          <div class="answer-element-type" *ngIf="question.answerElementType == 'fileUpload'">
+            [ File upload ]
+          </div> -->
+        </div>
+
+
+
+      </div>
+
+
+      <!-- <div class="" style="display: flex; width: 100%; padding: 24px; justify-content: center;">
+        <button mat-stroked-button style="margin: 12px;">Add text/image</button>
+        <button mat-flat-button color="primary" style="margin: 12px;">Add chart</button>
+      </div> -->
+
+      <div class="button-add-chart-container">
+        <div class="split-button-outer button-add-question button-add-chart">
+          <button mat-button class="split-button-left">
+            <mat-icon>add</mat-icon>
+          </button>
+          <button mat-button [matMenuTriggerFor]="addQuestionMenu" class="split-button-right">
+            <mat-icon>arrow_drop_down</mat-icon>
+          </button>
+          <mat-menu #addQuestionMenu="matMenu" yPosition="below">
+            <button mat-menu-item>
+              <mat-icon>bar_chart</mat-icon>
+              <span>Bar Chart</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>show_chart</mat-icon>
+              <span>Line Graph</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>pie_chart</mat-icon>
+              <span>Pie Chart</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>table_chart</mat-icon>
+              <span>Data Table</span>
+            </button>
+            <hr>
+            <button mat-menu-item>
+              <mat-icon>notes</mat-icon>
+              <span>Text</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>image</mat-icon>
+              <span>Image</span>
+            </button>
+          </mat-menu>
+        </div>
+      </div>
+
+
+
+
+    </div> <!-- / Report Question Outer-->
+
+
+  <!-- -->
+  </div>
+
+  <div class="sbc-column settings-menu" id="" style="padding-top: 98px;">
+    <app-results-report-settings></app-results-report-settings>
+  </div>
+
 
 </div>

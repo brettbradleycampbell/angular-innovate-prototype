@@ -113,6 +113,8 @@
 }
 .answer-bar-label {
   margin-left: 12px;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .answer-data-summary-table {
@@ -248,6 +250,9 @@
 }
 
 // Reports
+.results-summary-container {
+  overflow-x: hidden;
+}
 .reports-list-outer {
   padding: 12px 24px;
   width: 75%; // What width should this be? What do we align with. Should the reports be boxes? What info do we put in the report summaries?
@@ -263,3 +268,103 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.create-report-header {
+  position: absolute;
+  background: white;
+  left: 0;
+  right: 0;
+  // top: 0;
+  z-index: 2;
+  margin-left: 376px;
+  padding: 12px 24px;
+  border-bottom: $light-border;
+}
+
+.sbc-question-outer.report-question-outer.selected + .sbc-question-outer {
+  border-top: $light-border
+}
+
+.sbc-question-outer.report-question-outer {
+  padding: 48px;
+  background: $white;
+  margin-bottom: 32px;
+  border-bottom: $light-border;
+  padding-bottom: 32px;
+
+
+  .button-add-chart-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 24px;
+  }
+  .button-add-question {
+    position: static;
+    visibility: visible;
+  }
+
+  .report-element-outer {
+    border: 1px dotted transparent;
+    padding: 24px 0;
+    position: relative;
+    left: -16px;
+    padding-left: 16px;
+    border-radius: 4px;
+    width: calc(100% + 32px);
+    padding-right: 16px;
+    margin-bottom: 8px;
+
+    &:hover {
+      border: $light-border;
+      border-style: dotted;
+    }
+
+    table {
+      margin-top: 0;
+    }
+
+  }
+
+  &.selected {
+    // padding-right: 80px;
+    width: 100%;
+
+    .report-element-outer {
+
+      &.selected {
+        border: $light-border;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        width: calc(100% + 98px);
+        background: #fff;
+        padding-right: 82px;
+
+        &.no-select-hack {
+          border: 1px dotted transparent;
+          padding: 24px 0;
+          position: relative;
+          left: -16px;
+          padding-left: 16px;
+          border-radius: 4px;
+          width: calc(100% + 32px);
+          padding-right: 16px;
+
+          &:hover {
+            border: $light-border;
+            border-style: dotted;
+          }
+        }
+
+
+
+      }
+    }
+
+  }
+}
+
+// .sbc-question-outer.report-question-outer:hover .button-add-question,
+// // .sbc-question-outer.report-question-outer:hover:hover .sbc-question-icons,
+// .sbc-question-outer.report-question-outer:hover:hover .button-move-question {
+//   visibility: inherit;
+//   background: peachpuff;
+// }

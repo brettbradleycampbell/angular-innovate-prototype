@@ -12,4 +12,5 @@ export class Question {
   skipLogicDestination2?: boolean;
   displayLogic?: boolean;
   displayLogicHide?: boolean;
+  reportingVisualizationType?: string;
 }
