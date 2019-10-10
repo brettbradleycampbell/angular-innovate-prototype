@@ -79,8 +79,8 @@
   </mat-button-toggle-group>
 </div>
 
-<!-- BAR_CHART OPTIONS-->
-<div class="" *ngIf="chartType === 'bar_chart'">
+<!-- BAR_CHART & LINE_GRAPH OPTIONS-->
+<div class="" *ngIf="chartType === 'bar_chart' || chartType === 'line_graph'">
 
   <!-- Sort order -->
   <div class="settings-menu-item-outer settings-border-bottom settings-select">
@@ -104,24 +104,34 @@
     </mat-form-field>
   </div>
 
-  <!-- Horizontal Bars -->
-  <div class="settings-menu-item-outer">
+  <!-- Horizontal Bars (BAR) -->
+  <div *ngIf="chartType === 'bar_chart'" class="settings-menu-item-outer">
     <mat-slide-toggle>Horizontal bars</mat-slide-toggle>
   </div>
 
-  <!-- Labels inside bars -->
-  <div class="settings-menu-item-outer">
-    <mat-slide-toggle>Labels inside bars</mat-slide-toggle>
+  <!-- Show Area (LINE) -->
+  <div *ngIf="chartType === 'line_graph'" class="settings-menu-item-outer">
+    <mat-slide-toggle>Show area</mat-slide-toggle>
   </div>
+
+  <!-- Labels inside bars -->
+  <!-- <div class="settings-menu-item-outer">
+    <mat-slide-toggle>Labels inside bars</mat-slide-toggle>
+  </div> -->
 
   <!-- Trend lines -->
-  <div class="settings-menu-item-outer">
+  <!-- <div class="settings-menu-item-outer">
     <mat-slide-toggle>Show trend lines</mat-slide-toggle>
-  </div>
+  </div> -->
 
-  <!-- Y AXIS -->
+  <!-- X AXIS -->
   <div class="settings-menu-item-outer">
-    <mat-slide-toggle [(ngModel)]="showYAxis">Show Y Axis</mat-slide-toggle>
+    <mat-slide-toggle [(ngModel)]="showYAxis" [ngClass]="{'toggle-menu-open': showYAxis}">Show X Axis</mat-slide-toggle>
+    <div *ngIf="showYAxis === true" class="settings-menu-item-outer expanded-border-bottom">
+      <mat-form-field appearance="outline" class="">
+        <input matInput placeholder="Axis label" value="">
+      </mat-form-field>
+    </div>
   </div>
 
   <!-- Y AXIS INTERVALS -->
@@ -132,19 +142,14 @@
     </mat-form-field>
   </div>
 
-  <!-- Y AXIS LABEL -->
-  <div *ngIf="showYAxis === true" class="settings-menu-item-outer">
-    <mat-slide-toggle [(ngModel)]="yAxisLabel" [ngClass]="{'toggle-menu-open': yAxisLabel}">Y Axis label</mat-slide-toggle>
-    <div *ngIf="yAxisLabel === true" class="settings-menu-item-outer expanded-border-bottom">
+  <!-- Y AXIS -->
+  <div class="settings-menu-item-outer">
+    <mat-slide-toggle [(ngModel)]="showXAxis" [ngClass]="{'toggle-menu-open': showXAxis}">Show Y Axis</mat-slide-toggle>
+    <div *ngIf="showXAxis === true" class="settings-menu-item-outer expanded-border-bottom">
       <mat-form-field appearance="outline" class="">
-        <input matInput placeholder="" value="">
+        <input matInput placeholder="Axis label" value="">
       </mat-form-field>
     </div>
-  </div>
-
-  <!-- X AXIS -->
-  <div class="settings-menu-item-outer">
-    <mat-slide-toggle [(ngModel)]="showXAxis">Show X Axis</mat-slide-toggle>
   </div>
 
   <!-- AXIS INTERVALS -->
@@ -153,16 +158,6 @@
     <mat-form-field appearance="outline" class="">
       <input matInput placeholder="0" value="3" type="number" min="0">
     </mat-form-field>
-  </div>
-
-  <!-- X AXIS LABEL -->
-  <div *ngIf="showXAxis === true" class="settings-menu-item-outer">
-    <mat-slide-toggle [(ngModel)]="xAxisLabel" [ngClass]="{'toggle-menu-open': xAxisLabel}">X Axis label</mat-slide-toggle>
-    <div *ngIf="xAxisLabel === true" class="settings-menu-item-outer expanded-border-bottom">
-      <mat-form-field appearance="outline" class="">
-        <input matInput placeholder="" value="">
-      </mat-form-field>
-    </div>
   </div>
 
   <!-- TRUNCATE LABELS -->
@@ -177,38 +172,44 @@
 
   <!-- Show Breakout Legend -->
   <div class="settings-menu-item-outer">
-    <mat-slide-toggle [(ngModel)]="showBreakoutLegend">Breakout Legend</mat-slide-toggle>
+    <mat-slide-toggle [(ngModel)]="showBreakoutLegend" [ngClass]="{'toggle-menu-open': showBreakoutLegend}">Show Legend</mat-slide-toggle>
+    <div *ngIf="showBreakoutLegend === true" class="settings-menu-item-outer expanded-border-bottom">
+      <mat-form-field appearance="outline" class="">
+        <input matInput placeholder="Legend title" value="">
+      </mat-form-field>
+    </div>
   </div>
-
-  <!-- <div class="settings-menu-item-outer settings-border-bottom" *ngIf="showBreakoutLegend === true">
-    <mat-label class="full-flex-label">Legend Title</mat-label>
-    <mat-form-field appearance="outline" class="">
-      <input matInput placeholder="" value="">
-    </mat-form-field>
-  </div> -->
-
-  <div *ngIf="showBreakoutLegend === true" class="settings-menu-item-outer expanded-border-bottom">
-    <mat-label class="full-flex-label">Legend Title</mat-label>
-    <mat-form-field appearance="outline" class="">
-      <input matInput placeholder="" value="">
-    </mat-form-field>
-  </div>
-
 
   <!-- STACK BREAKOUT BARS -->
-  <div class="settings-menu-item-outer">
+  <!-- <div class="settings-menu-item-outer">
     <mat-slide-toggle [(ngModel)]="stackBreakoutBars">Stack Breakout Bars</mat-slide-toggle>
+  </div> -->
+
+
+</div> <!-- / BAR_CHART & LINE_GRAPH -->
+
+<div class="" *ngIf="chartType === 'pie_chart'">
+
+  <!-- Show Breakout Legend -->
+  <div class="settings-menu-item-outer">
+    <mat-slide-toggle [(ngModel)]="showBreakoutLegend" [ngClass]="{'toggle-menu-open': showBreakoutLegend}">Show Legend</mat-slide-toggle>
+    <div *ngIf="showBreakoutLegend === true" class="settings-menu-item-outer expanded-border-bottom">
+      <mat-form-field appearance="outline" class="">
+        <input matInput placeholder="Legend title" value="">
+      </mat-form-field>
+    </div>
   </div>
 
+  <!-- TRUNCATE LABELS -->
+  <div class="settings-menu-item-outer">
+    <mat-slide-toggle [(ngModel)]="truncateLabels" [ngClass]="{'toggle-menu-open': truncateLabels}">Truncate labels</mat-slide-toggle>
+    <div *ngIf="truncateLabels === true" class="settings-menu-item-outer expanded-border-bottom">
+      <mat-form-field appearance="outline" class="">
+        <input matInput placeholder="0" value="15" type="number" min="0">
+      </mat-form-field>
+    </div>
+  </div>
 
-</div> <!-- / BAR_CHART-->
-
-<div class="" *ngIf="chartType === 'line_graph'">
-  LINE GRAPH Options
-</div>
-<div class="" *ngIf="chartType === 'pie_chart'">
-  PIE CHART Options
 </div>
 <div class="" *ngIf="chartType === 'table'">
-  TABLE Options
 </div>

@@ -35,12 +35,12 @@
           <mat-icon matPrefix>search</mat-icon>
           <input matInput placeholder="search questions">
         </mat-form-field>
-        <button mat-stroked-button style="padding: 0 2px 0 8px;">Filter <mat-icon>arrow_drop_down</mat-icon></button>
       </div>
 
       <div class="" style="font-size: 14px; display: flex; align-items: center; margin: 12px;">
         <mat-checkbox></mat-checkbox>
         <button mat-stroked-button style="padding: 0 2px 0 8px; margin-left: 12px;">Action <mat-icon>arrow_drop_down</mat-icon></button>
+        <button mat-stroked-button style="padding: 0 2px 0 8px;">Filter <mat-icon>arrow_drop_down</mat-icon></button>
       </div>
 
       <ul class="nav-list respondent-nav-list">
@@ -74,14 +74,14 @@
       <div class="sbc-question-inner" *ngIf="question.questionType !== 'pageBreak'">
 
         <div class="sbc-question-header">
-          <div class="" style="position: absolute; font-size: 12px; opacity: 0.25; top: 8px; right: 8px;">
+          <!-- <div class="" style="position: absolute; font-size: 12px; opacity: 0.25; top: 8px; right: 8px;">
             {{question.reportingVisualizationType}}
-          </div>
+          </div> -->
           <div class="sbc-question-title">
             {{question.id}} - {{question.questionText}}
           </div>
           <div class="sbc-question-icons">
-            <button mat-icon-button [matMenuTriggerFor]="qMenu">
+            <button mat-icon-button [matMenuTriggerFor]="qMenu" class="report-page-menu-button">
               <mat-icon>more_horiz</mat-icon>
             </button>
 
@@ -103,162 +103,61 @@
 
           </div>
         </div>
-        <div *ngIf="question.reportingVisualizationType == 'Bar Chart' || question.reportingVisualizationType == 'Multiple'" class="report-element-outer selected">
-          <div class="sbc-answer-text-line" *ngFor="let answers of question.answers">
-            <div class="answer-bar-container">
-              <span class="answer-bar-percentage">20%</span>
-              <div class="answer-bar-outer">
-                <span class="answer-bar-label">{{answers}}</span>
-                <div class="answer-bar-inner" style="width: 20%;">
-                </div>
-              </div>
-            </div>
+        <div class="report-element-outer selected" *ngIf="question.reportingVisualizationType !== 'Multiple'">
+
+          <button mat-icon-button [matMenuTriggerFor]="qrMenu" class="report-element-menu-button">
+            <mat-icon>more_horiz</mat-icon>
+          </button>
+
+          <mat-menu #qrMenu="matMenu">
+            <button mat-menu-item>Duplicate</button>
+            <hr>
+            <button mat-menu-item>Delete</button>
+          </mat-menu>
+          <mat-menu #reports="matMenu">
+            <button mat-menu-item *ngFor="let question of questions">
+              <span *ngIf="question.questionType !== 'pageBreak'">{{question.id}} - {{question.questionText}}</span>
+              <span *ngIf="question.questionType === 'pageBreak'"><hr class="move-menu-page-break"></span>
+            </button>
+          </mat-menu>
+
+          <div *ngIf="question.reportingVisualizationType == 'Bar Chart'" >
+            <img style="max-width: 100%;" src="/assets/images/bar_chart.png?raw=true">
+            <!-- <img style="max-width: 100%;" src="https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/bar_chart.png?raw=true"> -->
           </div>
-        </div>
-
-
-        <div *ngIf="question.reportingVisualizationType == 'Line Graph' || question.reportingVisualizationType == 'Multiple'" class="report-element-outer selected" [ngClass]="{ 'no-select-hack':question.reportingVisualizationType === 'Multiple'}">
-          <svg viewBox="0 0 500 100" class="chart" style="min-height: 164px;">
-            <polyline
-               fill="none"
-               stroke="#0074d9"
-               stroke-width="2"
-               points="
-                 00,120
-                 20,60
-                 40,80
-                 60,20
-                 80,80
-                 100,80
-                 120,60
-                 140,100
-                 160,90
-                 180,80
-                 200, 110
-                 220, 10
-                 240, 70
-                 260, 100
-                 280, 100
-                 300, 40
-                 320, 0
-                 340, 100
-                 360, 100
-                 380, 120
-                 400, 60
-                 420, 70
-                 440, 80
-               "
-             />
-
-          </svg>
-        </div>
-
-
-        <div *ngIf="question.reportingVisualizationType == 'Pie Chart' || question.reportingVisualizationType == 'Multiple'" class="report-element-outer selected" [ngClass]="{ 'no-select-hack':question.reportingVisualizationType === 'Multiple'}" >
-
-
-          <div class="pie">
-            <div class="pie__segment" style="--offset: 0; --value: 25; --bg: #db0a5b;"></div>
-            <div class="pie__segment" style="--offset: 25; --value: 10; --bg: #22a7f0;"></div>
-            <div class="pie__segment" style="--offset: 35; --value: 60; --bg: #2ecc71; --over50: 1;"></div>
-            <div class="pie__segment" style="--offset: 95; --value: 5; --bg: #4d05e8;"></div>
+          <div *ngIf="question.reportingVisualizationType == 'Line Graph'" [ngClass]="{ 'no-select-hack':question.reportingVisualizationType === 'Multiple'}">
+            <img style="max-width: 100%;" src="/assets/images/line_graph.png?raw=true">
+            <!-- <img style="max-width: 100%;" src="https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/line_graph.png?raw=true"> -->
+          </div>
+          <div *ngIf="question.reportingVisualizationType == 'Pie Chart'" [ngClass]="{ 'no-select-hack':question.reportingVisualizationType === 'Multiple'}" >
+            <img style="max-width: 100%;" src="/assets/images/pie_chart.png?raw=true">
+            <!-- <img style="max-width: 100%;" src="https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/pie_chart.png?raw=true"> -->
+          </div>
+          <div *ngIf="question.reportingVisualizationType == 'Table'" [ngClass]="{ 'no-select-hack':question.reportingVisualizationType === 'Multiple'}" >
+            <table class="answer-data-summary-table" cellspacing=0>
+              <tr>
+                <th>Answer choice</th>
+                <th>Percentage</th>
+                <th>Responses</th>
+              </tr>
+              <tr class="" *ngFor="let answers of question.answers">
+                <td class="">{{answers}}</td>
+                <td class="">20%</td>
+                <td class="">25</td>
+              </tr>
+            </table>
           </div>
 
-          <style>
-            .pie {
-              border-radius: 100%;
-              height: calc(var(--size, 200) * 1px);
-              overflow: hidden;
-              position: relative;
-              width: calc(var(--size, 200) * 1px);
-              margin-left: auto;
-              margin-right: auto;
-            }
-            .pie__segment {
-              --a: calc(var(--over50, 0) * -100%);
-              --b: calc((1 + var(--over50, 0)) * 100%);
-              --degrees: calc((var(--offset, 0) / 100) * 360);
-              -webkit-clip-path: polygon(var(--a) var(--a), var(--b) var(--a), var(--b) var(--b), var(--a) var(--b));
-              clip-path: polygon(var(--a) var(--a), var(--b) var(--a), var(--b) var(--b), var(--a) var(--b));
-              height: 100%;
-              position: absolute;
-              -webkit-transform: translate(0, -50%) rotate(90deg) rotate(calc(var(--degrees) * 1deg));
-                      transform: translate(0, -50%) rotate(90deg) rotate(calc(var(--degrees) * 1deg));
-              -webkit-transform-origin: 50% 100%;
-                      transform-origin: 50% 100%;
-              width: 100%;
-              z-index: calc(1 + var(--over50));
-              z-index: 1;
-            }
-            .pie__segment:after,
-            .pie__segment:before {
-              background: var(--bg, #e74c3c);
-              content: '';
-              height: 100%;
-              position: absolute;
-              width: 100%;
-            }
-            .pie__segment:before {
-              --degrees: calc((var(--value, 45) / 100) * 360);
-              -webkit-transform: translate(0, 100%) rotate(calc(var(--degrees) * 1deg));
-                      transform: translate(0, 100%) rotate(calc(var(--degrees) * 1deg));
-              -webkit-transform-origin: 50% 0%;
-                      transform-origin: 50% 0%;
-            }
-            .pie__segment:after {
-              opacity: var(--over50, 0);
-            }
-            * {
-              box-sizing: border-box;
-            }
-            body {
-              align-items: center;
-              background: #111;
-              color: #fafafa;
-              display: flex;
-              flex-direction: column;
-              padding: 1rem;
-              font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
-              justify-content: center;
-              min-height: 100vh;
-            }
-            label {
-              font-size: 1rem;
-              margin-bottom: 0.5rem;
-            }
-            input {
-              min-width: 80px;
-            }
-
-          </style>
-        </div>
-
-        <div *ngIf="question.reportingVisualizationType == 'Table' || question.reportingVisualizationType == 'Multiple'" class="report-element-outer selected" [ngClass]="{ 'no-select-hack':question.reportingVisualizationType === 'Multiple'}" >
-          <table class="answer-data-summary-table" cellspacing=0>
-            <tr>
-              <th>Answer</th>
-              <th>Responses</th>
-            </tr>
-            <tr class="" *ngFor="let answers of question.answers">
-              <td class="">{{answers}}</td>
-              <td class="">25 (20%)</td>
-            </tr>
-          </table>
-        </div>
-
-        <div class="sbc-answer-text-editor" *ngIf="question.questionType == 'textEntry' || question.questionType == 'fileUpload'">
-          <!-- <div class="answer-element-type" *ngIf="question.answerElementType == 'email'">
-            [ Email ]
+          <div class="vertical-split-button-outer button-move-question button-move-report-element">
+            <button mat-button class="move-question-up">
+              <mat-icon>arrow_upward</mat-icon>
+            </button>
+            <button mat-button class="move-question-down">
+              <mat-icon>arrow_downward</mat-icon>
+            </button>
           </div>
-          <div class="answer-element-type" *ngIf="question.answerElementType == 'textarea'">
-            [ Textarea ]
-          </div>
-          <div class="answer-element-type" *ngIf="question.answerElementType == 'fileUpload'">
-            [ File upload ]
-          </div> -->
+
         </div>
-
-
 
       </div>
 
