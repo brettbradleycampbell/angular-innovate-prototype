@@ -407,3 +407,14 @@
 //   visibility: inherit;
 //   background: peachpuff;
 // }
+
+.report-questions-nav-list {
+  .hidden-report-question {
+    background: $light-gray;
+
+    .report-sidebar-question-text {
+      opacity: 0.4;
+    }
+
+  }
+}

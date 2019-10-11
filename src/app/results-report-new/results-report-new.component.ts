@@ -1,13 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Question } from '../question';
-import { QUESTIONS } from '../demo-questions-minus-page-breaks'; // -minus-page-breaks to remove page breaks in Reports. 
+import { QUESTIONS } from '../demo-questions-minus-page-breaks'; // -minus-page-breaks to remove page breaks in Reports.
 
 // QUESTION TYPES
 import { QuestionType } from '../question-type';
 import { QUESTIONTYPES } from '../question-types'; // demo-questions-2 for Starting screen.
 import { QuestionTypeComponent } from '../question-type/question-type.component';
 
+// Share Link Dialog
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { DialogShareReportLinkComponent } from '../dialog-share-report-link/dialog-share-report-link.component';
+import { DialogResultsFilterComponent } from '../dialog-results-filter/dialog-results-filter.component';
 
 
 @Component({
@@ -24,8 +28,25 @@ export class ResultsReportNewComponent implements OnInit {
   questions = QUESTIONS;
   questionTypes = QUESTIONTYPES;
 
+  shareReportLinkNameDialogRef: MatDialogRef<DialogShareReportLinkComponent>;
+  openShareLinkDialog() {
+    this.shareReportLinkNameDialogRef = this.dialog.open(DialogShareReportLinkComponent, {
+      // width: '250px',
+      panelClass: 'dialog-share-report-link',
+      // data: {name: this.name, animal: this.animal}
+    });
+  }
+  resultsFilterNameDialogRef: MatDialogRef<DialogResultsFilterComponent>;
+  openResultsFilterDialog() {
+    this.resultsFilterNameDialogRef = this.dialog.open(DialogResultsFilterComponent, {
+      // width: '250px',
+      panelClass: 'dialog-results-filter',
+      // data: {name: this.name, animal: this.animal}
+    });
+  }
 
-  constructor() { }
+
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit() {
   }

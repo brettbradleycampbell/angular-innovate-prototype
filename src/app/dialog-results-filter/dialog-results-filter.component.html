@@ -1,0 +1,160 @@
+<div class="results-filter-dialog-inner">
+
+  <h3 mat-dialog-title>Filter Responses</h3>
+
+  <mat-dialog-content>
+
+    <!-- Display Logic -->
+    <div class="logic-conditions-outer results-filter-outer">
+
+      <div class="logic-conditions-row settings-menu">
+        <div class="logic-condition">
+          <mat-form-field appearance="outline" class="mat-select-outer input-display-hide">
+            <mat-select [(value)]="displayhide">
+              <mat-option value="display">
+                <span>Display</span>
+              </mat-option>
+              <mat-option value="hide">
+                <span>Hide</span>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <span class="logic-post">responses where</span>
+        </div>
+      </div>
+
+      <div class="logic-conditions-row settings-menu">
+        <div class="logic-drag-indicator" matTooltip="Multiple choice, Dropdown list" matTooltipPosition="above">
+          <mat-icon>drag_indicator</mat-icon>
+        </div>
+        <div class="logic-condition">
+          <mat-form-field appearance="outline" class="mat-select-outer">
+            <mat-select [(value)]="displayQuestionsList">
+              <mat-option value="1">
+                <span>1 - Enter your question text</span>
+              </mat-option>
+              <mat-option value="2">
+                <span>2 - Please choose a picture</span>
+              </mat-option>
+              <mat-option value="3">
+                <span>3 - Please rate your experience.</span>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="logic-condition">
+          <mat-form-field appearance="outline" class="mat-select-outer">
+            <mat-select [(value)]="displayAnswersList" multiple>
+              <div class="any-all-radio">
+                <mat-radio-button>Any</mat-radio-button>
+                <mat-radio-button>All</mat-radio-button>
+              </div>
+              <hr>
+              <mat-option [value]="1">Choice 1</mat-option>
+              <mat-option [value]="2">Choice 2</mat-option>
+              <mat-option [value]="3">Choice 3</mat-option>
+              <mat-option [value]="4">Choice 4</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="logic-condition">
+          <span class="logic-pre">is</span>
+          <mat-form-field appearance="outline" class="mat-select-outer">
+            <mat-select [(value)]="displayOperators">
+              <mat-option value="yes">
+                <span>Selected</span>
+              </mat-option>
+              <mat-option value="no">
+                <span>Not selected</span>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <button mat-icon-button>
+            <mat-icon>remove_circle</mat-icon>
+          </button>
+        </div>
+
+      </div>
+      <div class="logic-conditions-row settings-menu">
+        <div class="logic-drag-indicator">
+          <mat-icon>drag_indicator</mat-icon>
+        </div>
+        <div class="logic-condition">
+          <mat-form-field appearance="outline" class="mat-select-outer input-size-small">
+            <mat-select [(value)]="andor1">
+              <mat-option value="and">
+                <span>And</span>
+              </mat-option>
+              <mat-option value="or">
+                <span>Or</span>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="logic-condition">
+          <mat-form-field appearance="outline" class="mat-select-outer">
+            <mat-select [(value)]="displayQuestionsList2">
+              <mat-option value="1">
+                <span>1 - Enter your question text</span>
+              </mat-option>
+              <mat-option value="2">
+                <span>2 - Please choose a picture</span>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="logic-condition">
+          <mat-form-field appearance="outline" class="mat-select-outer">
+            <mat-select [(value)]="displayAnswersList2" multiple>
+              <div class="any-all-radio">
+                <mat-radio-button>Any</mat-radio-button>
+                <mat-radio-button>All</mat-radio-button>
+              </div>
+              <hr>
+              <mat-option [value]="1">Choice 1</mat-option>
+              <mat-option [value]="2">Choice 2</mat-option>
+              <mat-option [value]="3">Choice 3</mat-option>
+              <mat-option [value]="4">Choice 4</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="logic-condition">
+          <span class="logic-pre">is</span>
+          <mat-form-field appearance="outline" class="mat-select-outer">
+            <mat-select [(value)]="displayOperators2">
+              <mat-option value="yes">
+                <span>Selected</span>
+              </mat-option>
+              <mat-option value="no">
+                <span>Not selected</span>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <button mat-icon-button>
+            <mat-icon>remove_circle</mat-icon>
+          </button>
+        </div>
+
+      </div>
+
+
+      <button mat-stroked-button class="icon-text-button icon-left add-logic-condition-button">
+        <mat-icon>add</mat-icon>
+        <span>Add condition</span>
+      </button>
+
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-flat-button mat-dialog-close color="primary" class="dialog-primary-action-button">Save</button>
+  </mat-dialog-actions>
+
+
+
+</div>

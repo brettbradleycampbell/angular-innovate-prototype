@@ -14,10 +14,16 @@
         <span>Add filter</span>
       </button>
       <div class="page-header-button-outer">
-        <button mat-flat-button color="primary" class="icon-text-button icon-right">
+        <button [matMenuTriggerFor]="shareMenu" mat-flat-button color="primary" class="icon-text-button icon-right">
           <span>Share</span>
           <mat-icon>arrow_drop_down</mat-icon>
         </button>
+        <mat-menu #shareMenu="matMenu">
+          <button mat-menu-item>Download PDF</button>
+          <button mat-menu-item>Download CSV</button>
+          <button mat-menu-item (click)="openShareLinkDialog()">Shareable Link</button>
+        </mat-menu>
+
       </div>
     </div>
 

@@ -73,6 +73,8 @@ import { ResultsResponsesComponent } from './results-responses/results-responses
 import { ResultsReportsComponent } from './results-reports/results-reports.component';
 import { ResultsReportNewComponent } from './results-report-new/results-report-new.component';
 import { ResultsReportSettingsComponent } from './results-report-settings/results-report-settings.component';
+import { DialogShareReportLinkComponent } from './dialog-share-report-link/dialog-share-report-link.component';
+import { DialogResultsFilterComponent } from './dialog-results-filter/dialog-results-filter.component';
 
 @NgModule({
   declarations: [
@@ -102,6 +104,8 @@ import { ResultsReportSettingsComponent } from './results-report-settings/result
     ResultsReportsComponent,
     ResultsReportNewComponent,
     ResultsReportSettingsComponent,
+    DialogShareReportLinkComponent,
+    DialogResultsFilterComponent,
   ],
   imports: [
     BrowserModule,
@@ -155,6 +159,8 @@ import { ResultsReportSettingsComponent } from './results-report-settings/result
     DialogImageComponent,
     DialogLogicComponent,
     DialogLibraryComponent,
+    DialogShareReportLinkComponent,
+    DialogResultsFilterComponent,
   ]
 
 })

@@ -2,18 +2,44 @@
 
   <div class="create-report-header" style="display: flex;">
 
-    <button mat-stroked-button>
+    <button (click)="openResultsFilterDialog()" mat-stroked-button>
       <span>Add filter</span>
     </button>
-    <button mat-stroked-button style="margin-left: 12px;">
-      <span>Add breakout</span>
+    <button [matMenuTriggerFor]="breakoutMenu" mat-stroked-button style="margin-left: 12px;" class="icon-text-button icon-right">
+      <span>Breakout</span>
+      <mat-icon>arrow_drop_down</mat-icon>
     </button>
+    <mat-menu #breakoutMenu="matMenu">
+      <button mat-menu-item class="mat-menu-icon-item">
+        <mat-icon>check</mat-icon>
+        <span>None</span>
+      </button>
+      <hr>
+      <button mat-menu-item class="mat-menu-icon-item">
+        <mat-icon></mat-icon>
+        <span>1 - What is your age?</span>
+      </button>
+      <button mat-menu-item class="mat-menu-icon-item">
+        <mat-icon></mat-icon>
+        <span>1 - What state do you live in?</span>
+      </button>
+      <button mat-menu-item class="mat-menu-icon-item">
+        <mat-icon></mat-icon>
+        <span>3 - Please rate your experience</span>
+      </button>
+    </mat-menu>
+
 
     <div class="page-header-button-outer">
-      <button mat-flat-button color="primary" class="icon-text-button icon-right">
+      <button [matMenuTriggerFor]="shareMenu" mat-flat-button color="primary" class="icon-text-button icon-right">
         <span>Share</span>
         <mat-icon>arrow_drop_down</mat-icon>
       </button>
+      <mat-menu #shareMenu="matMenu">
+        <button mat-menu-item>Download PDF</button>
+        <button mat-menu-item>Download CSV</button>
+        <button mat-menu-item (click)="openShareLinkDialog()">Shareable Link</button>
+      </mat-menu>
       <button mat-stroked-button style="margin-left: 12px;">
         <span>Settings</span>
       </button>
@@ -31,22 +57,62 @@
       <h3 class="page-header" style="margin-top: 8px; margin-left: 12px;">Custom Report 1</h3>
 
       <div class="" style="font-size: 14px; display: flex; justify-content: space-between; margin: 48px 12px 12px;">
-        <mat-form-field appearance="outline" class="header-search" style="max-width: 210px">
+        <mat-form-field appearance="outline" class="header-search" style="margin: 0; width: 100%; max-width: none;">
           <mat-icon matPrefix>search</mat-icon>
           <input matInput placeholder="search questions">
+          <mat-icon matSuffix style="opacity: 0.4;">close</mat-icon>
         </mat-form-field>
       </div>
 
-      <div class="" style="font-size: 14px; display: flex; align-items: center; margin: 12px;">
-        <mat-checkbox></mat-checkbox>
-        <button mat-stroked-button style="padding: 0 2px 0 8px; margin-left: 12px;">Action <mat-icon>arrow_drop_down</mat-icon></button>
-        <button mat-stroked-button style="padding: 0 2px 0 8px;">Filter <mat-icon>arrow_drop_down</mat-icon></button>
+      <div class="" style="font-size: 14px; display: flex; align-items: center; margin: 12px; justify-content: space-between;">
+
+        <div class="">
+          <mat-checkbox></mat-checkbox>
+          <button [matMenuTriggerFor]="actionMenu" mat-stroked-button style="padding: 0 2px 0 8px; margin-left: 12px;">Action <mat-icon>arrow_drop_down</mat-icon></button>
+          <mat-menu #actionMenu="matMenu">
+            <button mat-menu-item>Duplicate</button>
+            <button mat-menu-item>Hide</button>
+            <button mat-menu-item>Favorite</button>
+            <!-- <button mat-menu-item [matMenuTriggerFor]="reports">Move</button> -->
+            <hr>
+            <button mat-menu-item>Delete</button>
+          </mat-menu>
+        </div>
+
+        <div class="">
+          <button [matMenuTriggerFor]="filterMenu" mat-stroked-button style="padding: 0 2px 0 8px;">Filter <mat-icon>arrow_drop_down</mat-icon></button>
+          <mat-menu #filterMenu="matMenu">
+            <button mat-menu-item class="mat-menu-icon-item">
+              <mat-icon>check</mat-icon>
+              <span>All questions</span>
+            </button>
+            <button mat-menu-item class="mat-menu-icon-item">
+              <mat-icon></mat-icon>
+              <span>Included in report</span>
+            </button>
+            <button mat-menu-item class="mat-menu-icon-item">
+              <mat-icon></mat-icon>
+              <span>Favorites</span>
+            </button>
+          </mat-menu>
+        </div>
+
       </div>
 
-      <ul class="nav-list respondent-nav-list">
+      <ul class="nav-list respondent-nav-list report-questions-nav-list">
         <li *ngFor="let question of questions; let first = first; let last = last">
           <mat-checkbox></mat-checkbox>
           <span class="report-sidebar-question-text">{{question.id}} - {{question.questionText}}</span>
+          <div class="" style="margin-left: auto; align-items: center; display: flex;">
+            <button mat-icon-button class="favorite-respondent">
+              <mat-icon>star_outline</mat-icon>
+            </button>
+            <mat-icon>drag_indicator</mat-icon>
+          </div>
+        </li>
+        <li class="hidden-report-question">
+          <mat-checkbox></mat-checkbox>
+          <span class="report-sidebar-question-text">2 - What state do you live in?</span>
           <div class="" style="margin-left: auto; align-items: center; display: flex;">
             <button mat-icon-button class="favorite-respondent">
               <mat-icon>star_outline</mat-icon>
@@ -88,18 +154,11 @@
             <mat-menu #qMenu="matMenu">
               <button mat-menu-item>Duplicate</button>
               <button mat-menu-item>Hide</button>
-              <button mat-menu-item (click)="openAddLogicDialog()">Favorite</button>
+              <button mat-menu-item>Favorite</button>
               <!-- <button mat-menu-item [matMenuTriggerFor]="reports">Move</button> -->
               <hr>
               <button mat-menu-item>Delete</button>
             </mat-menu>
-            <mat-menu #reports="matMenu">
-              <button mat-menu-item *ngFor="let question of questions">
-                <span *ngIf="question.questionType !== 'pageBreak'">{{question.id}} - {{question.questionText}}</span>
-                <span *ngIf="question.questionType === 'pageBreak'"><hr class="move-menu-page-break"></span>
-              </button>
-            </mat-menu>
-
 
           </div>
         </div>
@@ -108,30 +167,23 @@
           <button mat-icon-button [matMenuTriggerFor]="qrMenu" class="report-element-menu-button">
             <mat-icon>more_horiz</mat-icon>
           </button>
-
           <mat-menu #qrMenu="matMenu">
             <button mat-menu-item>Duplicate</button>
             <hr>
             <button mat-menu-item>Delete</button>
           </mat-menu>
-          <mat-menu #reports="matMenu">
-            <button mat-menu-item *ngFor="let question of questions">
-              <span *ngIf="question.questionType !== 'pageBreak'">{{question.id}} - {{question.questionText}}</span>
-              <span *ngIf="question.questionType === 'pageBreak'"><hr class="move-menu-page-break"></span>
-            </button>
-          </mat-menu>
 
           <div *ngIf="question.reportingVisualizationType == 'Bar Chart'" >
-            <img style="max-width: 100%;" src="/assets/images/bar_chart.png?raw=true">
-            <!-- <img style="max-width: 100%;" src="https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/bar_chart.png?raw=true"> -->
+            <!-- <img style="max-width: 100%;" src="/assets/images/bar_chart.png?raw=true"> -->
+            <img style="max-width: 100%;" src="https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/bar_chart.png?raw=true">
           </div>
           <div *ngIf="question.reportingVisualizationType == 'Line Graph'" [ngClass]="{ 'no-select-hack':question.reportingVisualizationType === 'Multiple'}">
-            <img style="max-width: 100%;" src="/assets/images/line_graph.png?raw=true">
-            <!-- <img style="max-width: 100%;" src="https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/line_graph.png?raw=true"> -->
+            <!-- <img style="max-width: 100%;" src="/assets/images/line_graph.png?raw=true"> -->
+            <img style="max-width: 100%;" src="https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/line_graph.png?raw=true">
           </div>
           <div *ngIf="question.reportingVisualizationType == 'Pie Chart'" [ngClass]="{ 'no-select-hack':question.reportingVisualizationType === 'Multiple'}" >
-            <img style="max-width: 100%;" src="/assets/images/pie_chart.png?raw=true">
-            <!-- <img style="max-width: 100%;" src="https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/pie_chart.png?raw=true"> -->
+            <!-- <img style="max-width: 100%;" src="/assets/images/pie_chart.png?raw=true"> -->
+            <img style="max-width: 100%;" src="https://github.com/brettbradleycampbell/angular-innovate-prototype/blob/master/src/assets/images/pie_chart.png?raw=true">
           </div>
           <div *ngIf="question.reportingVisualizationType == 'Table'" [ngClass]="{ 'no-select-hack':question.reportingVisualizationType === 'Multiple'}" >
             <table class="answer-data-summary-table" cellspacing=0>

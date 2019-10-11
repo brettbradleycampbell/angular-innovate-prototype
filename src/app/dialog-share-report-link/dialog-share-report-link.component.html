@@ -1,0 +1,29 @@
+<div class="share-report-link-dialog-inner">
+
+  <h3 mat-dialog-title>Shareable Link</h3>
+
+  <mat-dialog-content>
+
+    <div class="survey-link-outer custom-link" style="padding: 0;">
+      <div  class="survey-link-inner-section share-link-input-outer">
+        <mat-form-field appearance="outline">
+          <input matInput placeholder="" disabled value="pegasusmr.com/survey-url?src=custom-link-id">
+        </mat-form-field>
+        <button mat-button class="copy-link-button">Copy</button>
+      </div>
+    </div>
+
+    <div style="margin: 8px 0;">
+      <mat-checkbox>Private</mat-checkbox><mat-icon class="help-tooltip" matTooltip="Only visible to logged in Innovate users" matTooltipPosition="above">help</mat-icon>
+      <!-- <mat-checkbox>Add a password</mat-checkbox><mat-icon class="help-tooltip" matTooltip="Set a password for users without an Innovate account" matTooltipPosition="above">help</mat-icon> -->
+    </div>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-flat-button mat-dialog-close color="primary" class="dialog-primary-action-button">Save</button>
+  </mat-dialog-actions>
+
+
+</div>

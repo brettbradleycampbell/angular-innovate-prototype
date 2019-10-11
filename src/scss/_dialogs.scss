@@ -2,7 +2,8 @@
   margin-left: 12px;
 }
 .dialog-image,
-.dialog-logic {
+.dialog-logic,
+.dialog-results-filter {
   width: 80%; // MOBILE STYLES - NEED MEDIA QUERY / Queries
   font-size: 0.875rem;
 
@@ -23,7 +24,8 @@
   border-top: $light-border;
   border-bottom: $light-border;
 }
-.dialog-logic {
+.dialog-logic,
+.dialog-results-filter {
   width: auto;
 }
 
@@ -41,7 +43,8 @@
 
 // Logic
 
-.dialog-logic {
+.dialog-logic,
+.dialog-results-filter {
   .mat-dialog-content {
     padding: 0;
   }
@@ -303,4 +306,33 @@ h3.mat-dialog-title {
     width: 100%;
     margin-bottom: 12px;
   }
+}
+
+// Share Report Link
+// Change height of inputs
+.share-report-link-dialog-inner {
+  .mat-form-field-appearance-outline {
+    .mat-form-field-outline {top: 0;}
+    .mat-form-field-wrapper {padding: 0; margin: 0;}
+    // input.mat-input-element {line-height: 1.35em;} // This was making the Text Input elements and Select elements different heights.
+    .mat-form-field-flex {margin-top: 0;}
+    .mat-form-field-infix {border: 0;padding: 10px 0;}
+    .mat-select-arrow-wrapper {transform: none;}
+  }
+
+  .mat-form-field {
+    max-width: 100%;
+  }
+
+  // Change BG Color of inputs
+  .mat-form-field-appearance-outline .mat-form-field-outline-end,
+  .mat-form-field-appearance-outline .mat-form-field-outline-start {
+    background-color: $gray-bg;
+  }
+}
+
+// Results Filter
+
+.results-filter-dialog-inner .logic-conditions-outer {
+  padding: 24px;
 }
