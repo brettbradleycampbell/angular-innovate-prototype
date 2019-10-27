@@ -15,6 +15,18 @@
   }
 
 }
+.dialog-share-report-link,
+.dialog-report-settings {
+  font-size: 0.875rem;
+  .mat-dialog-content {
+    padding: 24px;
+    background: $light-gray;
+    border: $light-border;
+    border-right: none;
+    border-left: none;
+  }
+}
+
 .dialog-question-library-inner {
   position: relative;
 }
@@ -335,4 +347,40 @@ h3.mat-dialog-title {
 
 .results-filter-dialog-inner .logic-conditions-outer {
   padding: 24px;
+}
+
+
+// Report Settings
+.report-settings-dialog-inner .mat-checkbox {
+  display: flex;
+}
+.report-settings-dialog-inner .split-button-outline {
+  button {
+    height: 36px;
+  }
+  .split-button-left {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none;
+  }
+  .split-button-right {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding: 0;
+    min-width: 32px;
+  }
+
+}
+.report-settings-section {
+  .color-picker-select-outer {
+    margin-right: 8px;
+  }
+  .report-settings-label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  margin-bottom: 1rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
 }

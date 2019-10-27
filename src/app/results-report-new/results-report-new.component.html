@@ -36,11 +36,15 @@
         <mat-icon>arrow_drop_down</mat-icon>
       </button>
       <mat-menu #shareMenu="matMenu">
-        <button mat-menu-item>Download PDF</button>
-        <button mat-menu-item>Download CSV</button>
+        <button mat-menu-item>PDF Document</button>
+        <button mat-menu-item>Word Document</button>
+        <button mat-menu-item>SPSS File</button>
+        <button mat-menu-item>CSV (Comma Separated)</button>
+        <button mat-menu-item>PowerPoint Slides</button>
+        <hr>
         <button mat-menu-item (click)="openShareLinkDialog()">Shareable Link</button>
       </mat-menu>
-      <button mat-stroked-button style="margin-left: 12px;">
+      <button (click)="openReportSettingsDialog()" mat-stroked-button style="margin-left: 12px;">
         <span>Settings</span>
       </button>
     </div>

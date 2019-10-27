@@ -1,0 +1,93 @@
+<div class="report-settings-dialog-inner">
+
+  <h3 mat-dialog-title>Report Settings</h3>
+
+  <mat-dialog-content>
+
+    <div class="report-settings-section report-color-palette">
+      <mat-label class="report-settings-label">Color Palette</mat-label>
+      <div class="">
+
+        <div class="color-picker-select-outer">
+          <div class="color-picker-select-swatch" style="background: #1a7268;">
+          </div>
+          <mat-icon>arrow_drop_down</mat-icon>
+        </div>
+        <div class="color-picker-select-outer">
+          <div class="color-picker-select-swatch" style="background: #ee4651;">
+          </div>
+          <mat-icon>arrow_drop_down</mat-icon>
+        </div>
+        <div class="color-picker-select-outer">
+          <div class="color-picker-select-swatch" style="background: #e9ad2c;">
+          </div>
+          <mat-icon>arrow_drop_down</mat-icon>
+        </div>
+        <div class="color-picker-select-outer">
+          <div class="color-picker-select-swatch" style="background: #85c62b;">
+          </div>
+          <mat-icon>arrow_drop_down</mat-icon>
+        </div>
+        <div class="color-picker-select-outer">
+          <div class="color-picker-select-swatch" style="background: #3F51B5;">
+          </div>
+          <mat-icon>arrow_drop_down</mat-icon>
+        </div>
+        <div class="color-picker-select-outer">
+          <div class="color-picker-select-swatch" style="background: #00BCD4;">
+          </div>
+          <mat-icon>arrow_drop_down</mat-icon>
+        </div>
+
+      </div>
+
+
+    </div>
+
+    <div class="report-settings-section">
+      <mat-label class="report-settings-label">Default Visualizations</mat-label>
+      <mat-checkbox value="checked">Bar Chart</mat-checkbox>
+      <mat-checkbox>Line Graph</mat-checkbox>
+      <mat-checkbox>Pie Chart</mat-checkbox>
+      <mat-checkbox>Table</mat-checkbox>
+    </div>
+
+    <div class="report-settings-section">
+      <mat-label class="report-settings-label">Default Visualizations (Text)</mat-label>
+      <mat-checkbox>Word Cloud</mat-checkbox>
+      <mat-checkbox>Table</mat-checkbox>
+    </div>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+
+    <div class="split-button-outer split-button-outline" style="margin-right: 2rem;">
+      <button mat-stroked-button class="split-button-left">
+        <span>Apply my default settings</span>
+      </button>
+      <button mat-stroked-button [matMenuTriggerFor]="addQuestionMenu" class="split-button-right">
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+
+      <mat-menu #addQuestionMenu="matMenu" yPosition="below">
+        <button mat-menu-item>
+          <span>Apply my default settings</span>
+        </button>
+        <button mat-menu-item>
+          <span>Save as my default settings</span>
+        </button>
+        <hr>
+        <button mat-menu-item>
+          <span>Apply Innovate settings</span>
+        </button>
+      </mat-menu>
+
+    </div>
+
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-flat-button mat-dialog-close color="primary" class="dialog-primary-action-button">Save</button>
+  </mat-dialog-actions>
+
+
+</div>

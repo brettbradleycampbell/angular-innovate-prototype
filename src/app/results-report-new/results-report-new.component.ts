@@ -12,6 +12,7 @@ import { QuestionTypeComponent } from '../question-type/question-type.component'
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { DialogShareReportLinkComponent } from '../dialog-share-report-link/dialog-share-report-link.component';
 import { DialogResultsFilterComponent } from '../dialog-results-filter/dialog-results-filter.component';
+import { DialogReportSettingsComponent } from '../dialog-report-settings/dialog-report-settings.component';
 
 
 @Component({
@@ -41,6 +42,14 @@ export class ResultsReportNewComponent implements OnInit {
     this.resultsFilterNameDialogRef = this.dialog.open(DialogResultsFilterComponent, {
       // width: '250px',
       panelClass: 'dialog-results-filter',
+      // data: {name: this.name, animal: this.animal}
+    });
+  }
+  reportSettingsNameDialogRef: MatDialogRef<DialogReportSettingsComponent>;
+  openReportSettingsDialog() {
+    this.reportSettingsNameDialogRef = this.dialog.open(DialogReportSettingsComponent, {
+      // width: '250px',
+      panelClass: 'dialog-report-settings',
       // data: {name: this.name, animal: this.animal}
     });
   }
